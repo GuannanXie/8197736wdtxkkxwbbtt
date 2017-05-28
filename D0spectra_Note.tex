@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Analysis Note: \\
+Measurement of $D^0$-meson production in Au+Au collisions at $\sqrt{s_{\rm NN}}$ = 200\,GeV}
+\author{Xiaolong Chen, Xin Dong, Mustafa Mustafa, Guannan Xie, Yifei Zhang, Long Zhou}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Your abstract.
+\end{abstract}
+
+\section{Introduction}
+
+\section{\label{dataset}Datasets and Event Selection}
+
+The dataset used in this analysis is P16id production of 2014 Au+Au 200 GeV data.
+
+\subsection{Centrality Definition}
+
+
+
+\section{$D^0$ Reconstruction}
+
+\subsection{Topological Cut Optimization}
+
+\section{$D^0$ Reconstruction}
+
+\section{Efficiency Correction}
+General idea.....
+
+\subsection{TPC Tracking Efficiency}
+
+\subsection{Data-driven fast Monte Carlo setup for HFT and Topological Cut Efficiency}
+
+\subsection{Validation with Full GEANT+Hijing Simulation}
+
+\subsection{PID Efficiency and Double Counting Correction}
+
+The PID efficiency part includes the efficiency from $dE/dx$ or $n\sigma$ cut efficiency and the TOF matching+$1/\beta$ cut efficiency. The $dE/dx$ and $1/\beta$ calibration usually uses a specific set of tracks. The performance for identified particles that pass our analysis cut may not necessarily be exactly normal Gaussian distributions with means=0 and widths=1. It is desired to calibrate each individual distributions for identified particles for efficiency correction and mis-PID effect study.
+
+For $n\sigma$ calibration, we followed the same method as described in Ref.~\cite{Xu:2008th} to calibrate high $p_{\rm T}$ pions and protons by selecting daughters from $K_{S}^0$ and $\Lambda$ decays.
+
+\subsubsection{$dE/dx$ Calibration}
+
+
+
+\subsection{Vertex Resolution Correction}
+
+\subsection{Validation with Ks Spectra Measurement}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{fig/Ks_spectra_PtCut_0.eps}
+\caption{\label{fig:Ks_spectra}Ks spectra.}
+\end{figure}
+
+\section{\label{results}Results}
+
+\section{\label{Run1011}Re-analysis of Run10/11 data}
+
+\subsection{Long and Yifei's re-analysis}
+
+\subsection{Xiaolong's re-analysis}
+
+\section{\label{Run14TPC}Run14 TPC analysis}
+
+\bibliographystyle{alpha}
+\bibliography{D0spectra_Note}
+
+\end{document}
