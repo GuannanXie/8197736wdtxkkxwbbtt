@@ -443,7 +443,39 @@ For $D^0$ estimation, another 2 sets of geometry cuts are tuned with TMVA, with 
 
 For more details can be found in the $D^0$ $v_2$ technicl note, basically we use the same cuts for spectra analysis and $v_2$ analysis.
 
-For the details of the mixed-event backgrounds and the `bump' structures in the foreground, they also can be found in the $v_2$ analysis note. And we will skip them here.
+\subsection{Mixed Event Background}
+
+To construct the mixed event background it is important to combine events with some degree of similarity, such as events are classified according to the position of the primary vertex (PV) along the beam-line, the centrality class and the orientation of the event plane. Ten bins of equal width were used for both the event plane ($\Psi\in[-\pi,\pi]$) and the position of the primary vertex($V_z\in[-6,6]$), as well as nine centrality classes between 0-80\%, for a total of 900 event `categories'.
+
+Table \ref{eventBuf} summarizes the important information saved for the event mixing:
+
+\begin{table}[htp]
+\centering
+\caption{Summary of information saved for the event mixing}
+\label{eventBuf}
+\begin{tabular}{ l | l  }
+\toprule[1.6pt]
+StMixerTrack & StMixerEvent \\
+\midrule[1.2pt]
+Origin & PV Origin \\
+\\
+Momentum & Magnetic Field \\
+\\
+Q-Vector & Event Plane \\
+\\
+Track information & Array of mixer tracks \\
+\\
+  &Array of indices to identified pions \\
+\\
+  & Array of indices to identified kaons \\
+\\
+\bottomrule[1.6pt]
+\end{tabular}
+\end{table}
+
+For the more details of the mixed-event backgrounds and the `bump' structures in the foreground, they also can be found in the $v_2$ analysis note.
+
+\subsection{Correlated background `bump' for $D^0$ meson}
 
 \section{Efficiency Correction}
 General idea.....
