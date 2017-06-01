@@ -14,12 +14,6 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\usepackage{xltxtra}
-\usepackage{rotating,makecell}
-\usepackage{dcolumn}
-\usepackage{upgreek}
-\usepackage{amssymb}
-
 \title{Analysis Note: \\
 Measurement of $D^0$-meson production in Au+Au collisions at $\sqrt{s_{\rm NN}}$ = 200\,GeV}
 \author{Xiaolong Chen, Xin Dong, Mustafa Mustafa, Guannan Xie, Yifei Zhang, Long Zhou}
@@ -28,87 +22,15 @@ Measurement of $D^0$-meson production in Au+Au collisions at $\sqrt{s_{\rm NN}}$
 \maketitle
 
 \begin{abstract}
-Heavy quarks nuclear modification factor ($R_{AA}$) has been proposed as an important measurement to study the flavor dependence of partons energy loss in the medium, and eventually to help in extracting the medium transport, drag and diffusion coefficients.
-
-We report the first measurement of efficiency corrected spectrum for $D^0$ from HFT through the hadronic channels ($D^0(\bar{D^0}) \rightarrow K^{\mp}\pi^{\pm}$), the Nuclear Modification Factor ($R_{AA}$) of $D^0$ mesons in Au+Au collisions at $\sqrt{s_{NN}}$ = 200 GeV. The precision was much better compared to previous published one. The new $R_{AA}$ results show significant suppression at high $p_T$ which means the strong interaction between charm quark and the medium and loose energy. While the $D^0$ $R_{AA}$ shows quite similar trend as light hadrons.
+Your abstract.
+This is just a test
 \end{abstract}
 
 \section{Introduction}
 
-Heavy quarks nuclear modification factor ($R_{AA}$) has been proposed as an important measurement to study the flavor dependence of partons energy loss in the medium, and eventually to help in extracting the medium transport, drag and diffusion coefficients. There are lots of theoretical calculations for the energy losses for different flavor particles. Fig.~\ref{fig:raa_CUJE} shows the jet flavor tomography level crossing pattern of nuclear modification factors at middle rapidity of $\pi$, D, B, e from CUJT calculations for central Au + Au 200 GeV collisions. As clearly see the mass hierarchy of the different flavor energy loss.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{fig/raa_CUJE.png}
-\caption{Jet flavor tomography level crossing pattern of nuclear modification factors at middle rapidity of $\pi$, D, B, e calculations for central Au + Au 200 GeV collisions.}
-\label{fig:raa_CUJE} 
-\end{figure}
-
-The hadronic channels allow to fully reconstruct the charmed hadrons and do not suffer from the complications in the semi-leptonic decays, however the measurement can be challenging due to large combinatorial backgrounds and lower branching ratios. One approach is to use the decay topology to reduce this background by distinguishing between tracks that come from the collision itself (primary vertex) and those from a secondary decay vertex. This requires the detectors must be able to resolve differences on the order of tens of microns. Heavy Flavor Tracker (HFT) is essence the right detector for this mission.
-
 \section{\label{dataset}Datasets and Event Selection}
 
-% The dataset used in this analysis is P16id production of 2014 Au+Au 200 GeV data. This is the first year of physics running the new STAR HFT Detector. The analysis uses picoDst which is produced from MuDst. Details of picoDst can be found at~\cite{picoWebpage}.
-
-% The Minimum-Bias (MinBias) trigger is defined as a coincidence between the two VPDs, and an online collision vertex cut. Moreover, a pile-up protection at the trigger level was applied for the data taking. In this analysis, the MinBias trigger, denoted as ``vpdmb-5-p-nobsmd" and ``vpdmb-5-p-nobsmd-hlt", is used. The triggers used in this analysis are listed in Table %~\ref{trigger}.
-
-% \begin{table}[htp]
-% \centering
-% \caption{Triggers ID used in this analysis from run14}
-% \label{trigger}
-% 	\begin{center}
-% 	\begin{tabular}{l|l}
-%   \Xhline{1.6pt}
-% 	Trigger ID	& description\\ \hline
-% 	450050		& vpdmb-5-p-nobsmd-hlt\\ \hline
-% 	450060		& vpdmb-5-p-nobsmd-hlt\\ \hline
-% 	450005		& vpdmb-5-p-nobsmd\\ \hline
-% 	450015		& vpdmb-5-p-nobsmd\\ \hline
-% 	450025		& vpdmb-5-p-nobsmd\\ \hline
-%   \Xhline{1.6pt}
-% 	\end{tabular}
-% 	\end{center}
-% \end{table}
-
-% \begin{table}[htp]
-% \centering
-% \caption{Triggers ID used in this analysis from run14}
-% \label{trigger}
-% 	\begin{center}
-% 	\begin{tabular}{l|l}
-%  \Xhline{1.6pt}
-% 	Trigger ID	& description\\ \hline
-% 	450050		& vpdmb-5-p-nobsmd-hlt\\ \hline
-% 	450060		& vpdmb-5-p-nobsmd-hlt\\ \hline
-% 	450005		& vpdmb-5-p-nobsmd\\ \hline
-% 	450015		& vpdmb-5-p-nobsmd\\ \hline
-% 	450025		& vpdmb-5-p-nobsmd\\ \hline
-%  \Xhline{1.6pt}
-% 	\end{tabular}
-% 	\end{center}
-% \end{table}
-
-% Events used in this analysis are required to have a valid collision vertex $V_{z}$ (primary vertex) within 6 cm of the TPC center along $z$ direction (the beam direction) to ensure a uniform TPC acceptance and make sure the most tracks are within the PiXeL (PXL) detector coverage. The PXL detector is about 20 cm along the z direction, and the radius of the inner layer is about 2.8cm and outer layer is about 8 cm. Furthermore, the distance between the $V_{z}$ constructed by TPC and the vertex constructed by VPD ($V_{z}^{VPD}$, fast detector) is within 3 cm to reject the bad events. A radial length less than 2 cm for the vertex is required to reject the events from the beam hitting the beam pipe. After event selection, $\sim$875 million MinBias events are used for this analysis. Table~\ref{eventselection} lists the event selection criterion.
-%
-% \begin{table}[htp]
-% \centering
-% \caption{Event selection in Au+Au collisions at 200 GeV for $D^0$.}
-% \label{eventselection}
-% \begin{tabular}{c}
-% \toprule[1.6pt]
-% Event Selection Criteria \\
-% \midrule[1.2pt]
-% \multirow{2}*{$!(|V_{x}|== 0 \ \&\& \ |V_{y}|== 0 \  \&\& \  |V_{z}|== 0) $ } \\
-% \\
-% \multirow{2}*{$|V_{z}|<$ 6 cm} \\
-% \\
-% \multirow{2}*{$|V_{r}|<$ 2 cm} \\
-% \\
-% \multirow{2}*{$|V_{z} - V_{z}^{VPD}|<$ 3 cm} \\ 
-% \\  
-% \bottomrule[1.6pt]
-% \end{tabular}
-% \end{table}
+The dataset used in this analysis is P16id production of 2014 Au+Au 200 GeV data.
 
 \subsection{Centrality Definition}
 
