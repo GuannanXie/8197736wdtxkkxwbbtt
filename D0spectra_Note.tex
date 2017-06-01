@@ -50,6 +50,15 @@ Heavy quarks nuclear modification factor ($R_{AA}$) has been proposed as an impo
 
 The hadronic channels allow to fully reconstruct the charmed hadrons and do not suffer from the complications in the semi-leptonic decays, however the measurement can be challenging due to large combinatorial backgrounds and lower branching ratios. One approach is to use the decay topology to reduce this background by distinguishing between tracks that come from the collision itself (primary vertex) and those from a secondary decay vertex. This requires the detectors must be able to resolve differences on the order of tens of microns. Heavy Flavor Tracker (HFT) is essence the right detector for this mission.
 
+Fig.~\ref{fig:BeforeHFT} shows the $R_{AA}$ of $D^0$, $\pi$, $h^{\pm}$ from various measurements. A significant suppression is clearly seen at the high $p_T$ range for both light hadrons and charmed hadrons both in RHIC energy and LHC energy. The enhancement observed in the intermediate $p_T$ range from STAR can be described by the models including coalescence of charm and light quarks, even though the uncertainties are still large in the low transverse momentum range. It will be critical to precise measure the low $p_T$ structure.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{fig/BeforeHFT.png}
+\caption{(upper) $D^0$, $\pi$, $h^{\pm}$ $R_{AA}$ from different measurements. (bottom) $v_2$ of $D$ and $h^{\pm}$ from ALICE.}
+\label{fig:BeforeHFT} 
+\end{figure}
+
 \section{\label{dataset}Datasets and Event Selection}
 
 The dataset used in this analysis is P16id production of 2014 Au+Au 200 GeV data. This is the first year of physics running the new STAR HFT Detector. The analysis uses picoDst which is produced from MuDst.
@@ -98,14 +107,14 @@ Event Selection Criteria \\
 
 \subsection{Centrality Definition}
 
-The centrality for Run14 200GeV Au+Au collisions MinBias sample is based on gRefMult. The gRefMult is defined as the number of global tracks with $|\eta|<0.5$, no less than 10 TPC hits, and Distance of Closest Approach (DCA) to primary vertex less than 3 cm with some correction according to $V_{z}$ and luminosity. The centrality definition according to the corrected gRefMult is listed in Table ~\ref{centrality}. This is decided by comparing the measured gRefMult distribution with the Glauber model simulation. 
+The centrality for Run14 200GeV Au+Au collisions MinBias sample is based on gRefMult. The gRefMult is defined as the number of global tracks with $|\eta|<0.5$, no less than 10 TPC hits, and Distance of Closest Approach (DCA) to primary vertex less than 3 cm with some correction according to $V_{z}$ and luminosity. The centrality definition according to the corrected gRefMult is listed in Table ~\ref{fig:centrality}. This is decided by comparing the measured gRefMult distribution with the Glauber model simulation. 
 
 The basic procedure for centrality definition have three steps. First, need the quality assurance (QA) for the data set and remove those outlier runs. The second step would be correct the $V_{z}$ and luminosity dependence for the reference multiplicity (gRefmult). The last step would be compare our data with Glauber MC simulation and determine the centrality classification.
 
-For the QA, several variables are used for the outlier selection, such as Refmult (primary track multiplicity), gRefmult (global track multiplicity), TofRefmult (tof track multiplicity) and etc. In the Fig.~\ref{centrality_QA1} shows the $\langle$gRefmult$\rangle$ as a function of run index for the QA, and there are several outliers are identified. Those dashed lines are the 4$\times$RMS range, beyond those range, the runs are identified as bad run. And several iterations are did until all the runs are within these 4$\times$RMS range.
+For the QA, several variables are used for the outlier selection, such as Refmult (primary track multiplicity), gRefmult (global track multiplicity), TofRefmult (tof track multiplicity) and etc. In the Fig.~\ref{fig:centrality_QA1} shows the $\langle$gRefmult$\rangle$ as a function of run index for the QA, and there are several outliers are identified. Those dashed lines are the 4$\times$RMS range, beyond those range, the runs are identified as bad run. And several iterations are did until all the runs are within these 4$\times$RMS range.
 
 
-In the Fig.~\ref{centrality_QA2} shows the $\langle$HFT $p_{T}$$\rangle$, which is the mean $p_{T}$ of HFT tracks, as a function of run index for the QA, and we can clearly see there is a deep before the run index $\sim$520 which corresponding to the run number 15107008. And also we saw the same structure in the Fig.~\ref{centrality_QA3}, which shows the average of HFT matching Ratio in the $p_{T}$ range between 0.7 to 0.8 GeV/$c$ and Fig.~\ref{centrality_QA4} shows this HFT matching ratio in the high $p_{T}$ range. So, basically those runs before day 107 were taken out for this analysis, since it will complicate our efficiency calculation.
+In the Fig.~\ref{fig:centrality_QA2} shows the $\langle$HFT $p_{T}$$\rangle$, which is the mean $p_{T}$ of HFT tracks, as a function of run index for the QA, and we can clearly see there is a deep before the run index $\sim$520 which corresponding to the run number 15107008. And also we saw the same structure in the Fig.~\ref{fig:centrality_QA3}, which shows the average of HFT matching Ratio in the $p_{T}$ range between 0.7 to 0.8 GeV/$c$ and Fig.~\ref{fig:centrality_QA4} shows this HFT matching ratio in the high $p_{T}$ range. So, basically those runs before day 107 were taken out for this analysis, since it will complicate our efficiency calculation.
 
 This deep was identified later on with a lot of effort, it was due to the firmware issue. And more details can be found in the STAR documents below.
 
@@ -115,13 +124,13 @@ This deep was identified later on with a lot of effort, it was due to the firmwa
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth]{fig/centrality_grefmult.png}
-\caption{The mean value of gRefmult ($\langle$gRefmult$\rangle$) as a function of run index from QA.\label{centrality_QA1}}
+\caption{The mean value of gRefmult ($\langle$gRefmult$\rangle$) as a function of run index from QA.\label{fig:centrality_QA1}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth]{fig/centrality_HFTpt.png} 
-\caption{The mean value of $p_{T}$ for HFT matched track ($\langle$HFT $p_{T}$$\rangle$) as a function of index.\label{centrality_QA2}}
+\caption{The mean value of $p_{T}$ for HFT matched track ($\langle$HFT $p_{T}$$\rangle$) as a function of index.\label{fig:centrality_QA2}}
 \end{minipage}
 \end{figure}
 
@@ -130,13 +139,13 @@ This deep was identified later on with a lot of effort, it was due to the firmwa
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth]{fig/centrality_HFTratio.png}
-\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momentum range 0.7 < $p_{T}$ < 0.8 GeV/$c$.\label{centrality_QA3}}
+\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momentum range 0.7 < $p_{T}$ < 0.8 GeV/$c$.\label{fig:centrality_QA3}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth]{fig/centrality_HFTratio2.png} 
-\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momenaum range $p_{T}$ > 2.0 GeV/$c$.\label{centrality_QA4}}
+\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momenaum range $p_{T}$ > 2.0 GeV/$c$.\label{fig:centrality_QA4}}
 \end{minipage}
 \end{figure}
 
