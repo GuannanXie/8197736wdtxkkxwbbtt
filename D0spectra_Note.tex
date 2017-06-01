@@ -584,8 +584,144 @@ This formula can be written in another way when we consider the particles identi
 \label{effEqu4}
 \end{equation}
 
+\subsection{Single Track Efficiency}
+
+The single track efficiency losses have two contributions, the detector inefficiency and particle identification cuts. The detector efficiency includes the TPC tracking efficiency ($\varepsilon_{TPC}$) and the TOF matching efficiency ($\varepsilon_{TOF}$). The particle identification cut efficiency ($\varepsilon_{PID}$) includes the efficiencies of TOF velocity (1/$\beta$) and the $dE/dx$ selection cuts. So the single track efficiency can be derived by the Eq.~\ref{singleeff}
+
+\begin{equation}
+\varepsilon = \varepsilon_{TPC} \times \varepsilon_{TOF} \times \varepsilon_{PID}
+\label{singleeff}
+\end{equation}
 
 \subsection{TPC Tracking Efficiency}
+
+The TPC tracking efficiency ($\varepsilon_{TPC}$) is evaluated via the standard STAR embedding technique. TPC efficiency including two parts, TPC response and acceptance efficiency. The Monte Carlo (MC) tracks are embedded into the raw data to have a realistic detector occupancy environment. The raw data is randomly sampled over the entire Au+Au minimum-bias data set, while the number of embedded MC tracks is constrained to 5\% of the measured multiplicity of the real events to avoid a sizable impact on the realistic TPC tracking efficiency. The MC tracks, with flat $p_{T}$, $\eta$, and $\phi$, are generated and passed through the full GEANT simulation of the STAR detector geometry, and then mixed with the real data . The mixed signals are processed using the same procedures as real data.  The quality assurance is made to ensure the MC simulation reproduces the real data before studying the TPC tracking efficiency (Embedding QA). The TPC tracking efficiency is derived by taking the ratio of the number of reconstructed MC tracks ($N_{rec}$), satisfying the track quality cuts used in the data analysis, over the number of embedded MC tracks ($N_{emb}$), as shown in Eq.~\ref{tpceff}
+
+\begin{equation}
+\varepsilon_{TPC} = \frac{N_{rec}\;(nHitsFit\geq20\;\&\;dca\leq1\;\&\;|\eta|\leq1\;\&\;nCommonHits > 10)}{N_{emb}\;(|\eta|\leq1)}
+\label{tpceff}
+\end{equation}
+
+The TPC tracking efficiency in Run14 Au+Au collisions at 200 GeV is shown below. Fig ~\ref{fig:mpion} shows the TPC tracking efficiency for pion plus from four different classifications, from up to down, the centrality is from the most peripheral to most central collision. As we see, in the most central top 0-5\% collisions, due to the large occupancy the TPC tracking efficiency is much lower than the central one. Fig. ~\ref{fig:mkaon} shows the same plot for kaon minus. The Kaon can be decay inside TPC, that's the reason the TPC tracking efficiency is lower than pion.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/pion.eps}
+\caption{TPC tracking efficiency in Run14 Au+Au collisions at 200 GeV for Pion. \label{fig:mpion}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/kaon.eps} 
+\caption{TPC tracking efficiency in Run14 Au+Au collisions at 200 GeV for Kaon. \label{fig:mkaon}}
+\end{minipage}
+\end{figure}
+
+\subsection{TOF Matching Efficiency}
+
+For the $D^0$ analysis, we use the hybrid PID for TOF. Which means when TOF is available we use TOF and TPC, when it's not available we just use TPC. The TOF matching efficiency ($\varepsilon_{TOF}$), including the TOF response and the acceptance difference between the TPC and TOF, is evaluated by the real data. It can be calculated by comparing the number of qualified tracks matched with the TOF (with $\beta$ > 0, $N_{matched}$) over  the number of qualified tracks ($N_{TPC}$).
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/tofMatchEff_Run14_Fit_cent1.eps}
+\caption{TOF match efficiency in Run14 Au+Au collisions at 200 GeV for positive charge particle in 0-10\%. \label{fig:mtof010}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/tofMatch_minus_Eff_Run14_Fit_cent3.eps} 
+\caption{TOF match efficiency in Run14 Au+Au collisions at 200 GeV for negative charge particle in 40-80\%. \label{fig:mtof4080}}
+\end{minipage}
+\end{figure}
+
+
+Fig.~\ref{fig:mtof010} shows the TOF match efficiency in Run14 Au+Au collisions at 200 GeV for positive charge particles such as $\pi^{+}$,$K^{+}$ in the centrality 0-10\%. Fig.~\ref{fig:mtof4080} shows the same plots for negative charge particles in the centrality from 40-80\%. For the pion TOF match efficiency, the tread is much smooth compare to kaon. As we see, there are some deep for the TOF match efficiency at some certain $p_{T}$ range from kaon, such as kaon in the $p_{T}$ around 0.6 GeV/$c$. This effect was studied using Hijing simulation, it's found that this is due to the hadron contaminations. 
+
+Fig.~\ref{fig:tpck2} shows the $n\sigma_{K}$ distributions from Hijing in the $p_{T}$ range from 0.5 - 0.7 GeV/$c$. The solid lines are for particles from TPC , and the dashed lines are for particles also include TOF match information. The total yield was scaled to have the same number of pions for this comparison, since the TOF matching have $\sim$30-40\% efficiency lost. In a simple case, if we select kaons with the cut $|n\sigma_{K}| < 1 $, after the requiring of TOF match,the width of this $n\sigma_{K/\pi}$ distribution changed, and the contaminations from pions are reduced. As what we see the dashed black line have less contributions to the kaons peak within $|n\sigma_{K}| < 1$ compare to the solid black line. We also checked this effect in the other $p_{T}$ range such as 0.2 - 0.5 GeV/$c$ and 1.0 - 1.5 GeV/$c$ as shown in Fig.~\ref{fig:tpck1} and Fig.~\ref{fig:tpck3}. This effect is neglectable in the low $p_{T}$ range 0.2 - 0.5 GeV/$c$ since the TPC can well separate pions and kaon. In the high $p_{T}$ range, the dE/dex are overlap with each other for kaon and pion, it's not able to distinguish them only use TPC.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.6\textwidth,angle=0]{fig/tofMatch_Hijing_nSigmaK.pdf}
+\caption{$n\sigma_{K}$ distributions for 0.5 < $p_T$ < 0.7 GeV/$c$. The solid lines are from TPC and dashed lines are from TPC + TOF.}
+\label{fig:tpck2}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/tofMatch_Hijing_nSigmaK1.pdf}
+\caption{$n\sigma_{K}$ distributions for 0.2 < $p_T$ < 0.5 GeV/$c$. The solid lines are from TPC and dashed lines are from TPC + TOF.\label{fig:tpck1}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/tofMatch_Hijing_nSigmaK2.pdf} 
+\caption{$n\sigma_{K}$ distributions for 1.0 < $p_T$ < 1.5 GeV/$c$. The solid lines are from TPC and dashed lines are from TPC + TOF.\label{fig:tpck3}}
+\end{minipage}
+\end{figure}
+
+\subsection{PID Cut Efficiency}
+\label{pideff}
+The particle identification cut efficiency ($\varepsilon_{PID}$) includes two components: the TOF velocity ($1/\beta$) cut efficiency and $dE/dx$ cut ($n\sigma_{K/\pi}$) efficiency. Pure pions and kaons sample are used to evaluate the TOF velocity cut efficiency and TPC $n\sigma_{K/\pi}$ cut efficiency. Fig.~\ref{fig:ksmass} shows the $\pi\pi$ pairs invariant mass distributions. The black line is the unlikesign foreground, and the red line is background using likesign method. With this $K_{s}^{0}$ candidates, we can statistical extract the pure pion sample for the PID efficiency study. Fig.~\ref{fig:phimass} shows the $KK$ pairs invariant mass distributions. Still with the unlikesign and likesign method, the $\Phi$ meson candidates are reconstructed, and we can statistical extract the pure kaon sample for the PID efficiency study.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/massKshort.eps}
+\caption{The $\pi\pi$ pairs invariant mass distributions. The black line is the unlikesign foreground, and the red line is background using likesign method. \label{fig:ksmass}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/massPhi.eps} 
+\caption{The $KK$ pairs invariant mass distributions. The black line is the unlikesign foreground, and the red line is background using likesign method. \label{fig:phimass}}
+\end{minipage}
+\end{figure}
+
+\subsubsection{$n\sigma_{K/\pi}$ Cut Efficiency}
+
+The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using those pure samples. The $n\sigma_{K/\pi}$ distributions are fitted with Gaussian function, the mean value and sigma value are plotted as Fig.~\ref{fig:pionmean} and Fig.~\ref{fig:pionsigma}. With these mean and sigma distributions, assuming they follow the Gaussian function, for example, Fig.~\ref{fig:pionnsigmaeff} depicts the $n\sigma_{\pi}$ cut efficiency in Run14 Au + Au collisions at 200 GeV for pions. For kaons, we use the same method extracting this $n\sigma_{K}$ cut efficiency.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/nSigPion_mean.png}
+\caption{The mean value of $n\sigma_{\pi}$ distributions vs momentum. The red line is fitted function with polynomial function. \label{fig:pionmean}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/nSigPion_sigma.png}
+\caption{The sigma value of $n\sigma_{\pi}$ distributions vs momentum. The red line is fitted function with polynomial function. \label{fig:pionsigma}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.55\textwidth]{fig/nSigPion_Eff.png}
+\figcaption{$n\sigma_{\pi}$ cut efficiency along with momentum. Red line is the fitted polynomial function}
+\label{fig:pionnsigmaeff}
+\end{figure}
+
+\subsubsection{$1/\beta$ Cut Efficiency}
+The $1/\beta$ cut efficiency is also derived from the Gaussian fit using those pure samples. The efficiency is very high since the $1/\beta$ cut is very loose, it's almost $\sim$100\% for this analysis as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff}.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/nSigPionTof_eff.png}
+\caption{$1/\beta$ cut efficiency along with momentum for pion. Red line is the fitted function. \label{fig:piontofeff}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/nSigKaonTof_eff.png}
+\caption{$1/\beta$ cut efficiency along with momentum for kaon. Red line is the fitted function. \label{fig:kaontofeff}}
+\end{minipage}
+\end{figure}
+
 
 \subsection{Data-driven fast Monte Carlo setup for HFT and Topological Cut Efficiency}
 
