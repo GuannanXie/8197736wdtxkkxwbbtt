@@ -493,9 +493,69 @@ There is good agreement between the two descriptions of the combinatorial backgr
 
 It is interesting to observe the presence of an `excess' in the foreground, relative to all of the background curves, below roughly 1.75 GeV/$c^2$.  This so called bump was investigated using the Data Driven Fast Simulator, and will be covered briefly in the following section.
 
-% For the more details of the mixed-event backgrounds and the `bump' structures in the foreground, they also can be found in the $v_2$ analysis note.
-
 \subsection{Correlated background `bump' for $D^0$ meson}
+
+The contributions to the invariant mass spectrum from the following $D^0$ and $D^\pm$ decays were included in a qualitative study of the correlated background: 
+
+\begin{itemize}
+\item $D^0 \rightarrow K^-\pi^+$ (B.R. 0.039)
+\item $D^0 \rightarrow  K^-\pi^+\pi^0$ (B.R. 0.011)
+\item $D^0 \rightarrow  K^-\rho^+ \rightarrow K^-\pi^+\pi^0$ (B.R. 0.108)
+\item $D^0 \rightarrow  K^{*-}\pi^+\rightarrow K^-\pi^+\pi^0$ (B.R. 0.007)
+\item $D^+ \rightarrow  K^-\pi^+\pi^+$ (B.R. 0.073 $\times$ 0.415)
+\end{itemize}
+
+The charm fragmentation ratio used is the following from ZEUS Collaboration (arXiv:hep-ex/0508019 - Table 4):
+
+\begin{itemize}
+\item f($c \rightarrow D^+$) = 0.217 
+\item f($c \rightarrow D^0$) = 0.523 
+\item f($c \rightarrow D^+_s$) = 0.095
+\item f($c \rightarrow Λ^+_c$) = 0.144
+\item f($c \rightarrow D^{*+}$) = 0.200
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.38\textwidth,angle=-90]{fig/D0Bump_without_topo.pdf}
+\caption{Simulated contribution to the invariant mass spectrum from cocktail without topological cut}
+\label{fig:cocktail1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.38\textwidth,angle=-90]{fig/D0Bump_with_topo.pdf}
+\caption{Simulated contribution to the invariant mass spectrum from cocktail with topological cut}
+\label{fig:cocktail2}
+\end{figure}
+
+Fig.~\ref{fig:cocktail1} and Fig.~\ref{fig:cocktail2} show the invariant mass spectrum obtained from the cocktail after scaling by the branching ratio for different decays as well as the fragmentation ratio for the different charmed meson species.
+
+The spectrum is shown before and after the $D^0\rightarrow K\pi$ topological cuts have been applied. It is clear that the contributions from correlated background can, at least in part, account for the enhancement observed below roughly 1.7 GeV/$c^2$.
+
+The cocktail simulation was then scaled by fitting the amplitude of the $D^0$ peak obtained from fast simulator to the signal observed in data, and the cocktail was then added to the mixed event background. Fig.~\ref{fig:bump1} and Fig.~\ref{fig:bump2} shows a comparison between the invariant mass distribution obtained from data and the spectrum obtained by combining the mixed event background and the results from the data-driven Fast-Simulator.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{fig/D0_FG_EvMxBg_coktail_2040_2_pT_3.png}
+\caption{Comparison of $K\pi$ invariant mass distribution for unlike-sign (US) foreground, like-sign combinatorial background, unlike-sign (US) mixed events combinatorial background, and unlike-sign (US) mixed events combinatorial background + toy montecarlo cocktail for correlated background, for 2 < $p_T$ < 3 GeV/$c$.}
+\label{fig:bump1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{fig/D0_FG_EvMcBg_cocktail_2040_3_pT_10.png}
+\caption{Similar Comparison of $K\pi$ invariant mass distribution as Fig.~\ref{fig:bump1}, for 3 < $p_T$ < 10 GeV/$c$.}
+\label{fig:bump2}
+\end{figure}
+
+The inclusion of correlated background sources can qualitatively describe the foreground observed, reproducing the location of the bump structure albeit underestimating the degree of enhancement itself. Furthermore, there is likely a finite contribution to the observed bump originating from jet correlations which should be included to improve on the description of the background.
+
+It should also be noted that the studies presented here were done with an early version of the fast simulator which only included the $p_T$ and centrality dependence of sampled distributions, revisiting the studies with more differential distributions should improve on these results.
+
+Nonetheless, the results provide confidence in a qualitative understanding on the sources of the correlated background and, what is more, suggest that the contribution from these source in the $D^0$ signal range is dominated by double mis-PID, and is nearly negligible as shown in the following sub-section.
+
+% For the more details of the mixed-event backgrounds and the `bump' structures in the foreground, they also can be found in the $v_2$ analysis note.
 
 \section{Efficiency Correction}
 General idea.....
