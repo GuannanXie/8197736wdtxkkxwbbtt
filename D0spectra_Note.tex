@@ -165,7 +165,7 @@ Fig.~\ref{fig:MB5_vz} and Fig.~\ref{fig:MB30_vz} show the normalized gRefmult di
 \end{minipage}
 \end{figure}
 
-As the gRefmult have the luminosity dependence (related to the TPC tracking efficiency have luminosity dependence), we need to take out this effect by doing ZdcX (Zdc coincidence rate) correction. Fig.~\ref{fig:MB5_zdc1} shows the mean value of gRefmult (<gRefmult>) distribution as a function of ZdcX. There was a clear slope for this distribution as shown by the fitting parameters. Here the fitting function is Eq.~\ref{fig:funzdc},
+As the gRefmult have the luminosity dependence (related to the TPC tracking efficiency have luminosity dependence), we need to take out this effect by doing ZdcX (Zdc coincidence rate) correction. Fig.~\ref{fig:MB5_zdc1} shows the mean value of gRefmult (<gRefmult>) distribution as a function of ZdcX. There was a clear slope for this distribution as shown by the fitting parameters. Here the fitting function is Eq.~\ref{funzdc},
 \begin{equation}
 f_{ZdcX} = p0 + p1*ZdcX
 \label{funzdc}
@@ -298,6 +298,58 @@ After all these corrections including $V_{z}$, ZdcX, Vpd trigger inefficiency, a
 \end{table}
 
 \section{$D^0$ Reconstruction}
+
+$D^{0}$ and $\bar{D^{0}}$ are reconstructed through the typically hadronic channel $K^{\mp}\pi^{\pm}$ using the topological method. In the following we will describe the daughter selection, the geometry cuts and how they are obtained through the TMVA tuning. We will show the $D^0$ signals for different $p_T$ bins. We will also discuss some related topics: the mixed event to reconstruct the combinatorial background, and the correlated background source shown as a `bump' at invariant mass lower than the $D^0$. 
+
+\subsection{Daughter Selection}
+\label{daughterSelection}
+$D^0$ have a lifetime of $c\tau\sim123 \upmu$m. Thus the global tracks for daughter tracks are used in this analysis. The transverse momentum are required to $\geq$ 0.3 GeV/$c$ to ensure that the track can pass through the TPC and have less HFT miss matching, the number of hit points (nHits) along the track is $\geq$ 20 (of a maximum of 45) to ensure good momentum resolution.
+
+The pion and kaon tracks are identified by combining Time Projection Chamber (TPC) and Time Of Flight detector (TOF). The TPC provides particle identification utilizing the energy loss information $dE/dx$, different particle species with the same momentum may have different $dE/dx$. In additional, different particle species with the same momentum have different velocities, thus the TOF can be used to identify different particle species in the $dE/dx$ crossover regions by precise velocity information ($1/\beta$ = $ct/l$). The normalized $dE/dx$, $n\sigma_x$ (x = $\pi$, K, p, e etc.), defined in Eq.~\ref{nsigma}, instead of $dE/dx$ is used in this analysis. Where $\langle{dE/dx}\rangle_{measured}$ and $\langle{dE/dx}\rangle_{x}$ represent measured and theoretical $dE/dx$, and $R$ is the STAR TPC $dE/dx$ resolution (typically $\sim$8\%). The $n\sigma_x$ should be close to a standard Gaussian distribution for each corresponding particle species (mean $=$ 0, $\sigma = $ 1).
+\begin{equation}
+  n\sigma_x = \frac{1}{R}log\frac{\langle{dE/dx}\rangle_{measured}}{\langle{dE/dx}\rangle_{x}}
+\label{nsigma}
+\end{equation}
+
+Fig.~\ref{fig:tpcPID} shows the TPC energy loss dE/dx information versus momentum achieved from Run14 Au+Au 200GeV, there are several clear bands for different particle species such as $\pi$, K, p and e. 
+
+Fig.~\ref{fig:tofPID} shows the TOF 1/Beta information versus momentum achieved from Run14 Au+Au 200GeV, also there are several clear bands for different particle species such as $\pi$, K, p . 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{fig/Run14_AuAu_dEdx_PR_copy.png}
+\figcaption{TPC dE/dx versus charge$\times$momentum achieved from Run14 Au+Au 200GeV.}
+ \label{fig:tpcPID}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{fig/Run14_AuAu_tofBeta_PR.png}
+\figcaption{TOF 1/Beta versus momentum achieved from Run14 Au+Au 200GeV.}
+ \label{fig:tofPID}
+\end{figure}
+
+In summary, next list all the related track selections for $D^0$ daughters including track quality cut and particle identification cut.
+\begin{itemize}
+\item global tracks
+\item $p_{T}$ > 0.3 GeV/$c$
+\item $|\eta| < 1$
+\item $nHitsFit \ge 20$, in TPC
+\item at least one hit in every layer of PXL and IST
+\end{itemize}
+
+pion PID:
+\begin{itemize}
+  \item $|n\sigma_{\pi}| < 3.0 $, based on TPC dE/dx
+  \item If TOF is avaliable (hybrid PID):  $|\frac{1}{\beta}-\frac{1}{\beta_{exp}}|<0.03$
+\end{itemize}
+
+kaon PID:
+\begin{itemize}
+  \item $|n\sigma_{K}| < 2.0 $, based on TPC dE/dx
+  \item If TOF is avaliable (hybrid PID):  $|\frac{1}{\beta}-\frac{1}{\beta_{exp}}|<0.03$
+\end{itemize}
+
 
 \subsection{Topological Cut Optimization}
 
