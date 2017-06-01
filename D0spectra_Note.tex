@@ -30,8 +30,6 @@ Measurement of $D^0$-meson production in Au+Au collisions at $\sqrt{s_{\rm NN}}$
 \maketitle
 
 \begin{abstract}
-Your abstract.
-This is just a test
 
 Heavy quarks nuclear modification factor ($R_{AA}$) has been proposed as an important measurement to study the flavor dependence of partons energy loss in the medium, and eventually to help in extracting the medium transport, drag and diffusion coefficients.
 
@@ -100,7 +98,47 @@ Event Selection Criteria \\
 
 \subsection{Centrality Definition}
 
+The centrality for Run14 200GeV Au+Au collisions MinBias sample is based on gRefMult. The gRefMult is defined as the number of global tracks with $|\eta|<0.5$, no less than 10 TPC hits, and Distance of Closest Approach (DCA) to primary vertex less than 3 cm with some correction according to $V_{z}$ and luminosity. The centrality definition according to the corrected gRefMult is listed in Table ~\ref{centrality}. This is decided by comparing the measured gRefMult distribution with the Glauber model simulation. 
 
+The basic procedure for centrality definition have three steps. First, need the quality assurance (QA) for the data set and remove those outlier runs. The second step would be correct the $V_{z}$ and luminosity dependence for the reference multiplicity (gRefmult). The last step would be compare our data with Glauber MC simulation and determine the centrality classification.
+
+For the QA, several variables are used for the outlier selection, such as Refmult (primary track multiplicity), gRefmult (global track multiplicity), TofRefmult (tof track multiplicity) and etc. In the Fig.~\ref{centrality_QA1} shows the $\langle$gRefmult$\rangle$ as a function of run index for the QA, and there are several outliers are identified. Those dashed lines are the 4$\times$RMS range, beyond those range, the runs are identified as bad run. And several iterations are did until all the runs are within these 4$\times$RMS range.
+
+
+In the Fig.~\ref{centrality_QA2} shows the $\langle$HFT $p_{T}$$\rangle$, which is the mean $p_{T}$ of HFT tracks, as a function of run index for the QA, and we can clearly see there is a deep before the run index $\sim$520 which corresponding to the run number 15107008. And also we saw the same structure in the Fig.~\ref{centrality_QA3}, which shows the average of HFT matching Ratio in the $p_{T}$ range between 0.7 to 0.8 GeV/$c$ and Fig.~\ref{centrality_QA4} shows this HFT matching ratio in the high $p_{T}$ range. So, basically those runs before day 107 were taken out for this analysis, since it will complicate our efficiency calculation.
+
+This deep was identified later on with a lot of effort, it was due to the firmware issue. And more details can be found in the STAR documents below.
+
+\url{https://drupal.star.bnl.gov/STAR/system/files/STAR_PXL_Firmware_Issue_Solved_Final_Report_Oct3_v2.pdf}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/centrality_grefmult.png}
+\caption{The mean value of gRefmult ($\langle$gRefmult$\rangle$) as a function of run index from QA.\label{centrality_QA1}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/centrality_HFTpt.png} 
+\caption{The mean value of $p_{T}$ for HFT matched track ($\langle$HFT $p_{T}$$\rangle$) as a function of index.\label{centrality_QA2}}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/centrality_HFTratio.png}
+\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momentum range 0.7 < $p_{T}$ < 0.8 GeV/$c$.\label{centrality_QA3}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{fig/centrality_HFTratio2.png} 
+\caption{The mean value of HFT matching ratio ($\langle$HFT $p_{T}$$\rangle$) as a function of run index at the transverse momenaum range $p_{T}$ > 2.0 GeV/$c$.\label{centrality_QA4}}
+\end{minipage}
+\end{figure}
 
 \section{$D^0$ Reconstruction}
 
