@@ -353,6 +353,15 @@ kaon PID:
 
 \subsection{Topological Cut Optimization}
 
+The secondary vertex is reconstructed with selected kaon and pion global tracks. In this analysis, the middle point on the Distance of the Closest Approach (DCA) between two daughter tracks is considered as the secondary decay vertex of the candidate $D^0$. As shown in Fig.~\ref{fig:D0cartoon}, 5 geometrical variables are chosen to select $D^0$ and reject combinatorial background, which is dominated by a pair of tracks directly from the primary vertex: decay length (the distance between the decay vertex and Primary Vertex PV), DCA between the 2 daughters, DCA between the reconstructed $D^0$ flying path and PV, DCA between the $\pi$ track and PV, and DCA between the $K$ track and PV. The cuts on these variables are optimized by the Toolkit for Multivariate Data Analysis (TMVA) package. They change according to the $D^0$ candidate $p_T$ in order to have the best significance in all the covered $p_T$ range. Additionally there is a $cos(\theta) > 0$ cut to make sure the decay vertex with respect to the primary vertex is roughly in the same direction as the momentum.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.6\textwidth]{fig/D0cartoon.png}
+\figcaption{The topology of a $D^0$ decaying to a kaon and a pion.}
+ \label{fig:D0cartoon}
+\end{figure}
+
 The TMVA need signal and background sample input for training. The signal sample is obtained from a toy fast-simulation and the background sample is from real data like sign pairs in $D^0$ mass window and unlike sign pairs in side bands range. 
 
 \begin{table}[htp]
