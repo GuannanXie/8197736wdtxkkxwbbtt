@@ -355,64 +355,6 @@ kaon PID:
 
 The TMVA need signal and background sample input for training. The signal sample is obtained from a toy fast-simulation and the background sample is from real data like sign pairs in $D^0$ mass window and unlike sign pairs in side bands range. 
 
-The daughters' acceptance and reconstruction efficiency is considered, together with the momentum smearing as shown in Eq.~\ref{smearpt}
-
-\begin{equation}
-  \sigma = p_T(0.6+0.38p_T)/100
-\label{smearpt}
-\end{equation}
-
-For geometry cuts simulation, the $p_T$ resolution is not very important. It only makes the $D^0$ peak width more realistic.
-
-The position smearing need to be precise to reproduce the behavior of the real data, so that the effects of geometry cuts are reproduced realistically. In the toy simulation the position resolution has 2 parts: a) due to hit error, including pixel size, vibration, and alignment, which is a constant contribution; and b) due to multiple Coulomb scattering, whose angular dispersion is described by Eq.~\ref{MultipleScattering}
-
-\begin{equation}
-  \theta_0 = 13.6 MeV/({\beta}cp)z\sqrt{x/X_0}(1+0.038ln(x/X_0))
-\label{MultipleScattering}
-\end{equation}
-
-where $z$ is the charge of the particle (=1 for most particles produced in STAR), $x$ is the thickness of the material and $X_0$ is the radiation length to the material. The parameters for position smearing in the toy fast-simulation (constant for hit error effect = 15.2 ${\upmu}m$ and $x/X_0$ = 0.00486) are calibrated using DCA position resolution vs. $p$ from real data, as shown in Fig.~\ref{fig:positionResolutionComapre}. For data the PID is done with TPC dE/dx and TOF. The agreement is very good after calibration for $p >$ 0.6 GeV/$c$ used for this analysis. The discrepancy at very low $p$ could be a bin width effect, and / or mis-identification of $\pi$ and K.  
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[keepaspectratio,width=0.6\textwidth,angle=0]{fig/sigmaCompare.png}
-\caption{comparison of simulated position resolution (DCA XY) vs. p for kaon (black), pion (red) and data measurements (blue).}
- \label{fig:positionResolutionComapre}
-\end{figure}
-
-The $D^0$ daughter efficiency includes TPC efficiency which is from embedding in p+p collisions from previous p+p measurement.
-
-The toy simulation use flat $p_T$ input from 0 to 10 GeV/$c$. When used for TMVA training, the input shape after detector acceptance and efficiency are weighted by a function fit to the measured $D^0$ $p_T$ spectrum, and the yield is scaled to what is expected for the whole data set of 1.3 B events.
-
-The background from real data naturally has the real $p_T$ distribution. However, in order to have enough statistics from low to high $p_T$, while keep the tree file size and the CPU time for training acceptable, the low $p_T$ part is randomly sampled to form a flat distribution below 3 GeV/$c$. When used for TMVA training, the sample is weighted back to original distribution. Only part of the Run 14 data is sampled for background in TMVA training, so the background yield is scaled to the whole data set of 1.3 B events.
-
-Fig.~\ref{fig:variables} shows distributions of the 5 geometry variables for signal (blue) and background (red) plotted by the TMVA, for $p_T$ between 2 and 3 GeV/$c$.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/variables_id_c1.eps}
-\caption{Distributions of the 5 geometry variables for signal (blue) and background (red).}
-\label{fig:variables}
-\end{figure}
-
-The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sample different cut sets in the variable space, calculate signal and background efficiency for each cut set. Then one cut set with lowest background efficiency at certain signal efficiency. We can then pick the cut set with the best significance according to the signal and background yield corresponding to the whole data set of 1.3 B events. Fig.~\ref{fig:effPass1} shows the lowest background efficiency, significance and so on vs. signal efficiency for $p_T$ between 2 and 3 GeV/$c$. We can see that as cuts get tighter, signal and background efficiency both decrease, but background efficiency decreases much faster. The best significance for 1.3 B events is around signal efficiency of 10\%. However, because the background efficiency is too low, there are a lot of fluctuations for the significance.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{fig/effPass1.pdf}
-\caption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency.}
-\label{fig:effPass1}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{fig/effPass4.pdf}
-\caption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency.}
-\label{fig:effPass4}
-\end{figure}
-
-We can solve the problem by having loose cuts on the 5 variables before putting into TMVA training. So a majority of background is rejected by the loose cuts, and the left sample is more sensitive. In this way with the same sample size the cut tuning is more precise. The loose cuts can be obtained also with TMVA training, requiring higher signal efficiency than the best significance, for example, 60\% signal efficiency in Fig.~\ref{fig:effPass1}, so that all 5 variable cuts are looser than the potential best cuts. And this procedure can be repeated to tighten the cuts step by step, until the statistics around the best significance region is good. Depending on the $p_T$ bin, 3 or 2 steps are needed. Fig.~\ref{fig:effPass4} shows the same lowest background efficiency, significance and so on vs. signal efficiency plot, in the last step of tuning. The cuts with the best siginificance is the result of the TMVA tuning.
-
 \begin{table}[htp]
   \centering
   \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
@@ -470,11 +412,11 @@ We can solve the problem by having loose cuts on the 5 variables before putting 
 
 The result of the geometry cuts tuned for best significance are shown in Table \ref{geometryCuts}. These are the standard cuts used in the $D^0$ reconstruction to calculate the spectra central value.
 
-For $D^0$ estimation, another 2 sets of geometry cuts are tuned with TMVA, with 50\% and 150\% signal efficiency relative to the standard cuts. They do not give the overall best $D^0$ significance, but for the certain signal efficiency, they are still the cuts with the lowest background efficiency and best $D^0$ significance. As shown in Fig.~\ref{fig:effPass4}, with 50\% and 150\% signal efficiency relative to the standard cuts, their significance is still about 80\% of the standard cuts with the overall best significance. These 2 cuts sets are listed in Table \ref{geometryCutsTight} and \ref{geometryCutsLoose}.
+For $D^0$ estimation, another 2 sets of geometry cuts are tuned with TMVA, with 50\% and 150\% signal efficiency relative to the standard cuts. They do not give the overall best $D^0$ significance, but for the certain signal efficiency, they are still the cuts with the lowest background efficiency and best $D^0$ significance. With 50\% and 150\% signal efficiency relative to the standard cuts, their significance is still about 80\% of the standard cuts with the overall best significance. These 2 cuts sets are listed in Table \ref{geometryCutsTight} and \ref{geometryCutsLoose}.
 
+For more details can be found in the $D^0$ $v_2$ technicl note, basically we use the same cuts for spectra analysis and $v_2$ analysis.
 
-
-\section{$D^0$ Reconstruction}
+For the details of the mixed-event backgrounds and the `bump' structures in the foreground, they also can be found in the $v_2$ analysis note. And we will skip them here.
 
 \section{Efficiency Correction}
 General idea.....
