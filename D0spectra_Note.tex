@@ -560,6 +560,31 @@ Nonetheless, the results provide confidence in a qualitative understanding on th
 \section{Efficiency Correction}
 General idea.....
 
+To obtain the real invariant mass spectrum of $D^0$ within STAR acceptance ($|\eta_{\pi}| \leq 1, |\eta_{K}| \leq 1, |Y_{K\pi}| \leq 1$), the raw spectrum should correct for the efficiency. The $K\pi$ pair efficiency within STAR acceptance is evaluated by folding the TPC related efficiency to the HFT related efficiency as shown on Eq.~\ref{effEqu}. For the TPC related tracking efficiency shows on the first term, we use STAR standard Full GEANT simulation. For the HFT related efficiency include the second and third terms which reflect to HFT acceptance and topological cuts, we developed the `Data-Driven Fast simulation' which will discuss later.
+
+\begin{equation}
+  \textup{Efficiency} \times \textup{Acceptance}  = \textup{TPC Tracking Eff} \otimes \textup{HFT Tracking Eff} \otimes \textup{Topollogy Cuts}
+\label{effEqu}
+\end{equation}
+
+This formula can be written in another way when we consider the particles identification (PID) Eq.~\ref{effEqu2}. Here the PID part are able to factorized as Eq.~\ref{effEqu3}, Eq.~\ref{effEqu4}.
+
+\begin{equation}
+  \frac{\textup{HFT}}{\textup{MC}} =  \frac{\textup{TPC}_\textup{{withPID}}}{\textup{MC}} \otimes \frac{\textup{HFT}_\textup{{withPID}}}{\textup{TPC}_\textup{{withPID}}} \otimes \textup{PID}
+\label{effEqu2}
+\end{equation}
+
+\begin{equation}
+  \varepsilon(HFT \& PID_{TPC} \& PID_{TOF}) = \varepsilon(HFT | _{PID_{TPC} \& PID_{TOF}}) \times \varepsilon_{PID}(TPC\&TOF)
+\label{effEqu3}
+\end{equation}
+
+\begin{equation}
+  \varepsilon_{PID}(TPC\&TOF) = \varepsilon_{PID}(TOF | TPC) \times \varepsilon_{TPC}
+\label{effEqu4}
+\end{equation}
+
+
 \subsection{TPC Tracking Efficiency}
 
 \subsection{Data-driven fast Monte Carlo setup for HFT and Topological Cut Efficiency}
