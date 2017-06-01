@@ -364,6 +364,24 @@ The secondary vertex is reconstructed with selected kaon and pion global tracks.
 
 The TMVA need signal and background sample input for training. The signal sample is obtained from a toy fast-simulation and the background sample is from real data like sign pairs in $D^0$ mass window and unlike sign pairs in side bands range. 
 
+Fig.~\ref{fig:variables} shows distributions of the 5 geometry variables for signal (blue) and background (red) plotted by the TMVA, for $p_T$ between 2 and 3 GeV/$c$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/variables_id_c1.eps}
+\figcaption{Distributions of the 5 geometry variables for signal (blue) and background (red).}
+\label{fig:variables}
+\end{figure}
+
+The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sample different cut sets in the variable space, calculate signal and background efficiency for each cut set. Then one cut set with lowest background efficiency at certain signal efficiency. We can then pick the cut set with the best significance according to the signal and background yield corresponding to the whole data set. Fig.~\ref{fig:effPass4} shows the lowest background efficiency, significance and so on vs. signal efficiency for $p_T$ between 2 and 3 GeV/$c$. We can see that as cuts get tighter, signal and background efficiency both decrease, but background efficiency decreases much faster.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{fig/effPass4.pdf}
+\figcaption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency.}
+\label{fig:effPass4}
+\end{figure}
+
 \begin{table}[htp]
   \centering
   \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
