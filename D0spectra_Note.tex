@@ -773,6 +773,99 @@ Effectively, these 1D and 2D histograms encode HFT efficiency, acceptance and sp
 \end{minipage}
 \end{figure}
 
+\subsubsection{Recipe}
+\label{recipe}
+After all the input ingredients ready for the fast-simulation, a simple toy MC simulation (PYTHIA/EvtGen) is applied for the efficiency study. The basic recipe is following:
+\begin{itemize}
+\item Sample $\textup{V}_\textup{z}$ distribution according to data distribution.
+\item Generate $D^0$ flat in $p_T$ and rapidity and decay it.
+\item Smear momentum according the embedding.
+\item Smear $DCA_{\textup{XY}}$ and $DCA_\textup{Z}$ of Kaons and Pions independently according to distributions from data.
+\item Apply HFT matching efficiency from HFT ratio.
+\item Apply TPC reconstruction efficiency.
+\item Reconstruct $D^0$
+\end{itemize}
+
+\subsubsection{$D^0$ Efficiency and Topological Distribution}
+
+As discussed in the recipe, we obtain the efficiency step by step as shown on Fig.~\ref{D0effStep}. First we have the TPC efficiency shown by red maker which is after the $p_T$, $\eta$ acceptance cut and TPC tracking efficiency from embedding. Then after folding in the HFT matching efficiency, the second item is obtained on black circle. Last step is after the topological cut, as shown by the cyan marker. As see in the low $p_T$ part, the topological cut efficiency is really small due to the tight cut as the combinatorial background is huge.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HFT_efficiencyCombineStepbyStep_2.eps}
+\caption{ $D^0$ efficiency step by step from TPC, HFT Ratio, Topological cut in most central 0-10\%. \label{D0effStep}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HFT_efficiencyCombineCompare_5.eps} 
+\caption{ $D^0$ efficiency including TPC, HFT and Topological cut in several centralities. \label{D0effCombine}}
+\end{minipage}
+\end{figure}
+
+We study all the efficiencies with small centrality bin width, in total we have 9 centrality bins from our StRefmultCorr class. Since the $D^0$ production is scaled by the number of binary collisions ($\textup{N}_{\textup{bin}}$), the $D^0$ is favor produced in more central collisions. So the final efficiencies for the wider centrality bins 0-10\%, 10-40\%, 40-80\% and 0-80\% are calculated using $\textup{N}_{\textup{bin}}$ as weights, for example, the efficiency in 0-80\% is calculated as the following Eq.~\ref{effcombine}. Fig~\ref{D0effCombine} shows the $D^0$ efficiency for 4 wide centralities after TPC, HFT match and Topological efficiency included.
+
+\begin{equation}
+  \textup{Efficiency}_{0-80\%} = \sum_{i=1}^{9}(\textup{Efficiency}_{i} \times N_{bin}^{i}) / <\textup{N}_{\textup{bin}}>
+\label{effcombine}
+\end{equation}
+
+The Data-Driven Fast-Simulation also provide the topological information, can be used for the comparison with real data. For the real data part, within the $D^0$ mass window we can statistical subtract the background and extract the pure $D^0$ topological distributions. The invariant mass plots shown as Fig.~\ref{d0massforTopo}. $D^0$ is in the 2 < $p_T$ < 3 GeV/$c$, 0-80\% centrality. Black is unlikesign foreground, blue is likesign background and red is mixed event background. The blue vertical lines are the mass window used for the topological comparison. For each topological variable, that corresponding topological cut was removed when reconstruct the $D^0$ candidate, so that we can compare that variable in a wide range.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.6\textwidth]{fig/Mixed_cent_8_9_pt_2_3.eps}
+\caption{$D^0$ invariant mass distributions in the 2 < $p_T$ < 3 GeV/$c$, 0-10\% centrality. Black is unlikesign foreground, blue is likesign background and red is mixed event background. The blue vertical lines are the mass window used for the topological comparison.}
+\label{d0massforTopo}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/pointingangle.pdf}
+\caption{ $D^0$ cosTheta distribution in most central 0-10\% between Fast-Simulation and Real Data.\label{pointingangle}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/DecayL.pdf} 
+\caption{ $D^0$ decay length distribution in most central 0-10\% between Fast-Simulation and Real Data.\label{DecayL}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/dcaDaughters.pdf}
+\caption{ $D^0$ dcaDaughters distribution in most central 0-10\% between Fast-Simulation and Real Data.\label{dcaDaughters}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/D0Dca2Vtx.pdf} 
+\caption{ $D^0$ dca to Vertex distribution in most central 0-10\% between Fast-Simulation and Real Data.\label{D0Dca2Vtx}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/pionDca.pdf}
+\caption{ $D^0$ pionDca distribution in most central 0-10\% between Fast-Simulation and Real Data. \label{pionDca}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/kaonDca.pdf} 
+\caption{ $D^0$ kaonDca distribution in most central 0-10\% between Fast-Simulation and Real Data. \label{kaonDca}}
+\end{minipage}
+\end{figure}
+
+From Fig.~\ref{pointingangle} to Fig.~\ref{kaonDca}, these are the topological variables (cos($\theta$), decayLength, dcaDaughters, D0DcaToVtx, PionDca and KaonDca) used for the $D^0$ reconstruction. The distributions from the real data part are using mixed event method to statistical subtract the background. The Data-Driven Fast-Simulation part was the package we relayed on for our efficiency study as shown before.
+
+Comparison these topological variables between real data and Fast-Simulation, the agreement is reasonable good, which means our Data-Driven Fast-Simulation method can well reproduce the topological variables in real data. In another word, the efficiency estimation from Data-Driven Fast-Simulation is reliable. Note, there are some small discrepancy such as single track Dca distributions in the low end, that's because in the data analysis part, we already require some minimum cut in order to save the computing resource. There is another method we are going to discuss in the following section, also can be used to validating our Fast-Simulation method.
+
 \subsection{Validation with Full GEANT+Hijing Simulation}
 
 \subsection{PID Efficiency and Double Counting Correction}
