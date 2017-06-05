@@ -887,6 +887,158 @@ For the others assumption, they will be discussed separately in the following se
 \label{assumption2}
 \end{figure}
 
+\subsection{Hijing Samples Performance}
+\label{hijingsample}
+The Hijing sample was run through the Full Hijing + GEANT simulation with realistic pileup hits (UPC+MB) in PXL and sensor masking tables. They can provide reasonable performance for the HFT matching ratio and Dca resolution. 
+In total we have $\sim$45K 0-10\% centrality Hijing events, and for each event is embedded with 20 $D^0$'s. So in total, we have $\sim$900K $D^0$ for this Hijing sample. The embedded $D^0$ has small effect on the tracking since the multiplicity is much higher compared to 20 $\times$ 2 $D^0$' decayed daughters.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingRatio.eps}
+\caption{ HFT Ratio comparison between data and Hijing simulation in Au+Au 200 GeV/c, 0-10\%.\label{HijingRatio}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingDca.eps} 
+\caption{ $\pi^{\pm}$ $\textup{Dca}_{\textup{XY}}$ comparison between data and Hijing simulation in Au+Au 200 GeV/c, 0-10\%.\label{HijingDca}}
+\end{minipage}
+\end{figure}
+
+As shown in Fig.~\ref{HijingRatio} is the HFT matching ratio comparison between data (red) and Hijing samples (black) in Au+Au 200 GeV/$c$ from 0-10\% centrality, the bottom panel is the double ratio of these two HFT matching ratio. The value is around unity, which means the Hijng simulation can well reproduce these matching performance. 
+
+Fig.~\ref{HijingDca} shows the pions $\textup{Dca}_{\textup{XY}}$ comparison between data (red) and Hijing samples (black) in Au+Au 200 GeV/$c$ from 0-10\% centrality at 1.0 < $p_T$ < 1.2GeV/$c$, the bottom panel is the double ratio of these two Dca distributions. The value is also around unity, which means the Hijng simulation well describes the real data.
+
+\subsection{Validation Procedures}
+\label{validationprocedure}
+
+The idea is simple for this Hijing validation, we have the enriched $D^0$ Hijing sample. After run through the detector and full GEANT simulation, the $D^0$ efficiency and topological variables distributions can be extracted. Another procedure is extract the necessary ingredients from Hijng sample for the Fast-Simulation input (Fast-Simulation with Hijing input), such as the TPC Tracking efficiency, the HFT matching ratio and the 2D $\textup{Dca}_\textup{XY}$-$\textup{Dca}_\textup{Z}$ distributions similar as we used in real data analysis and discussed in the previous section. Then run through the Fast Simulation, as discussed before, the $D^0$ efficiency and topological variables are also available in this way and can be compared to the first Hijing + GEANT procedure. The workflow is shown in Fig.~\ref{validation0}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/validation0.pdf}
+\caption{Hjiing validation procedure and workflow}
+\label{validation0}
+\end{figure}
+
+\subsubsection{Validation Efficiency}
+\label{validationeff}
+
+The first step is to check the kinematic form different MC decayer such as PYTHIA, Hijing, evtGen and PhaseSpace class from ROOT. Need to make sure the decayer used for Fast-Simulation has the same kinematic as the Hijng. After the basic acceptance cut, such as $D^0$ |y| < 1, daughter $p_T$ > 0.2 GeV/$c$ and |$\eta$| <1 cut. $D^0$ is the simple phase space decay, all these decayer give the same acceptance efficiency as shown in Fig.~\ref{d0decayer} left panel, the right panel shows the double ratio to PYTHIA. As all the decayer follow the same trend they have the same decay kinematic, so, for our Fast-Simulation decayer we choose PYTHIA for this validation and also for our real data analysis.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/Acceptance_D0Decayer.eps}
+\caption{$D^0$ pure acceptance from different MC decayer, such as PYTHIA, Hijing, evtGen and PhaseSpace class. (right) Double ratio of the acceptance to PYTHIA.}
+\label{d0decayer}
+\end{figure}
+
+The second step is to check the kinematic with the reconstructed TPC tracking information. Compare to the first step, this one fold in the momentum resolution and the TPC acceptance effect. Fig.~\ref{d0tpceff} left panel shows this efficiency $\times$ Acceptance comparison between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black), the right panel shows the double ratio to Hijing. As the red line is the fit function and the fit results around $\sim$1 shows very good agreement, which means this step is also doing right work.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/Physics_FastHijingVsPureHijing_TpcOnly2.eps}
+\caption{The comparison of $D^0$ TPC acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0tpceff}
+\end{figure}
+
+The next step is to trying to fold in the HFT matching efficiency and this is to consider the HFT acceptance effect. Fig.~\ref{d0hftmatcheff} left panel shows this efficiency $\times$ Acceptance comparison after TPC and HFT matching between Hijing + GEANT (red) and Fast-Simulation (black), the right panel shows the double ratio to Hijing. As the red line is the fit function and the fit results around $\sim$1 shows good agreement, which means this HFT matching step is also correctly implemented in the package. For the small discrepancy at the high $p_T$ range, this is purely due to the limited statistics. Since the Hijing sample is time consumption, we do not have enough statistics for the HFT match ratio input. But this problem is not exist for our real data analysis since we have $\sim$900M events which is totally enough and we checked the HFT match ratio, they can extend to a reasonable high $p_T$ range in real data. We did another small check, use one quart of these Hijing statistics for this validation, and the discrepancy shown here is bigger than the current results, which is another approve of the limited Hijing statistics.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/Physics_FastHijingVsPureHijing_HFTRatio2.eps}
+\caption{The comparison of $D^0$ TPC + HFT match acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0hftmatcheff}
+\end{figure}
+
+The last step is folding in the topological cuts and then compare between the Hijing and Fast-Simulation. Fig.~\ref{d0hfttopoeff} left panel shows this efficiency $\times$ Acceptance comparison after TPC, HFT matching and topological cuts between Hijing + GEANT (red) and Fast-Simulation (black), the right panel shows the double ratio to Hijing. Still the red line is the fit function and the fit results around $\sim$0.93 shows good agreement, which means this topological variables are well described in the package. For the left panel, there are some twist for this efficiency $\times$ acceptance at $p_T$ $\sim$1 GeV/$c$ and 2 GeV/$c$, this is due to the topological cuts are different in separate $p_T$ ranges. As the red points show the efficiency from Hijing + GEANT, the statistics error is larger compared to the Fast-Simulation which shows by black. This is also the reason we use data-driven Fast-Simulation for our efficiency study, it can be easily enlarge the statistics by a factor of 100 or even 1000 compare to the traditional Full GEANT simulation especially for this kind of low efficiency studies. Fig.~\ref{d0hfttopoeff2} shows the same plots of the comparison as Fig.~\ref{d0hfttopoeff} with different binning, we merged some binning for statistics concern. After merged the binning, the agreement is even better from the fitting shown on the right panel, the fitting results is $\sim$0.96.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Physics_FastHijingVsPureHijing_HFTTopo2.eps}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttopoeff}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Physics_FastHijingVsPureHijing_HFTTopo.eps}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input with wide binning (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttopoeff2}
+\end{figure}
+
+From Hijing + GEANT simulation, we know exactly whether the HFT matched track is real match or mismatch, so we can determine the HFT real matched efficiency $\times$ acceptance for $D^0$ reconstruction from Hijing sample. Fig.~\ref{d0hfttoporealeff} shows these real matched efficiency $\times$ acceptance comparison between Hijng + GEANT and our previously Fast-Simulation. The right panel shows the double ratio of these efficiency and fitted with a line, the parameters shows $\sim$0.98 which means the (previous) Fast-Simulation can well reproduce the real HFT matched reconstruction efficiency. Fig.~\ref{d0hfttoporealeff2} shows the same plots of the comparison with different binning. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Real_Physics_FastHijingVsPureHijing_HFTTopo2.eps}
+\caption{The comparison of $D^0$ TPC + HFT Real match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttoporealeff}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Real_Physics_FastHijingVsPureHijing_HFTTopo.eps}
+\caption{The comparison of $D^0$ TPC + HFT Real match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input with wide binning (black). (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttoporealeff2}
+\end{figure}
+
+If we compare with the previous Hijing HFT matched efficiency (not necessary to be real matched), it also indicate that most of the Mis-matched daughter tracks are removed by topological cuts as we said in the assumptions. Fig.~\ref{d0hfttopoAlleff} shows the different components contributions directly from Hijing, the black one is HFT matched, red one requires all the daughter tracks are real matched and the blue one shows at least one of the daughter tracks are mis-matched. Right panel shows the relative fraction of the real match and mis-mismatch contribution. As see, most of the mis-matched tracks are removed, but still there are $\sim$5\% contribution from this study.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/ALL_Physics_FastHijingVsPureHijing_HFTTopo.eps}
+\caption{The comparison of $D^0$ TPC + HFT (real/mis) match + Topological acceptance $\times$ efficiency for Hijing + GEANT. (right) Double ratio of the components form Hijing.}
+\label{d0hfttopoAlleff}
+\end{figure}
+
+Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} is good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals. And there is another approvement that will describe in the following section.
+
+\subsubsection{Validation Topological Distributions}
+\label{validationTopo}
+
+As discussed before, we can extract the topological variables from both Hijing + GEANT and Fast-Simulation relay on those Hijing input. Similar as we did in Sec. ~\ref{d0efficiency}, we can compare the topological distributions from these two procedures. This will be another evidence that our Fast-Simulation can well reproduce the topological variables which is crucial for these kind of secondary vertex reconstruction analysis.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingcosTheta.eps}
+\caption{ $D^0$ cosTheta distribution in most central 0-10\% between Hijing and Fast-Simulation.\label{Hijingpointingangle}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingDecayL.eps} 
+\caption{ $D^0$ decay length distribution in most central 0-10\% between Hijing and Fast-Simulation.\label{HijingDecayL}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingdcaPions.eps}
+\caption{ $D^0$ pions Dca distribution in most central 0-10\% between Hijing and Fast-Simulation.\label{HijingdcaPions}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/HijingdcaKaons.eps} 
+\caption{ $D^0$ kaons Dca distribution in most central 0-10\% between Hijing and Fast-Simulation.\label{HijingdcaKaons}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.52\textwidth]{fig/HijingdcaDaughters.eps}
+\caption{$D^0$ dcaDaughters distribution in most central 0-10\% between Hijing and Fast-Simulation.}
+\label{HijingdcaDaughters}
+\end{figure}
+
+From Fig.~\ref{Hijingpointingangle} to Fig.~\ref{HijingdcaDaughters}, these are the topological variables used for the $D^0$ reconstruction. The topological distributions can be extracted both directly from Hijng + GEANT and from Fast-Simulation relay on Hijing input. The Fast-Simulation part was the same package as we used for the efficiency study before.
+
+As seen, the comparison of topological variables from Hijing have a very good agreement, which means again our Fast-Simulation method can well reproduce the topological variables in Hijing sample just as in the real data case. In another word, the efficiency estimation from this Hijing-Data-Driven Fast-Simulation is reliable.  This is the other confident as we discussed in the last part of previous section ~\ref{validationeff}.
+
 
 \subsection{PID Efficiency and Double Counting Correction}
 
