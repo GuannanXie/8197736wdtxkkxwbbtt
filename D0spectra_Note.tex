@@ -752,6 +752,26 @@ There are several input ingredients for this fast-simulation package which is ex
 \item Extract TPC efficiency and momentum resolution from embedding (particles, centrality and $p_T$ dependence).
 \end{itemize}
 
+Fig.~\ref{hftRatioExample} shows an example of the input HFT match ratio in the certain $\eta$, $\textup{V}_\textup{Z}$, $\phi$ and centrality range. The HFT match ratio increase in the low pt range due to the high mismatch occupancy and keep flat in the high $p_T$ range. This ratio have a strong dependence on these differential such as $\eta$ and $\textup{V}_\textup{Z}$ since this is effected by HFT acceptance. Fig.~\ref{DcaExample} shows an example of the $\textup{Dca}_{\textup{XY}}$ vs $\textup{Dca}_{\textup{Z}}$ distribution in the certain $p_T$, $\eta$, $\textup{V}_\textup{Z}$ and centrality range. The axis binning is dynamic binning (non-uniform) since the most central (around 0) part is the dominate part. Limited by the computing memory, the most central part use fine binning and others use the unrefined binning as shown on the plots.
+
+In total, there are 11 ($\phi$) $\times$ 10 ($\eta$) $\times$ 6 ($\textup{V}_\textup{z}$) $\times$ 9 (centrality) $\times$ 2 (particles) 1D histograms (36 $p_T$ binning) for HFT match efficiency.
+There are 5 ($\eta$) $\times$ 4 ($\textup{V}_\textup{z}$) $\times$ 9 (centrality) $\times$ 2 (particles) histograms $\times$ 19 ($p_T$) 2D histograms (144 $\times$ 144 Dca binning) for Dca resolution smearing.
+
+Effectively, these 1D and 2D histograms encode HFT efficiency, acceptance and spatial resolution performance in Run14 data.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/hftRatioExample.eps}
+\caption{ HFT to TPC track match ratio for pion at certain $\eta$,$\textup{V}_{\textup{Z}}$,$\phi$,centrality range. \label{hftRatioExample}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/DcaExample.eps} 
+\caption{$\textup{Dca}_{\textup{XY}}$ vs. $\textup{Dca}_\textup{Z}$ for pion at certain $\eta$,$\textup{V}_{\textup{Z}}$,centrality range. \label{DcaExample}}
+\end{minipage}
+\end{figure}
 
 \subsection{Validation with Full GEANT+Hijing Simulation}
 
