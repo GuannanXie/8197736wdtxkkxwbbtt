@@ -868,6 +868,26 @@ Comparison these topological variables between real data and Fast-Simulation, th
 
 \subsection{Validation with Full GEANT+Hijing Simulation}
 
+Before discuss the details of this Hijing validation, it's better to conclude those assumptions we made before. The first assumption is the factorization shown in Eq.~\ref{efffact}. Relaying on the Hijing simulation, we have two samples. One is only include TPC tracking, another one include both HFT and TPC in tracking. From the first sample, we can extract the TPC factorized tracking efficiency, and the second sample can be used to extract the overall total efficiency and HFT over TPC factorized efficiency separately. Fig.~\ref{assumption01} shows the comparison between the overall efficiency and the multiplied factorization efficiency. The red one is from overall efficiency from the second sample, and the blue one is multiplied efficiency from two components. The bottom panel shows the double ratio of these two efficiency, and they are perfectly factorized as the ratio is flat as unity.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.7\textwidth]{fig/assumption01.png}
+\caption{(top)HFT Efficiency Factorization comparison. (bottom) Double Ratio of these factorization.}
+\label{assumption01}
+\end{figure}
+
+The second assumption is for the spatial resolution, it is encoded in those $\textup{Dca}_{\textup{XY}}$ and $\textup{Dca}_{\textup{Z}}$ variables, and they are correlated in the two dimensions. Fig.~\ref{assumption2} shows the comparison between the input Dca from real data and output Dca from Fast-Simulation in three dimensions. The first row is Dca in XY plane, the second row is in Z plane and the last row is in the 3-D dimension. From the left to right is the comparison from low $p_{T}$ to high $p_{T}$. As shown the red line is from data and black line is from fast simulation, the agreement is pretty good.
+For the others assumption, they will be discussed separately in the following section.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{fig/assumption2.png}
+\caption{Comparison of Dca between data (red) and Fast-Simulation (black). From top to bottom, the comparison is for $\textup{Dca}_{\textup{XY}}$, $\textup{Dca}_{\textup{Z}}$ and $\textup{Dca}$. From left to right the transverse momentum is from low $p_T$ to high $p_T$.}
+\label{assumption2}
+\end{figure}
+
+
 \subsection{PID Efficiency and Double Counting Correction}
 
 The PID efficiency part includes the efficiency from $dE/dx$ or $n\sigma$ cut efficiency and the TOF matching+$1/\beta$ cut efficiency. The $dE/dx$ and $1/\beta$ calibration usually uses a specific set of tracks. The performance for identified particles that pass our analysis cut may not necessarily be exactly normal Gaussian distributions with means=0 and widths=1. It is desired to calibrate each individual distributions for identified particles for efficiency correction and mis-PID effect study.
