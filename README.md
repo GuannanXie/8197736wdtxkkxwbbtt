@@ -15,9 +15,9 @@ All Rights Reserved !
 [To Be Added]
 - - -
 ### Useful Links:  
-1. [Overleaf D0 note](https://www.overleaf.com/8197736wdtxkkxwbbtt)(https://www.overleaf.com/8197736wdtxkkxwbbtt) stopped update
-2. [Overleaf D0 paper draft](https://www.overleaf.com/8157493trwyxfmxtqyh#/28908743/)(https://www.overleaf.com/8157493trwyxfmxtqyh#/28908743/)
-3. [BlueJeans weekly meeting](https://bluejeans.com/361497962/browser)(https://bluejeans.com/361497962/browser)
+1. [Overleaf D0 note (terminated)](https://www.overleaf.com/8197736wdtxkkxwbbtt)  (https://www.overleaf.com/8197736wdtxkkxwbbtt) 
+2. [Overleaf D0 paper draft](https://www.overleaf.com/8157493trwyxfmxtqyh#/28908743/)  (https://www.overleaf.com/8157493trwyxfmxtqyh#/28908743/)
+3. [BlueJeans weekly meeting](https://bluejeans.com/361497962/browser)  (https://bluejeans.com/361497962/browser)
 
 - - -
 
