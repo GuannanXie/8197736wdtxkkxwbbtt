@@ -14,8 +14,10 @@ All Rights Reserved !
 [Xin Dong](https://github.com/starsdong) (xdong@lbl.gov)  
 [To Be Added]
 - - -
-### Presentations:  
-1. [Overleaf](https://www.overleaf.com/8197736wdtxkkxwbbtt)
+### Useful Links:  
+1. [Overleaf note](https://www.overleaf.com/8197736wdtxkkxwbbtt)
+2. [Overleaf paper draft](https://www.overleaf.com/8157493trwyxfmxtqyh#/28908743/)
+3. [BlueJeans meeting](https://bluejeans.com/361497962/browser)
 
 - - -
 
