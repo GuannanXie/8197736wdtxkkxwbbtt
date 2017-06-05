@@ -1,4 +1,4 @@
-# Measurement of $D^0$-meson production in Au+Au collisions at $\sqrt{s_{\rm NN}}$ = 200\,GeV}
+# Measurement of D<sup>0</sup>-meson production in Au+Au collisions at √sNN = 200 GeV}
 LBNL - Nuclear Science Division, RNC Soft Hadron Physics Group
 
 USTC - Modern Physics Department, Office 410
