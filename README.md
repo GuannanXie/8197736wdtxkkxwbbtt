@@ -1,7 +1,7 @@
 # NOTE : Measurement of D<sup>0</sup>-meson production in Au+Au collisions at √sNN = 200 GeV
 LBNL - Nuclear Science Division, RNC Soft Hadron Physics Group
 
-USTC - Modern Physics Department, High Energy Physics Group Room 410
+USTC - Modern Physics Department, High Energy Physics Group
 
 ## Declaration
 This is for D<sup>0</sup> Spectra analysis note, the original one is on overleaf, but the number of project files on Overleaf have a limit 60, so we remove all the project to GitHub.
