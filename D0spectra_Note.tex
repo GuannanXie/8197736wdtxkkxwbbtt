@@ -1052,11 +1052,16 @@ The PID efficiency part includes the efficiency from $dE/dx$ or $n\sigma$ cut ef
 
 For $n\sigma$ calibration, we followed the same method as described in Ref.~\cite{Xu:2008th} to calibrate high $p_{\rm T}$ pions and protons by selecting daughters from $K_{S}^0$ and $\Lambda$ decays.
 
+ ... To Be Added ...
+
 \subsubsection{$dE/dx$ Calibration}
+ ... To Be Added ...
 
 \subsection{Vertex Resolution Correction}
+ ... To Be Added ...
 
 \subsection{Validation with Ks Spectra Measurement}
+ ... To Be Added ...
 
 To verify the 
 
@@ -1066,15 +1071,101 @@ To verify the
 \caption{\label{fig:Ks_spectra}Ks spectra.}
 \end{figure}
 
+\section{\label{systematic}Systematic Uncertainties}
+
+The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals fitting range, the fitting exclusion mass range and the signals counting windows to estimate the uncertainties for yield extraction. The second one is from the TPC embedding uncertainties, this one is well studied before in STAR collaboration and we quota 3\% for single track. The next one is from the fast-simulation part, as discussed in the previous section, there are $\sim$5\% difference between the pure Hijing and fast-simulation relay on Hijing when we validating the packages. We quote this 5\% contribution as one of the systematic sources. Another source would be the vertex resolution contribution as we discussed before, since the most central collisions does not suffer the vertex contribution while the impact on the most peripheral collisions could be visible. We quote a separate systematic errors for difference centralities, 10\% for the most peripheral (40-80\%) collision, 5\% for the mid-central collisions (10-40\%) and 0 for the most central (0-10\%) collisions. The next one source coming from the bin shift correction, there are several functions can be used for the bin correction such as the levy function and fonll function, the difference between these two methods are quoted as one of the systematic source. The last source is by varying the topological cuts and daughter $p_t$ cuts. The standard TMVA cuts, the 50\% efficiency and 150\% efficiency cuts are calculated, and also the daughter $p_T$ cuts are scanned from 300 MeV, 400 MeV and 500 MeV. The difference between the corrected yield are quoted as the systematic source.
+
+Table~\ref{syserr} shows the $D^0$ spectrum different sources contribution in the most central 0-10\% centrality. As we see, the systematic uncertainties is quite small in the most of the $p_T$ range except the first two and last two $p_T$ ranges due to the limited statistics and large contribution from yield extraction.
+
+For the $R_{AA}$ results shown later, they share the most of the systematic uncertainties with the spectrum, but for the TPC part, the TPC contribution from Au+Au and p+p collisions can be canceled out. The black bracket only represented the uncertainties from Au+Au.
+
+\begin{table}[htp]
+\centering
+\caption{Systematic uncertainties from different sources}
+\label{syserr}
+	\begin{center}
+	\begin{tabular}{l|l|l|l|l|l|l|l}
+  \Xhline{1.6pt}
+  $p_T$ range&Yield extra&Embedding&fast-simu&Topo Scan&bin shift&daughter $p_T$&total\\ \hline
+  0.0 -  0.5  &   0.28575        &  0.06     &  0.05           & 0.150186  &  0.206038   &  0.0961785  &   0.402506  \\ \hline
+	0.5 - 1.0   &   0.276043       &  0.06     &  0.05           & 0.124592  &  0.0641394  &  0.104796   &   0.336034  \\ \hline
+	1.0 - 1.5   &   0.0332581      &  0.06     &  0.05           & 0.08445   &  0.0416632  &  0.0354619  &   0.131648  \\ \hline
+	1.5 - 2.0   &   0.0284874      &  0.06     &  0.05           & 0.0430791 &  0.0179911  &  0.013235   &   0.096261  \\ \hline
+	2.0 - 2.5   &   0.0152306      &  0.06     &  0.05           & 0.0597399 &  0.00416767 &  0.00651388 &   0.0998029 \\ \hline
+  2.5 - 3.0   &   0.0173818      &  0.06     &  0.05           & 0.0762663 &  0.00261387 &  0.00930911 &   0.11096   \\ \hline
+  3.0 - 3.5   &   0.0164046      &  0.06     &  0.05           & 0.0368647 &  0.00551249 &  0.0177607  &   0.0898551 \\ \hline
+  3.5 - 4.0   &   0.0301197      &  0.06     &  0.05           & 0.0712203 &  0.00646695 &  0.0237711  &   0.112634  \\ \hline
+  4.0 - 5.0   &   0.0736611      &  0.06     &  0.05           & 0.0615253 &  0.0312138  &  0.0214862  & 0.129411      \\ \hline
+  5.0 - 6.0   &   0.0751424      &  0.06     &  0.05           & 0.11637   &  0.0261331  &  0.0226671  & 0.162742      \\ \hline
+  6.0 - 7.0   &   0.0944053      &  0.06     &  0.05           & 0.0465479 &  0.0210969  &  0.00687676 & 0.132934      \\ \hline
+  7.0 - 8.0   &   0.0730125      &  0.06     &  0.05           & 0.409901  &  0.0169993  &  0.00289802 & 0.423966      \\ \hline
+  8.0 - 10.0  &   0.0984801      &  0.06     &  0.05           & 0.696775  & 0.048144    &  0.061042   &  0.712276    \\ \hline
+
+  \Xhline{1.6pt}
+	\end{tabular}
+	\end{center}
+\end{table}
+
+There are two more assumptions which were not answered yet. Here we are trying to discuss a little bit in the following part.
+
+\subsection{\label{concern1} Secondary Track Contribution}
+
+The Fast-Simulation is validated with primary track in the procedure Fig.~\ref{validation0}. All the tracks for HFT matching ratio and Dca inputted to Fast-Simulation is primary track. Based on the Hijing sample we can study the secondary track contribution since in the real data part we can't distinguish primary track and secondary track. In Hijing simulation, we use the start vertex of that track to determine whether it's primary track or secondary track.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Vtx_Pion.png}
+\caption{The vertex distribution for Pions from secondary decay. Top left is the overall secondary pion tracks, top right is pion decayed from GeantID=8/9 (which is $\pi^{\pm}$), bottom left is pion decayed from GeantID=15/25 (which is anti-proton and anti-neutron), bottom right is decayed from other source}
+\label{Vtx_Pion}
+\end{figure}
+
+Fig.~\ref{Vtx_Pion} shows the pions vertex distributions from the secondary decay. The first one is the overall secondary pion vertex distributions and we can clearly saw some HFT structure. Top right panel is pions decayed from GeantID==8/9 (which is $\pi^{\pm}$), this part is the knocked out particles with HFT. The bottom left is pion decayed from GeantID==15/25 (which is anti-proton and anti-neutron), this is the normal annihilation particles. The last one bottom right shows the pions decayed from other source.
+
+The secondary track have kind of different performance compare to the primary track such as the HFT match ratio shown on Fig.~\ref{HijingPionsRatio}. The solid circle is the inclusive one for HFT matching ratio, the empty circle is for the primary pions and the solid square is for the secondary pions. All these HFT match ratios are after applying exactly the same cut as real data analysis. The low match ratio for secondary track is reasonable since they are decayed far away from the vertex and most of them do not have three HFT hits. The more contribution from the secondary track, the more difference we observed between inclusive one and primary one. The bottom panel shows the HFT matching double ratio of inclusive one over primary one. For the pions, since the secondary pion have some contributions, we do saw the different between primary one ans inclusive one at some certain $p_T$ range for this HFT match ratio. For the kaons, the relative secondary contribution is small, that's why there is no big difference between primary and inclusive ones as see on Fig.~\ref{HijingKaonsRatio}. 
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Pion.eps}
+\caption{ HFT Matching Ratio for Pions, compare between primary track and secondary tracks relay on Hijing. (bottom) The double ratios of inclusive one to primary tracks.\label{HijingPionsRatio}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Kaon.eps} 
+\caption{ HFT Matching Ratio for Kaons, compare between primary track and secondary tracks relay on Hijing.  (bottom) The double ratios of inclusive one to primary tracks.\label{HijingKaonsRatio}}
+\end{minipage}
+\end{figure}
+
+This secondary track contribution for our efficiency correction need to be take care, especially for Pions. There are a few percent contributions from our Hjing simulation study. In our real data efficiency correction, we took this double ratio from Hijing as an additional correction factor for the HFT matching ratio, since the data part can only obtained the inclusive one. After this additional correction, we still be able to obtain the precision like Fig.~\ref{d0hfttopoeff2}.
+
+For the secondary track Dca contributions, we tested with the inclusive track Dca or primary track Dca. In principle, with the inclusive tracks, they should have slightly broader distributions. But in our test, it seems that these contributions to the final $D^0$ efficiency is really small. This maybe due to the limited Hijing statistics or the slightly Dca difference does not contribute much. But in our real data case, we do not take this secondary Dca contributions as additional correction factor yet.
+
+
+\subsection{Vertex Resolution Contribution}
+\label{concern2}
+
+As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). To correctly count the number of peripheral events we need to understand the vertex resolution. The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
+
+To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference can be took as the additional correction factor for real data analysis if this effect is not too big. The Hijing sample is still ongoing production, this need a huge data sample for the study and it's time consumption at this moment.
+
+Xiaolong ... To Be Added ...
+
 \section{\label{results}Results}
 
 \section{\label{Run1011}Re-analysis of Run10/11 data}
 
 \subsection{Long and Yifei's re-analysis}
 
+Long Zhou ... To Be Added
+
 \subsection{Xiaolong's re-analysis}
 
+Xiaolong ... To Be Added
+
 \section{\label{Run14TPC}Run14 TPC analysis}
+
+Xiaolong ... To Be Added
 
 \clearpage
 
