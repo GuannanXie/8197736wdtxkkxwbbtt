@@ -338,7 +338,8 @@ Fig.~\ref{fig:tofPID} shows the TOF 1/Beta information versus momentum achieved 
 In summary, next list all the related track selections for $D^0$ daughters including track quality cut and particle identification cut.
 \begin{itemize}
 \item global tracks
-\item $p_{T}$ > 0.3 GeV/$c$
+\item $p_{T}$ > 0.3 GeV/$c$ (next plots are based on 0.3 GeV cut, but the final result central value was from 0.6 GeV cut, same as $D^0$ v2 analysis)
+% \item $p_{T}$ > 0.6 GeV/$c$
 \item $|\eta| < 1$
 \item $nHitsFit \ge 20$, in TPC
 \item at least one hit in every layer of PXL and IST
@@ -1046,30 +1047,208 @@ From Fig.~\ref{Hijingpointingangle} to Fig.~\ref{HijingdcaDaughters}, these are 
 As seen, the comparison of topological variables from Hijing have a very good agreement, which means again our Fast-Simulation method can well reproduce the topological variables in Hijing sample just as in the real data case. In another word, the efficiency estimation from this Hijing-Data-Driven Fast-Simulation is reliable.  This is the other confident as we discussed in the last part of previous section ~\ref{validationeff}.
 
 
-\subsection{PID Efficiency and Double Counting Correction}
+There are two more assumptions which were not answered yet. Here we are trying to discuss a little bit in the following part.
 
-The PID efficiency part includes the efficiency from $dE/dx$ or $n\sigma$ cut efficiency and the TOF matching+$1/\beta$ cut efficiency. The $dE/dx$ and $1/\beta$ calibration usually uses a specific set of tracks. The performance for identified particles that pass our analysis cut may not necessarily be exactly normal Gaussian distributions with means=0 and widths=1. It is desired to calibrate each individual distributions for identified particles for efficiency correction and mis-PID effect study.
+\subsection{\label{concern1} Secondary Track Contribution}
 
-For $n\sigma$ calibration, we followed the same method as described in Ref.~\cite{Xu:2008th} to calibrate high $p_{\rm T}$ pions and protons by selecting daughters from $K_{S}^0$ and $\Lambda$ decays.
+The Fast-Simulation is validated with primary track in the procedure Fig.~\ref{validation0}. All the tracks for HFT matching ratio and Dca inputted to Fast-Simulation is primary track. Based on the Hijing sample we can study the secondary track contribution since in the real data part we can't distinguish primary track and secondary track. In Hijing simulation, we use the start vertex of that track to determine whether it's primary track or secondary track.
 
- ... To Be Added ...
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Vtx_Pion.png}
+\caption{The vertex distribution for Pions from secondary decay. Top left is the overall secondary pion tracks, top right is pion decayed from GeantID=8/9 (which is $\pi^{\pm}$), bottom left is pion decayed from GeantID=15/25 (which is anti-proton and anti-neutron), bottom right is decayed from other source}
+\label{Vtx_Pion}
+\end{figure}
 
-\subsubsection{$dE/dx$ Calibration}
- ... To Be Added ...
+Fig.~\ref{Vtx_Pion} shows the pions vertex distributions from the secondary decay. The first one is the overall secondary pion vertex distributions and we can clearly saw some HFT structure. Top right panel is pions decayed from GeantID==8/9 (which is $\pi^{\pm}$), this part is the knocked out particles with HFT. The bottom left is pion decayed from GeantID==15/25 (which is anti-proton and anti-neutron), this is the normal annihilation particles. The last one bottom right shows the pions decayed from other source.
 
-\subsection{Vertex Resolution Correction}
- ... To Be Added ...
+The secondary track have kind of different performance compare to the primary track such as the HFT match ratio shown on Fig.~\ref{HijingPionsRatio}. The solid circle is the inclusive one for HFT matching ratio, the empty circle is for the primary pions and the solid square is for the secondary pions. All these HFT match ratios are after applying exactly the same cut as real data analysis. The low match ratio for secondary track is reasonable since they are decayed far away from the vertex and most of them do not have three HFT hits. The more contribution from the secondary track, the more difference we observed between inclusive one and primary one. The bottom panel shows the HFT matching double ratio of inclusive one over primary one. For the pions, since the secondary pion have some contributions, we do saw the different between primary one ans inclusive one at some certain $p_T$ range for this HFT match ratio. For the kaons, the relative secondary contribution is small, that's why there is no big difference between primary and inclusive ones as see on Fig.~\ref{HijingKaonsRatio}. 
 
-\subsection{Validation with Ks Spectra Measurement}
- ... To Be Added ...
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Pion.eps}
+\caption{ HFT Matching Ratio for Pions, compare between primary track and secondary tracks relay on Hijing. (bottom) The double ratios of inclusive one to primary tracks.\label{HijingPionsRatio}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Kaon.eps} 
+\caption{ HFT Matching Ratio for Kaons, compare between primary track and secondary tracks relay on Hijing.  (bottom) The double ratios of inclusive one to primary tracks.\label{HijingKaonsRatio}}
+\end{minipage}
+\end{figure}
 
-To verify the 
+This secondary track contribution for our efficiency correction need to be taken care, especially for Pions. There are a few percent contributions from our Hjing simulation study. In our real data efficiency correction, we took this double ratio from Hijing as an additional correction factor for the HFT matching ratio, since the data part can only obtained the inclusive one. After this additional correction, we still be able to obtain the precision like Fig.~\ref{d0hfttopoeff2}.
+
+For the secondary track Dca contributions, we tested with the inclusive track Dca or primary track Dca. In principle, with the inclusive tracks, they should have slightly broader distributions. But in our test, it seems that these contributions to the final $D^0$ efficiency is really small. This maybe due to the limited Hijing statistics or the slightly Dca difference does not contribute much. But in our real data case, we do not take this secondary Dca contributions as additional correction factor yet.
+
+
+\subsection{Vertex Resolution Contribution}
+\label{concern2}
+
+As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). To correctly count the number of peripheral events we need to understand the vertex resolution. The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
+
+To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference can be took as the additional correction factor for real data analysis if this effect is not too big. The MB Hijing sample we used here is from the same setup as we discussed before, and the only difference compared to the 0-10\% Hjing sample is the impact parameters (b).
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/70_80_0.png}
+\caption{ The comparison of $D^0$ acceptance between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_0}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/70_80_1.png} 
+\caption{ The comparison of $D^0$ TPC acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these efficiency of Hijing to Fast-Simulation.\label{70_80_1}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/70_80_2.png}
+\caption{ The comparison of $D^0$ TPC + HFT match acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_2}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/70_80.png} 
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these efficiency of Hijing to Fast-Simulation.\label{70_80_3}}
+\end{minipage}
+\end{figure}
+
+The first vertex contribution we checked is for the centrality species 70-80\%. Follow the same procedures as we discussed for 0-10\%, we did the validation step by step. First is the acceptance check as shown on Fig.~\ref{70_80_0}, the results from Hijing and Fast-Simulation matched very well for this most peripheral events, which is the same as our expection. The second step is check the kinematic with the reconstructed TPC tracking information. These was involved with the TPC tracking efficiency lost and the momentum resolution. the result in Fig.~\ref{70_80_1} shows good agreement.
+
+The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80_3} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.29.
+
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/70_80.png}
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 70-80\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{70_80}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/60_70.png} 
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 60-70\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{60_70}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/50_60.png}
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 50-60\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{50_60}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/40_50.png} 
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 40-50\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{40_50}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/30_40.png}
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 30-40\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{30_40}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/20_30.png} 
+\caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 20-30\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{20_30}}
+\end{minipage}
+\end{figure}
+
+For this vertex contributions, we use these double ratios as our additional correction factor for the final results. As we saw and discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
+
+Fig.~\ref{70_80} to Fig.\ref{20_30} shows the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.29 for 70-80\%, $\sim$1/0.55 for 60-70\%, $\sim$1/0.77 for 50-60\%, $\sim$1/0.89 for 40-50\% and $\sim$1/0.93 for 30-40\%. For the mid central, 20-30\% centrality, the correction effect is already small, the double ratio is close to 1. So for the 10-20\% and 0-10\%, the correction factor should be also very small.
+
+\subsection{Double Counting Correction}
+% \subsubsection{double counting ... To Be Added ...}
+
+% The PID efficiency part includes the efficiency from $dE/dx$ or $n\sigma$ cut efficiency and the TOF matching+$1/\beta$ cut efficiency. The $dE/dx$ and $1/\beta$ calibration usually uses a specific set of tracks. The performance for identified particles that pass our analysis cut may not necessarily be exactly normal Gaussian distributions with means=0 and widths=1. It is desired to calibrate each individual distributions for identified particles for efficiency correction and mis-PID effect study.
+
+% For $n\sigma$ calibration, we followed the same method as described in Ref.~\cite{Xu:2008th} to calibrate high $p_{\rm T}$ pions and protons by selecting daughters from $K_{S}^0$ and $\Lambda$ decays.
+
+%  ... To Be Added ...
+
+$D^0$ candidates are reconstructed with pairing $K^-$ and $\pi^+$ candidate tracks. When $D^0$ daugther $K^-$ is misidentified as a $\pi^-$ while the other daughter $\pi^+$ is misidentified as a $K^+$, the resulting pair $K^+\pi^-$ will enter into the distribution for reconstructing $\overline{D^0}$. Although the mass assignments are wrong, the pair $K^+\pi^-$ invariant mass will be still peak around the $D^0$ region with typically a broader distribution compared to the real signal. When counting the final $D^0$ candidates, these within the mass selection window will be counted twice. (See also study in previous STAR open charm hadron measurements - STAR notes below).
+
+\url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0594}
+
+\url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0550}
+
+The double counting issue will certainly affect the obtained $D^0$ raw yields. In the $v_2$ analysis, since the doubly counted candidates are still coming from $D^0$, this issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off. For the spectra analysis, we need to consider this effect.
+
+The double counting probability estimation need a precise determination of the PID variable distributions, $n\sigma_X$ from $dE/dx$ and $1/\beta$ from TOF. For $dE/dx$ calculation, we tried two methods
+
+1) Select pure pion and proton samples from weak decays ($K^{S}$, $\Lambda$)
+
+2) Look at the single particle distributions directly and perform multi-component fit in the region where the $dE/dx$ bands can be separated out.
+
+Figure~\ref{NSigmaSummary} summarized the extracted $n\sigma_{X}$ mean values vs. $\beta\gamma$ for both methods discussed above. It looks good that in the overlapping region between different particles and different methods, the results look consistent. The dashed blue lines are parametrized function fits to the data points. These will be used to estimated the mis-identification probability.
 
 \begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{fig/Ks_spectra_PtCut_0.eps}
-\caption{\label{fig:Ks_spectra}Ks spectra.}
+\centering{
+\includegraphics[width=0.8\columnwidth]{fig/NSigma_Summary_Cen_0.eps}
+\caption{Top 0-10\% central Au+Au collisions: extracted $n\sigma_{X}$ mean values vs. $\beta\gamma$ for both methods discussed in the text.}
+\label{NSigmaSummary}}
 \end{figure}
+
+The PID of $D^0$ daughters also involves the TOF detector. We also estimated the TOF PID variable $1/\beta$ distributions and TOF matching/PID efficiency. Figure~\ref{BetaSingle} shows the fit results on the mean and width values for $1/\beta-1/\beta_{expected}$ distributions vs. particle momentum for different particles. Similar as $dE/dx$, results in the region beyond the TOF PID are not reliable. We use results which are safe in PID for later analysis, which are $p<1.5$ GeV/$c$ for pions, $p<1$ GeV/$c$ and kaons and $p<2$ GeV/$c$ for protons. It is good to see the mean and width values are quite stable in a broad momentum region. At very low momentum, the multiple scattering effect will increase momentum resolution and $1/\beta-1/\beta_{expected}$ spread, and track energy loss will also shift the mean of $1/\beta-1/\beta_{expected}$ away from 0. But these will not affect the study here since tracks with $p_T < $ 0.6 GeV/c are not used for $D^0$ reconstruction. 
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.6\columnwidth]{fig/BetaSingle_MeanSigma_Cen_0.eps}
+\caption{Top 0-10\% central Au+Au collisions: extracted $1/\beta-1/\beta_{expected}$ mean and width values vs. particle momentum for pions, kaons and protons. Results for pions and kaons at $p>1.5$ GeV/$c$ are beyond the TOF PID capability. The fit results are not reliable.}\label{BetaSingle}}
+\end{figure}
+
+With all these at hand, we can evaluate the PID efficiency. The advantage of using TOF only when available is to keep the highest efficiency as one sees from the plot. The mis-identification probability for pion and kaon daughters can be also evaluated, as shown in Figure~\ref{MisPIDPiK}. 
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.6\columnwidth]{fig/Mis_PID_PiK.eps}
+\caption{Particle misidentification probability for kaons (red) and pions (black) from different centrality bins in Au+Au collisions.}\label{MisPIDPiK}}
+\end{figure}
+
+With the misidentification probability, we can reconstruct the invariant mass distributions from doubly mis-PID. The momentum resolution for pion and kaon tracks are chosen to fit to the $D^{0}$ signal peak. Figure~\ref{MisPIDMass_1} and Figure~\ref{MisPIDMass_2} show these distributions compared to the signal distributions in different $D^0$ $p_{T}$ regions. The distributions are normalized to the input real $D^{0}$ signals.
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.98\columnwidth]{fig/MassComp_MisPID_1.pdf}
+\caption{Reconstructed $K\pi$ invariant mass distributions from clean PID and doubly mis-identification. The relative magnitude is fixed according to the realistic mis-identification probability. From top left to bottom right shows the distributions in $p_{T}$ bins 0-0.1 GeV/$c$, 0.1-0.2 GeV/$c$, ..., 1.9-2.0 GeV/$c$.}\label{MisPIDMass_1}}
+\end{figure}
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.98\columnwidth]{fig/MassComp_MisPID_2.pdf}
+\caption{Reconstructed $K\pi$ invariant mass distributions from clean PID and doubly mis-identification. The relative magnitude is fixed according to the realistic mis-identification probability. From top left to bottom right shows the distributions in $p_{T}$ bins 4-4.1 GeV/$c$, 4.1-4.2 GeV/$c$, ..., 5.9-6.0 GeV/$c$.}\label{MisPIDMass_2}}
+\end{figure}
+
+Figure~\ref{DoubleCountingSB} shows the final estimated double-counting contribution to the real signal with two different calculation methods. The black symbols show the result from directly counting the entries within 2.5$\sigma$ of the $D^0$ mass window. In real data analysis, we used the side-band distributions to normalize our fit or estimate our background. The blue data points show the result by subtracting also the side-band distributions with the same mass window selection as in event plane method $v_2$ calculation. 
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.6\columnwidth]{fig/DoubleCounting_SB.eps}
+\caption{Estimated doubly-counted $D^0$ fraction to the real signal with two calculation methods from different centrality bins in Au+Au 200 GeV collisions.}\label{DoubleCountingSB}}
+\end{figure}
+
+In the $v_2$ analysis, the doubly counted candidates are still coming from $D^0$, and there is no reason that the double counting ratio is different at different $\phi$ relative to the harmonic plane of the event. Thus the double counting issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off, because the 2 counts are not independent but are treated as independent when calculating $v_2$ statistic errors.
+
+Assuming there is no combinatorial backgroud. Let's define the $D^0$ signal yield as $S$, and that a portion $P_{SS}$ of signal has a double mis-PID count in the signal region, and a portion $P_{SB}$ of signal has a double mis-PID count in the side band region. Then the measured $D^0$ yield will be $S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})=S(1+P_{SS}-P_{SB}/2)$, with the statistic error $\sqrt{S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})}=\sqrt{S(1+P_{SS}-P_{SB}/2)}\approx\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$. Here ${\Delta}m_S$=0.09 $GeV/c^2$ and ${\Delta}m_B$=0.18 $GeV/c^2$ are widths for signal and side band invariant mass regions respectively. ${\Delta}m_S/{\Delta}m_B=1/2$ is the scale used in $v_2$ analysis when subtracting side band background. The approximation is done with $P_{SS}<<1$ and $P_{SB}<<1$. In reality, there are 3 independent samples of $D^0$: a) those counted once $S(1-P_{SS}-P_{SB})\pm\sqrt{S(1-P_{SS}-P_{SB})}$; b) those counted twice with double mis-PID entry in the signal region $SP_{SS}\pm\sqrt{SP_{SS}}$; c) those with double mis-PID entry in the side band region $SP_{SB}\pm\sqrt{SP_{SB}}$. When calculating the raw yield, component b) has a weight of 2, and component c) has a weight of $1-{\Delta}m_S/{\Delta}m_B=1/2$. The real total statistic error is $\sqrt{S(1-P_{SS}-P_{SB}+2^2P_{SS}+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB})}\approx\sqrt{S}(1+3P_{SS}/2-P_{SB}/2+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB}/2)=\sqrt{S}(1+3P_{SS}/2-3P_{SB}/8)$. Comparing with the statistic error measured assuming all counts are independent $\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$, the relative difference is $P_{SS}-P_{SB}/8$. In Fig.~\ref{DoubleCountingSB} we know at maximum, $P_{SS}=0.1$ and $P_{SS}-P_{SB}/2=0.06$. So $P_{SS}-P_{SB}/8$ should be less than 9\%.
+
+The double mis-PID also exists in combinatorial background. It will not cause any trouble for the measured central value of $D^0$ raw yield or $v_2$, since the combinatorial background can be well reproduced by like-sign and mixed events. However in terms of influence on statistic error, and it's even more complicated than the double mis-PID of $D^0$ signal. The $P_{SS}$ and $P_{SB}$ will be slightly different from the simulation of $D^0$ above, since the true invariant mass is not fixed at $D^0$ mass but is distributed in the whole signal region. Also there are new components with the true invariant mass in the side band region, so there are $P_{BB}$ and $P_{BS}$ terms. Additionally, the combinatorial background can be $\pi^+\pi^-$ or $K^+K^-$ pairs, mis-identified as $K^+\pi^-$ or $\pi^+K^-$. So one pair can also be counted twice, as $K^+\pi^-$ and $\pi^+K^-$, each with one particle mis-identified. A detailed calculation like the double mis-PID for $D^0$ signal above will be complicated, requiring knowledge of true PID components of the combinatorial background. However, since the double mis-PID in combinatorial background also require 2 mis-PID, and the invariant mass spread due to swap of the mass of the 2 particles is the same (as in Fig.~\ref{MisPIDMass_1}and~\ref{MisPIDMass_2}), the relative difference of statistic error between measurement and reality should be also on or below the level of 10\%.
+
+In general, whether the $D^0$ measurement statistic error is dominated by the signal or background, the measured $v_2$ central value will not be influenced by double mis-PID, while the measured statistic error will be relatively 10\% smaller at most. We thus neglect this effect on the $v_2$ measurement. 
+
+For the spectra analysis, we use the blue data points as the central correction value and quote the range from 0 to the black data points as systematic errors on double-counting correction.
+
 
 \section{\label{systematic}Systematic Uncertainties}
 
@@ -1106,50 +1285,16 @@ For the $R_{AA}$ results shown later, they share the most of the systematic unce
 	\end{center}
 \end{table}
 
-There are two more assumptions which were not answered yet. Here we are trying to discuss a little bit in the following part.
 
-\subsection{\label{concern1} Secondary Track Contribution}
+\subsection{Validation with Ks Spectra Measurement ... To Be Added}
 
-The Fast-Simulation is validated with primary track in the procedure Fig.~\ref{validation0}. All the tracks for HFT matching ratio and Dca inputted to Fast-Simulation is primary track. Based on the Hijing sample we can study the secondary track contribution since in the real data part we can't distinguish primary track and secondary track. In Hijing simulation, we use the start vertex of that track to determine whether it's primary track or secondary track.
+ To verify the data-driven fast-simulation procedures, we calculated the efficiency corrected spectra for $K_{s}$ in 10-20\% centralities using the data-driven methods. The result shows very good agreement with the published result as in Fig.~\ref{Ks_spectra}. The lower panel shows the double ratio comparison between run 14 and the published one.
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{fig/Vtx_Pion.png}
-\caption{The vertex distribution for Pions from secondary decay. Top left is the overall secondary pion tracks, top right is pion decayed from GeantID=8/9 (which is $\pi^{\pm}$), bottom left is pion decayed from GeantID=15/25 (which is anti-proton and anti-neutron), bottom right is decayed from other source}
-\label{Vtx_Pion}
+\includegraphics[width=0.7\textwidth]{fig/Ks_spectra_PtCut_0.eps}
+\caption{\label{fig:Ks_spectra}Ks spectra.}
 \end{figure}
-
-Fig.~\ref{Vtx_Pion} shows the pions vertex distributions from the secondary decay. The first one is the overall secondary pion vertex distributions and we can clearly saw some HFT structure. Top right panel is pions decayed from GeantID==8/9 (which is $\pi^{\pm}$), this part is the knocked out particles with HFT. The bottom left is pion decayed from GeantID==15/25 (which is anti-proton and anti-neutron), this is the normal annihilation particles. The last one bottom right shows the pions decayed from other source.
-
-The secondary track have kind of different performance compare to the primary track such as the HFT match ratio shown on Fig.~\ref{HijingPionsRatio}. The solid circle is the inclusive one for HFT matching ratio, the empty circle is for the primary pions and the solid square is for the secondary pions. All these HFT match ratios are after applying exactly the same cut as real data analysis. The low match ratio for secondary track is reasonable since they are decayed far away from the vertex and most of them do not have three HFT hits. The more contribution from the secondary track, the more difference we observed between inclusive one and primary one. The bottom panel shows the HFT matching double ratio of inclusive one over primary one. For the pions, since the secondary pion have some contributions, we do saw the different between primary one ans inclusive one at some certain $p_T$ range for this HFT match ratio. For the kaons, the relative secondary contribution is small, that's why there is no big difference between primary and inclusive ones as see on Fig.~\ref{HijingKaonsRatio}. 
-
-\begin{figure}[htbp]
-\begin{minipage}[htbp]{0.47\linewidth}
-\centering
-\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Pion.eps}
-\caption{ HFT Matching Ratio for Pions, compare between primary track and secondary tracks relay on Hijing. (bottom) The double ratios of inclusive one to primary tracks.\label{HijingPionsRatio}}
-\end{minipage}
-\hfill
-\begin{minipage}[htbp]{0.47\linewidth}
-\centering
-\includegraphics[width=1.0\textwidth,angle=0]{fig/Double_Ratio_Kaon.eps} 
-\caption{ HFT Matching Ratio for Kaons, compare between primary track and secondary tracks relay on Hijing.  (bottom) The double ratios of inclusive one to primary tracks.\label{HijingKaonsRatio}}
-\end{minipage}
-\end{figure}
-
-This secondary track contribution for our efficiency correction need to be take care, especially for Pions. There are a few percent contributions from our Hjing simulation study. In our real data efficiency correction, we took this double ratio from Hijing as an additional correction factor for the HFT matching ratio, since the data part can only obtained the inclusive one. After this additional correction, we still be able to obtain the precision like Fig.~\ref{d0hfttopoeff2}.
-
-For the secondary track Dca contributions, we tested with the inclusive track Dca or primary track Dca. In principle, with the inclusive tracks, they should have slightly broader distributions. But in our test, it seems that these contributions to the final $D^0$ efficiency is really small. This maybe due to the limited Hijing statistics or the slightly Dca difference does not contribute much. But in our real data case, we do not take this secondary Dca contributions as additional correction factor yet.
-
-
-\subsection{Vertex Resolution Contribution}
-\label{concern2}
-
-As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). To correctly count the number of peripheral events we need to understand the vertex resolution. The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
-
-To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference can be took as the additional correction factor for real data analysis if this effect is not too big. The Hijing sample is still ongoing production, this need a huge data sample for the study and it's time consumption at this moment.
-
-Xiaolong ... To Be Added ...
 
 \section{\label{results}Results}
 
