@@ -1239,76 +1239,107 @@ Figure~\ref{DoubleCountingSB} shows the final estimated double-counting contribu
 \caption{Estimated doubly-counted $D^0$ fraction to the real signal with two calculation methods from different centrality bins in Au+Au 200 GeV collisions.}\label{DoubleCountingSB}}
 \end{figure}
 
-In the $v_2$ analysis, the doubly counted candidates are still coming from $D^0$, and there is no reason that the double counting ratio is different at different $\phi$ relative to the harmonic plane of the event. Thus the double counting issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off, because the 2 counts are not independent but are treated as independent when calculating $v_2$ statistic errors.
+% In the $v_2$ analysis, the doubly counted candidates are still coming from $D^0$, and there is no reason that the double counting ratio is different at different $\phi$ relative to the harmonic plane of the event. Thus the double counting issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off, because the 2 counts are not independent but are treated as independent when calculating $v_2$ statistic errors.
 
-Assuming there is no combinatorial backgroud. Let's define the $D^0$ signal yield as $S$, and that a portion $P_{SS}$ of signal has a double mis-PID count in the signal region, and a portion $P_{SB}$ of signal has a double mis-PID count in the side band region. Then the measured $D^0$ yield will be $S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})=S(1+P_{SS}-P_{SB}/2)$, with the statistic error $\sqrt{S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})}=\sqrt{S(1+P_{SS}-P_{SB}/2)}\approx\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$. Here ${\Delta}m_S$=0.09 $GeV/c^2$ and ${\Delta}m_B$=0.18 $GeV/c^2$ are widths for signal and side band invariant mass regions respectively. ${\Delta}m_S/{\Delta}m_B=1/2$ is the scale used in $v_2$ analysis when subtracting side band background. The approximation is done with $P_{SS}<<1$ and $P_{SB}<<1$. In reality, there are 3 independent samples of $D^0$: a) those counted once $S(1-P_{SS}-P_{SB})\pm\sqrt{S(1-P_{SS}-P_{SB})}$; b) those counted twice with double mis-PID entry in the signal region $SP_{SS}\pm\sqrt{SP_{SS}}$; c) those with double mis-PID entry in the side band region $SP_{SB}\pm\sqrt{SP_{SB}}$. When calculating the raw yield, component b) has a weight of 2, and component c) has a weight of $1-{\Delta}m_S/{\Delta}m_B=1/2$. The real total statistic error is $\sqrt{S(1-P_{SS}-P_{SB}+2^2P_{SS}+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB})}\approx\sqrt{S}(1+3P_{SS}/2-P_{SB}/2+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB}/2)=\sqrt{S}(1+3P_{SS}/2-3P_{SB}/8)$. Comparing with the statistic error measured assuming all counts are independent $\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$, the relative difference is $P_{SS}-P_{SB}/8$. In Fig.~\ref{DoubleCountingSB} we know at maximum, $P_{SS}=0.1$ and $P_{SS}-P_{SB}/2=0.06$. So $P_{SS}-P_{SB}/8$ should be less than 9\%.
+% Assuming there is no combinatorial backgroud. Let's define the $D^0$ signal yield as $S$, and that a portion $P_{SS}$ of signal has a double mis-PID count in the signal region, and a portion $P_{SB}$ of signal has a double mis-PID count in the side band region. Then the measured $D^0$ yield will be $S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})=S(1+P_{SS}-P_{SB}/2)$, with the statistic error $\sqrt{S(1+P_{SS}-({\Delta}m_S/{\Delta}m_B)P_{SB})}=\sqrt{S(1+P_{SS}-P_{SB}/2)}\approx\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$. Here ${\Delta}m_S$=0.09 $GeV/c^2$ and ${\Delta}m_B$=0.18 $GeV/c^2$ are widths for signal and side band invariant mass regions respectively. ${\Delta}m_S/{\Delta}m_B=1/2$ is the scale used in $v_2$ analysis when subtracting side band background. The approximation is done with $P_{SS}<<1$ and $P_{SB}<<1$. In reality, there are 3 independent samples of $D^0$: a) those counted once $S(1-P_{SS}-P_{SB})\pm\sqrt{S(1-P_{SS}-P_{SB})}$; b) those counted twice with double mis-PID entry in the signal region $SP_{SS}\pm\sqrt{SP_{SS}}$; c) those with double mis-PID entry in the side band region $SP_{SB}\pm\sqrt{SP_{SB}}$. When calculating the raw yield, component b) has a weight of 2, and component c) has a weight of $1-{\Delta}m_S/{\Delta}m_B=1/2$. The real total statistic error is $\sqrt{S(1-P_{SS}-P_{SB}+2^2P_{SS}+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB})}\approx\sqrt{S}(1+3P_{SS}/2-P_{SB}/2+(1-{\Delta}m_S/{\Delta}m_B)^2P_{SB}/2)=\sqrt{S}(1+3P_{SS}/2-3P_{SB}/8)$. Comparing with the statistic error measured assuming all counts are independent $\sqrt{S}(1+P_{SS}/2-P_{SB}/4)$, the relative difference is $P_{SS}-P_{SB}/8$. In Fig.~\ref{DoubleCountingSB} we know at maximum, $P_{SS}=0.1$ and $P_{SS}-P_{SB}/2=0.06$. So $P_{SS}-P_{SB}/8$ should be less than 9\%.
 
-The double mis-PID also exists in combinatorial background. It will not cause any trouble for the measured central value of $D^0$ raw yield or $v_2$, since the combinatorial background can be well reproduced by like-sign and mixed events. However in terms of influence on statistic error, and it's even more complicated than the double mis-PID of $D^0$ signal. The $P_{SS}$ and $P_{SB}$ will be slightly different from the simulation of $D^0$ above, since the true invariant mass is not fixed at $D^0$ mass but is distributed in the whole signal region. Also there are new components with the true invariant mass in the side band region, so there are $P_{BB}$ and $P_{BS}$ terms. Additionally, the combinatorial background can be $\pi^+\pi^-$ or $K^+K^-$ pairs, mis-identified as $K^+\pi^-$ or $\pi^+K^-$. So one pair can also be counted twice, as $K^+\pi^-$ and $\pi^+K^-$, each with one particle mis-identified. A detailed calculation like the double mis-PID for $D^0$ signal above will be complicated, requiring knowledge of true PID components of the combinatorial background. However, since the double mis-PID in combinatorial background also require 2 mis-PID, and the invariant mass spread due to swap of the mass of the 2 particles is the same (as in Fig.~\ref{MisPIDMass_1}and~\ref{MisPIDMass_2}), the relative difference of statistic error between measurement and reality should be also on or below the level of 10\%.
+% The double mis-PID also exists in combinatorial background. It will not cause any trouble for the measured central value of $D^0$ raw yield or $v_2$, since the combinatorial background can be well reproduced by like-sign and mixed events. However in terms of influence on statistic error, and it's even more complicated than the double mis-PID of $D^0$ signal. The $P_{SS}$ and $P_{SB}$ will be slightly different from the simulation of $D^0$ above, since the true invariant mass is not fixed at $D^0$ mass but is distributed in the whole signal region. Also there are new components with the true invariant mass in the side band region, so there are $P_{BB}$ and $P_{BS}$ terms. Additionally, the combinatorial background can be $\pi^+\pi^-$ or $K^+K^-$ pairs, mis-identified as $K^+\pi^-$ or $\pi^+K^-$. So one pair can also be counted twice, as $K^+\pi^-$ and $\pi^+K^-$, each with one particle mis-identified. A detailed calculation like the double mis-PID for $D^0$ signal above will be complicated, requiring knowledge of true PID components of the combinatorial background. However, since the double mis-PID in combinatorial background also require 2 mis-PID, and the invariant mass spread due to swap of the mass of the 2 particles is the same (as in Fig.~\ref{MisPIDMass_1}and~\ref{MisPIDMass_2}), the relative difference of statistic error between measurement and reality should be also on or below the level of 10\%.
 
-In general, whether the $D^0$ measurement statistic error is dominated by the signal or background, the measured $v_2$ central value will not be influenced by double mis-PID, while the measured statistic error will be relatively 10\% smaller at most. We thus neglect this effect on the $v_2$ measurement. 
+% In general, whether the $D^0$ measurement statistic error is dominated by the signal or background, the measured $v_2$ central value will not be influenced by double mis-PID, while the measured statistic error will be relatively 10\% smaller at most. We thus neglect this effect on the $v_2$ measurement. 
 
-For the spectra analysis, we use the blue data points as the central correction value and quote the range from 0 to the black data points as systematic errors on double-counting correction.
+In general, the influence by double mis-PID is relative small. For the spectra analysis, we use the blue data points in Fig.~\ref{DoubleCountingSB} as the central correction value and quote the range from 0 to the black data points as systematic errors on double-counting correction.
 
 
 \section{\label{systematic}Systematic Uncertainties}
 
-The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals fitting range, the fitting exclusion mass range and the signals counting windows to estimate the uncertainties for yield extraction. The second one is from the TPC embedding uncertainties, this one is well studied before in STAR collaboration and we quota 3\% for single track. The next one is from the fast-simulation part, as discussed in the previous section, there are $\sim$5\% difference between the pure Hijing and fast-simulation relay on Hijing when we validating the packages. We quote this 5\% contribution as one of the systematic sources. Another source would be the vertex resolution contribution as we discussed before, since the most central collisions does not suffer the vertex contribution while the impact on the most peripheral collisions could be visible. We quote a separate systematic errors for difference centralities, 10\% for the most peripheral (40-80\%) collision, 5\% for the mid-central collisions (10-40\%) and 0 for the most central (0-10\%) collisions. The next one source coming from the bin shift correction, there are several functions can be used for the bin correction such as the levy function and fonll function, the difference between these two methods are quoted as one of the systematic source. The last source is by varying the topological cuts and daughter $p_t$ cuts. The standard TMVA cuts, the 50\% efficiency and 150\% efficiency cuts are calculated, and also the daughter $p_T$ cuts are scanned from 300 MeV, 400 MeV and 500 MeV. The difference between the corrected yield are quoted as the systematic source.
+The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals extraction methods instead of use binning counting methods we tried using fitting method to estimate the uncertainties for yield extraction. The second one is from the TPC embedding uncertainties, this one is well studied before in STAR collaboration and we quota 3\% for single track, 2\% for the secondary track contribution. The next one is from the fast-simulation part, as discussed in the previous section, there are $\sim$5\% difference between the pure Hijing and fast-simulation relay on Hijing when we validating the packages. We quote this 5\% contribution as one of the systematic sources.
+%Another source would be the vertex resolution contribution as we discussed before, since the most central collisions does not suffer the vertex contribution while the impact on the most peripheral collisions could be visible. We quote a separate systematic errors for difference centralities, 10\% for the most peripheral (40-80\%) collision, 5\% for the mid-central collisions (10-40\%) and 0 for the most central (0-10\%) collisions. 
+%The next one source coming from the bin shift correction, there are several functions can be used for the bin correction such as the levy function and fonll function, the difference between these two methods are quoted as one of the systematic source. 
+The next source is by varying the topological cuts and daughter $p_t$ cuts. The standard TMVA cuts, the 50\% efficiency and 150\% efficiency cuts are calculated, and also the daughter $p_T$ cuts are checked for 300 MeV and 500 MeV beside of the default value 600 MeV. The difference between the corrected yield are quoted as the systematic source. Also there is a source coming from the double counting as we discussed in the previous section.
 
-Table~\ref{syserr} shows the $D^0$ spectrum different sources contribution in the most central 0-10\% centrality. As we see, the systematic uncertainties is quite small in the most of the $p_T$ range except the first two and last two $p_T$ ranges due to the limited statistics and large contribution from yield extraction.
+Fig.~\ref{sysErr_0_10} to Fig.~\ref{sysErr_0_80} shows the $D^0$ spectrum different sources contribution in various centralities. As we see, the systematic uncertainties is quite small in the most of the $p_T$ range except some of the $p_T$ ranges due to the limited statistics and large contribution from yield extraction.
 
-For the $R_{AA}$ results shown later, they share the most of the systematic uncertainties with the spectrum, but for the TPC part, the TPC contribution from Au+Au and p+p collisions can be canceled out. The black bracket only represented the uncertainties from Au+Au.
-
-\begin{table}[htp]
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\caption{Systematic uncertainties from different sources}
-\label{syserr}
-	\begin{center}
-	\begin{tabular}{l|l|l|l|l|l|l|l}
-  \Xhline{1.6pt}
-  $p_T$ range&Yield extra&Embedding&fast-simu&Topo Scan&bin shift&daughter $p_T$&total\\ \hline
-  0.0 -  0.5  &   0.28575        &  0.06     &  0.05           & 0.150186  &  0.206038   &  0.0961785  &   0.402506  \\ \hline
-	0.5 - 1.0   &   0.276043       &  0.06     &  0.05           & 0.124592  &  0.0641394  &  0.104796   &   0.336034  \\ \hline
-	1.0 - 1.5   &   0.0332581      &  0.06     &  0.05           & 0.08445   &  0.0416632  &  0.0354619  &   0.131648  \\ \hline
-	1.5 - 2.0   &   0.0284874      &  0.06     &  0.05           & 0.0430791 &  0.0179911  &  0.013235   &   0.096261  \\ \hline
-	2.0 - 2.5   &   0.0152306      &  0.06     &  0.05           & 0.0597399 &  0.00416767 &  0.00651388 &   0.0998029 \\ \hline
-  2.5 - 3.0   &   0.0173818      &  0.06     &  0.05           & 0.0762663 &  0.00261387 &  0.00930911 &   0.11096   \\ \hline
-  3.0 - 3.5   &   0.0164046      &  0.06     &  0.05           & 0.0368647 &  0.00551249 &  0.0177607  &   0.0898551 \\ \hline
-  3.5 - 4.0   &   0.0301197      &  0.06     &  0.05           & 0.0712203 &  0.00646695 &  0.0237711  &   0.112634  \\ \hline
-  4.0 - 5.0   &   0.0736611      &  0.06     &  0.05           & 0.0615253 &  0.0312138  &  0.0214862  & 0.129411      \\ \hline
-  5.0 - 6.0   &   0.0751424      &  0.06     &  0.05           & 0.11637   &  0.0261331  &  0.0226671  & 0.162742      \\ \hline
-  6.0 - 7.0   &   0.0944053      &  0.06     &  0.05           & 0.0465479 &  0.0210969  &  0.00687676 & 0.132934      \\ \hline
-  7.0 - 8.0   &   0.0730125      &  0.06     &  0.05           & 0.409901  &  0.0169993  &  0.00289802 & 0.423966      \\ \hline
-  8.0 - 10.0  &   0.0984801      &  0.06     &  0.05           & 0.696775  & 0.048144    &  0.061042   &  0.712276    \\ \hline
+\includegraphics[width=1.0\textwidth,angle=0]{fig/sysErr_0_10.pdf}
+\caption{ Systematic uncertainties from different sources for 0-10\%. \label{sysErr_0_10}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/sysErr_10_40.pdf} 
+\caption{ Systematic uncertainties from different sources for 10-40\%. \label{sysErr_10_40}}
+\end{minipage}
+\end{figure}
 
-  \Xhline{1.6pt}
-	\end{tabular}
-	\end{center}
-\end{table}
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/sysErr_40_80.pdf}
+\caption{ Systematic uncertainties from different sources for 40-80\%. \label{sysErr_40_80}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{fig/sysErr_0_80.pdf} 
+\caption{ Systematic uncertainties from different sources for 0-80\%. \label{sysErr_0_80}}
+\end{minipage}
+\end{figure}
 
 
-\subsection{Validation with Ks Spectra Measurement ... To Be Added}
+% For the $R_{AA}$ results shown later, they share the most of the systematic uncertainties with the spectrum, but for the TPC part, the TPC contribution from Au+Au and p+p collisions can be canceled out. The black bracket only represented the uncertainties from Au+Au.
+
+% \begin{table}[htp]
+% \centering
+% \caption{Systematic uncertainties from different sources}
+% \label{syserr}
+% 	\begin{center}
+% 	\begin{tabular}{l|l|l|l|l|l|l|l}
+%   \Xhline{1.6pt}
+%   $p_T$ range&Yield extra&Embedding&fast-simu&Topo Scan&bin shift&daughter $p_T$&total\\ \hline
+%   0.0 -  0.5  &   0.28575        &  0.06     &  0.05           & 0.150186  &  0.206038   &  0.0961785  &   0.402506  \\ \hline
+% 	0.5 - 1.0   &   0.276043       &  0.06     &  0.05           & 0.124592  &  0.0641394  &  0.104796   &   0.336034  \\ \hline
+% 	1.0 - 1.5   &   0.0332581      &  0.06     &  0.05           & 0.08445   &  0.0416632  &  0.0354619  &   0.131648  \\ \hline
+% 	1.5 - 2.0   &   0.0284874      &  0.06     &  0.05           & 0.0430791 &  0.0179911  &  0.013235   &   0.096261  \\ \hline
+% 	2.0 - 2.5   &   0.0152306      &  0.06     &  0.05           & 0.0597399 &  0.00416767 &  0.00651388 &   0.0998029 \\ \hline
+%   2.5 - 3.0   &   0.0173818      &  0.06     &  0.05           & 0.0762663 &  0.00261387 &  0.00930911 &   0.11096   \\ \hline
+%   3.0 - 3.5   &   0.0164046      &  0.06     &  0.05           & 0.0368647 &  0.00551249 &  0.0177607  &   0.0898551 \\ \hline
+%   3.5 - 4.0   &   0.0301197      &  0.06     &  0.05           & 0.0712203 &  0.00646695 &  0.0237711  &   0.112634  \\ \hline
+%   4.0 - 5.0   &   0.0736611      &  0.06     &  0.05           & 0.0615253 &  0.0312138  &  0.0214862  & 0.129411      \\ \hline
+%   5.0 - 6.0   &   0.0751424      &  0.06     &  0.05           & 0.11637   &  0.0261331  &  0.0226671  & 0.162742      \\ \hline
+%   6.0 - 7.0   &   0.0944053      &  0.06     &  0.05           & 0.0465479 &  0.0210969  &  0.00687676 & 0.132934      \\ \hline
+%   7.0 - 8.0   &   0.0730125      &  0.06     &  0.05           & 0.409901  &  0.0169993  &  0.00289802 & 0.423966      \\ \hline
+%   8.0 - 10.0  &   0.0984801      &  0.06     &  0.05           & 0.696775  & 0.048144    &  0.061042   &  0.712276    \\ \hline
+%   \Xhline{1.6pt}
+% 	\end{tabular}
+% 	\end{center}
+% \end{table}
+
+
+\section{Validation with Ks Spectra Measurement ... To Be Added}
 
  To verify the data-driven fast-simulation procedures, we calculated the efficiency corrected spectra for $K_{s}$ in 10-20\% centralities using the data-driven methods. The result shows very good agreement with the published result as in Fig.~\ref{Ks_spectra}. The lower panel shows the double ratio comparison between run 14 and the published one.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{fig/Ks_spectra_PtCut_0.eps}
-\caption{\label{fig:Ks_spectra}Ks spectra.}
+\caption{Ks spectra.\label{Ks_spectra}}
 \end{figure}
 
-\section{\label{results}Results}
+\section{\label{results}Results ... To Be Added}
 
-\section{\label{Run1011}Re-analysis of Run10/11 data}
+\section{\label{Run1011}Re-analysis of Run10/11 data ... To Be Added}
 
-\subsection{Long and Yifei's re-analysis}
+\subsection{Long and Yifei's re-analysis ... To Be Added}
 
-Long Zhou ... To Be Added
+... To Be Added
 
-\subsection{Xiaolong's re-analysis}
+\subsection{Xiaolong's re-analysis ... To Be Added}
 
 Xiaolong ... To Be Added
 
-\section{\label{Run14TPC}Run14 TPC analysis}
+\section{\label{Run14TPC}Run14 TPC analysis  ... To Be Added}
 
 Xiaolong ... To Be Added
 
