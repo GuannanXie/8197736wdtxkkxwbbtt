@@ -4,14 +4,14 @@ LBNL - Nuclear Science Division, RNC Soft Hadron Physics Group
 USTC - Modern Physics Department, High Energy Physics Group
 
 ## Declaration
-This is for D<sup>0</sup> Spectra analysis note, the original one is on overleaf, but the number of project files on Overleaf have a limit 60, so we remove all the project to GitHub.
+This is for D<sup>0</sup> Spectra analysis note.
 
 All Rights Reserved !
 
 ###Authors:  
 [Xiaolong Chen](https://github.com/xlchen123) (xlchen@lbl.gov)  
 [Xin Dong](https://github.com/starsdong) (xdong@lbl.gov)  
-[Guannan Xie](https://github.com/GuannanXie) (xgn1992@mail.ustc.edu.cn)  
+[Guannan Xie](https://github.com/GuannanXie) (xieguannanpp@gmail.com)  
 [To Be Added]
 - - -
 ### Useful Links:  
