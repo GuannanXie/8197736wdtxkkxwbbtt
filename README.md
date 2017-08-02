@@ -3,6 +3,8 @@ LBNL - Nuclear Science Division, RNC Soft Hadron Physics Group
 
 USTC - Modern Physics Department, High Energy Physics Group
 
+UIC - Department of Physics 
+
 ## Declaration
 This is for D<sup>0</sup> Spectra analysis note.
 
