@@ -57,7 +57,7 @@ kaon PID:
 
 \subsection{Topological Cut Optimization}
 
-The secondary vertex is reconstructed with selected kaon and pion global tracks. In this analysis, the middle point on the Distance of the Closest Approach (DCA) between two daughter tracks is considered as the secondary decay vertex of the candidate $D^0$. As shown in Fig.~\ref{fig:D0cartoon}, 5 geometrical variables are chosen to select $D^0$ and reject combinatorial background, which is dominated by a pair of tracks directly from the primary vertex: decay length (the distance between the decay vertex and Primary Vertex PV), DCA between the 2 daughters, DCA between the reconstructed $D^0$ flying path and PV, DCA between the $\pi$ track and PV, and DCA between the $K$ track and PV. The cuts on these variables are optimized by the Toolkit for Multivariate Data Analysis (TMVA) package. They change according to the $D^0$ candidate $p_T$ in order to have the best significance in all the covered $p_T$ range. Additionally there is a $cos(\theta) > 0$ cut to make sure the decay vertex with respect to the primary vertex is roughly in the same direction as the momentum.
+The secondary vertex is reconstructed with selected kaon and pion global tracks. In this analysis, the middle point on the Distance of the Closest Approach (DCA) between two daughter tracks is considered as the secondary decay vertex of the candidate $D^0$. As shown in Fig.~\ref{fig:D0cartoon}, 5 geometrical variables are chosen to select $D^0$ and reject combinatorial background, which is dominated by a pair of tracks directly from the primary vertex: decay length (the distance between the decay vertex and Primary Vertex PV), DCA between the 2 daughters, DCA between the reconstructed $D^0$ flying path and PV, DCA between the $\pi$ track and PV, and DCA between the $K$ track and PV. The cuts on these variables are optimized by the Toolkit for Multivariate Data Analysis (TMVA) package. They change according to the $D^0$ candidate $p_T$ and centrality in order to have the best significance in all the covered $p_T$ and centrality range. Additionally there is a $cos(\theta) > 0.95$ cut to make sure the decay vertex with respect to the primary vertex is roughly close to the same direction as the momentum.
 
 \begin{figure}[htbp]
 \centering
@@ -66,39 +66,139 @@ The secondary vertex is reconstructed with selected kaon and pion global tracks.
  \label{fig:D0cartoon}
 \end{figure}
 
-The TMVA need signal and background sample input for training. The signal sample is obtained from a toy fast-simulation and the background sample is from real data like sign pairs in $D^0$ mass window and unlike sign pairs in side bands range. 
+The TMVA need signal and background sample input for training. The signal sample is obtained from the real data fast-simulation which will discuss later and the background sample is from real data like sign pairs in the $D^0$ mass window and unlike sign pairs in side bands range. 
 
-Fig.~\ref{fig:variables} shows distributions of the 5 geometry variables for signal (blue) and background (red) plotted by the TMVA, for $p_T$ between 2 and 3 GeV/$c$.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[keepaspectratio,width=1.0\textwidth]{figure/Run14_D0HFT/variables_id_c1.eps}
-\caption{Distributions of the 5 geometry variables for signal (blue) and background (red).}
-\label{fig:variables}
-\end{figure}
-
-The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sample different cut sets in the variable space, calculate signal and background efficiency for each cut set. Then one cut set with lowest background efficiency at certain signal efficiency. We can then pick the cut set with the best significance according to the signal and background yield corresponding to the whole data set. Fig.~\ref{fig:effPass4} shows the lowest background efficiency, significance and so on vs. signal efficiency for $p_T$ between 2 and 3 GeV/$c$. We can see that as cuts get tighter, signal and background efficiency both decrease, but background efficiency decreases much faster.
+Fig.~\ref{fig:variables_0_10} shows an example of the distributions of the 5 geometry variables for signal (blue) and background (red) plotted by the TMVA, for $p_T$ between 1 and 2 GeV/$c$ and centrality for 0-10\%.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{figure/Run14_D0HFT/effPass4.pdf}
-\caption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency.}
-\label{fig:effPass4}
+\includegraphics[keepaspectratio,width=1.0\textwidth]{figure/Run14_D0HFT/variables_id_c1_0_10.eps}
+\caption{Distributions of the 5 geometry variables for signal (blue) and background (red) from 0-10\% and 1-2 GeV/c.}
+\label{fig:variables_0_10}
 \end{figure}
+
+The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sample different cut sets in the variable space, calculate signal and background efficiency for each cut set. Then one cut set with lowest background efficiency at certain signal efficiency. We can then pick the cut set with the best significance according to the signal and background yield corresponding to the whole data set. Fig.~\ref{fig:effPass_0_10} shows the lowest background efficiency, significance and so on vs. signal efficiency for $p_T$ between 1 and 2 GeV/$c$ for the centrality 0-10\%. We can see that as cuts get tighter, signal and background efficiency both decrease, but background efficiency decreases much faster.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{figure/Run14_D0HFT/cent0_10_pt1_2.pdf}
+\caption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency from 0-10\% and 1-2 GeV/c.}
+\label{fig:effPass_0_10}
+\end{figure}
+
+Fig.~\ref{fig:variables_60_80} and Fig.~\ref{fig:effPass_60_80} shows the similar plots for the 5-8 GeV/c in the centrality 60-80\%.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth]{figure/Run14_D0HFT/variables_id_c1_60_80.eps}
+\caption{Distributions of the 5 geometry variables for signal (blue) and background (red) from 60-80\% and 5-8 GeV/c.}
+\label{fig:variables_60_80}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{figure/Run14_D0HFT/cent60_80_pt5_8.eps}
+\caption{Signal efficiency, lowest background efficiency, significance and so on vs. signal efficiency from 60-80\% and 5-8 GeV/c.}
+\label{fig:effPass_60_80}
+\end{figure}
+
+% \begin{table}[htp]
+%   \centering
+%   \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
+%   \label{geometryCuts}
+%   \begin{center}
+%     \begin{tabular}{l|l|l|l|l|l}
+%       % \Xhline{1.6pt}
+%       $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+%       decay length (${\upmu}m$) $>$ & 145 & 181 & 212 & 247 & 259\\ \hline
+%       DCA between 2 daughters (${\upmu}m$) $<$ & 84 & 66 & 57 & 50 & 60\\ \hline
+%       DCA between $D^0$ and PV (${\upmu}m$) $<$ & 61 & 49 & 38 & 38 & 40\\ \hline
+%       DCA between $\pi$ and PV (${\upmu}m$) $>$ & 110 & 111 & 86 & 81 & 62\\ \hline
+%       DCA between $K$ and PV (${\upmu}m$) $>$ & 103 & 91 & 95 & 79 & 58\\ \hline
+%       % \Xhline{1.6pt}
+%     \end{tabular}
+%   \end{center}
+% \end{table}
+
+% \begin{table}[htp]
+%   \centering
+%   \caption{Tight geometrical cuts for different $D^0$ $p_T$.}
+%   \label{geometryCutsTight}
+%   \begin{center}
+%     \begin{tabular}{l|l|l|l|l|l}
+%       % \Xhline{1.6pt}
+%       $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+%       decay length (${\upmu}m$) $>$ & 144 & 204 & 242 & 245 & 300\\\hline
+%       DCA between 2 daughters (${\upmu}m$) $<$ & 69 & 48 & 44 & 49 & 47\\ \hline
+%       DCA between $D^0$ and PV (${\upmu}m$) $<$ & 44 & 36 & 31 & 26 & 32\\ \hline
+%       DCA between $\pi$ and PV (${\upmu}m$) $>$ & 120 & 102 & 118 & 109 & 96\\ \hline
+%       DCA between $K$ and PV (${\upmu}m$) $>$ & 119 & 110 & 109 & 106 & 80\\ \hline
+%       % \Xhline{1.6pt}
+%     \end{tabular}
+%   \end{center}
+% \end{table}
+
+% \begin{table}[htp]
+%   \centering
+%   \caption{Loose geometrical cuts for different $D^0$ $p_T$.}
+%   \label{geometryCutsLoose}
+%   \begin{center}
+%     \begin{tabular}{l|l|l|l|l|l}
+%       % \Xhline{1.6pt}
+%       $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+%       decay length (${\upmu}m$) $>$ & 110 & 168 & 187 & 199 & 180\\ \hline
+%       DCA between 2 daughters (${\upmu}m$) $<$ & 77 & 78 & 74 & 68 & 66\\ \hline
+%       DCA between $D^0$ and PV (${\upmu}m$) $<$ & 72 & 53 & 47 & 42 & 62\\ \hline
+%       DCA between $\pi$ and PV (${\upmu}m$) $>$ & 92 & 78 & 86 & 65 & 47\\ \hline
+%       DCA between $K$ and PV (${\upmu}m$) $>$ & 105 & 68 & 80 & 66 & 41\\ \hline
+%       % \Xhline{1.6pt}
+%     \end{tabular}
+%   \end{center}
+% \end{table}
 
 \begin{table}[htp]
   \centering
   \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
   \label{geometryCuts}
   \begin{center}
-    \begin{tabular}{l|l|l|l|l|l}
+    \begin{tabular}{l|l|l|l|l|l|l}
       % \Xhline{1.6pt}
-      $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
-      decay length (${\upmu}m$) $>$ & 145 & 181 & 212 & 247 & 259\\ \hline
-      DCA between 2 daughters (${\upmu}m$) $<$ & 84 & 66 & 57 & 50 & 60\\ \hline
-      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 61 & 49 & 38 & 38 & 40\\ \hline
-      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 110 & 111 & 86 & 81 & 62\\ \hline
-      DCA between $K$ and PV (${\upmu}m$) $>$ & 103 & 91 & 95 & 79 & 58\\ \hline
+      $D^0$ $p_T$ (GeV/$c$) & 0-0.5 & 0.5-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+      % Centrality  & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\%\\ \hline
+      Centrality  60-80\% & &  & &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 175 & 175 & 163 & 167 & 160 & 170\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 77 & 77 & 123 & 117 & 106 & 91\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 76 & 76 & 90 & 56 & 69 & 50\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 98 & 98 & 80 & 66 & 49 & 42\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 106 & 106 & 73 & 57 & 46 & 30\\ \hline
+      % Centrality  & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\%\\ \hline
+      Centrality  40-60\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 171 & 196 & 210 & 187 & 190 & 214\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 80 & 83 & 92 & 81 & 94 & 106\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 72 & 57 & 58 & 49 & 49 & 47\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 145 & 128 & 72 & 79 & 60 & 51\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 140 & 100 & 75 & 72 & 60 & 42\\ \hline
+      % Centrality  & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\%\\ \hline
+      Centrality  20-40\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 178 & 206 & 221 & 209 & 219 & 240\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 78 & 73 & 80 & 93 & 96 & 103\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 66 & 55 & 53 & 46 & 41 & 50\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 131 & 113 & 99 & 106 & 65 & 52\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 151 & 102 & 104 & 99 & 63 & 42\\ \hline
+      % Centrality  & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\%\\ \hline
+      Centrality  10-20\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 172 & 215 & 252 & 232 & 236 & 237\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 76 & 78 & 92 & 72 & 86 & 85\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 63 & 47 & 45 & 46 & 42 & 44\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 141 & 100 & 74 & 77 & 66 & 52\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 145 & 113 & 94 & 89 & 69 & 48\\ \hline
+      % Centrality  & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\%\\ \hline
+      Centrality  0-10\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 100 & 199 & 227 & 232 & 236 & 255\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 71 & 64 & 70 & 63 & 82 & 80\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 62 & 55 & 40 & 40 & 40 & 44\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 131 & 105 & 93 & 97 & 67 & 55\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 138 & 109 & 82 & 94 & 76 & 54\\ \hline
       % \Xhline{1.6pt}
     \end{tabular}
   \end{center}
@@ -106,36 +206,95 @@ The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sampl
 
 \begin{table}[htp]
   \centering
-  \caption{Tight geometrical cuts for different $D^0$ $p_T$.}
+  \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
   \label{geometryCutsTight}
   \begin{center}
-    \begin{tabular}{l|l|l|l|l|l}
+    \begin{tabular}{l|l|l|l|l|l|l}
       % \Xhline{1.6pt}
-      $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
-      decay length (${\upmu}m$) $>$ & 144 & 204 & 242 & 245 & 300\\\hline
-      DCA between 2 daughters (${\upmu}m$) $<$ & 69 & 48 & 44 & 49 & 47\\ \hline
-      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 44 & 36 & 31 & 26 & 32\\ \hline
-      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 120 & 102 & 118 & 109 & 96\\ \hline
-      DCA between $K$ and PV (${\upmu}m$) $>$ & 119 & 110 & 109 & 106 & 80\\ \hline
+      $D^0$ $p_T$ (GeV/$c$) & 0-0.5 & 0.5-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+      % Centrality  & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\%\\ \hline
+      Centrality  60-80\% & &  & &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 216 & 216 & 221 & 211 & 158 & 212\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 103 & 103 & 111 & 71 & 85 & 90\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 56 & 45 & 54 & 48 & 37 & 30\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 115 & 115 & 85 & 85 & 80 & 54\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 107 & 107 & 75 & 98 & 69 & 44\\ \hline
+      % Centrality  & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\%\\ \hline
+      Centrality  40-60\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 222 & 229 & 269 & 236 & 232 & 182\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 88 & 59 & 81 & 83 & 73 & 108\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 56 & 45 & 50 & 37 & 29 & 26\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 143 & 100 & 72 & 145 & 113 & 95\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 176 & 100 & 123 & 92 & 68 & 56\\ \hline
+      % Centrality  & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\%\\ \hline
+      Centrality  20-40\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 240 & 242 & 268 & 319 & 176 & 338\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 61 & 43 & 70 & 89 & 66 & 70\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 62 & 60 & 37 & 38 & 30 & 26\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 150 & 113 & 63 & 149 & 107 & 105\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 158 & 123 & 133 & 125 & 103 & 53\\ \hline
+      % Centrality  & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\%\\ \hline
+      Centrality  10-20\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 219 & 240 & 213 & 231 & 261 & 399\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 77 & 49 & 42 & 56 & 53 & 119\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 56 & 49 & 39 & 36 & 33 & 28\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 172 & 100 & 144 & 133 & 130 & 92\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 172 & 165 & 119 & 125 & 91 & 57\\ \hline
+      % Centrality  & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\%\\ \hline
+      Centrality  0-10\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 100 & 230 & 268 & 292 & 249 & 225\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 77 & 44 & 47 & 73 & 60 & 61\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 55 & 53 & 37 & 27 & 26 & 25\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 139 & 148 & 93 & 133 & 80 & 88\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 170 & 109 & 117 & 109 & 111 & 59\\ \hline
       % \Xhline{1.6pt}
     \end{tabular}
   \end{center}
 \end{table}
 
-
 \begin{table}[htp]
   \centering
-  \caption{Loose geometrical cuts for different $D^0$ $p_T$.}
+  \caption{Standard geometrical cuts for different $D^0$ $p_T$.}
   \label{geometryCutsLoose}
   \begin{center}
-    \begin{tabular}{l|l|l|l|l|l}
+    \begin{tabular}{l|l|l|l|l|l|l}
       % \Xhline{1.6pt}
-      $D^0$ $p_T$ (GeV/$c$) & 0-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
-      decay length (${\upmu}m$) $>$ & 110 & 168 & 187 & 199 & 180\\ \hline
-      DCA between 2 daughters (${\upmu}m$) $<$ & 77 & 78 & 74 & 68 & 66\\ \hline
-      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 72 & 53 & 47 & 42 & 62\\ \hline
-      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 92 & 78 & 86 & 65 & 47\\ \hline
-      DCA between $K$ and PV (${\upmu}m$) $>$ & 105 & 68 & 80 & 66 & 41\\ \hline
+      $D^0$ $p_T$ (GeV/$c$) & 0-0.5 & 0.5-1 & 1-2 & 2-3 & 3-5 & 5-10\\ \hline
+      % Centrality  & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\% & 60-80\%\\ \hline
+      Centrality  60-80\% & &  & &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 158 & 139 & 125 & 118 & 117 & 133\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 109 & 109 & 136 & 116 & 123 & 124\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 77 & 77 & 97 & 85 & 77 & 59\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 96 & 96 & 58 & 42 & 29 & 20\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 92 & 92 & 50 & 39 & 30 & 20\\ \hline
+      % Centrality  & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\% & 40-60\%\\ \hline
+      Centrality  40-60\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 158 & 153 & 172 & 150 & 126 & 164\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 95 & 84 & 100 & 108 & 130 & 113\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 69 & 83 & 87 & 77 & 85 & 72\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 124 & 114 & 72 & 50 & 40 & 35\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 115 & 114 & 67 & 50 & 40 & 35\\ \hline
+      % Centrality  & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\% & 20-40\%\\ \hline
+      Centrality  20-40\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 100 & 177 & 177 & 194 & 131 & 150\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 81 & 90 & 78 & 94 & 137 & 121\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 75 & 73 & 56 & 53 & 100 & 90\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 111 & 113 & 89 & 62 & 50 & 35\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 134 & 112 & 74 & 63 & 50 & 35\\ \hline
+      % Centrality  & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\% & 10-20\%\\ \hline
+      Centrality  10-20\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 157 & 197 & 222 & 180 & 155 & 189\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 82 & 86 & 99 & 102 & 121 & 105\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 71 & 63 & 55 & 52 & 65 & 55\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 108 & 100 & 74 & 69 & 50 & 37\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 135 & 120 & 70 & 60 & 50 & 35\\ \hline
+      % Centrality  & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\% & 0-10\%\\ \hline
+      Centrality  0-10\% &  &  &  &  & & \\ \hline
+      decay length (${\upmu}m$) $>$ & 148 & 179 & 215 & 198 & 167 & 206\\ \hline
+      DCA between 2 daughters (${\upmu}m$) $<$ & 98 & 87 & 88 & 78 & 100 & 101\\ \hline
+      DCA between $D^0$ and PV (${\upmu}m$) $<$ & 78 & 63 & 54 & 45 & 62 & 47\\ \hline
+      DCA between $\pi$ and PV (${\upmu}m$) $>$ & 116 & 105 & 93 & 72 & 50 & 41\\ \hline
+      DCA between $K$ and PV (${\upmu}m$) $>$ & 111 & 109 & 80 & 67 & 50 & 35\\ \hline
       % \Xhline{1.6pt}
     \end{tabular}
   \end{center}
