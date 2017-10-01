@@ -510,14 +510,14 @@ For the secondary tracks, they have different contributions to the HFT mathing r
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Pion-eps-converted-to.pdf}
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Pion.pdf}
 \caption{The fraction of the different sources for the pion spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source.}
 \label{Fraction_Pion}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon-eps-converted-to.pdf}
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon.pdf}
 \caption{The fraction of the different sources for the kaon spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source.}
 \label{Fraction_Kaon}
 \end{figure}
@@ -538,6 +538,22 @@ The secondary track have kind of different performance compare to the primary tr
 \caption{ HFT Matching Ratio for Kaons, compare between primary track and secondary tracks relay on Hijing.  (bottom) The double ratios of inclusive one to primary tracks.\label{HijingKaonsRatio}}
 \end{minipage}
 \end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Physics_FastHijingVsPureHijing_HFTTopo_inclusive.pdf}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black) from the inclusive particles. (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttoporealeffinclusive}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Physics_FastHijingVsPureHijing_HFTTopo_inclusiveCorrect.pdf}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (red) and Fast-Simulation with Hijing input (black) from the inclusive particles after the correction from secondary particles. (right) Double ratio of these acceptance to Hijing.}
+\label{d0hfttoporealeffinclusivecorrect}
+\end{figure}
+
 
 This secondary track contribution for our efficiency correction need to be taken care, especially for Pions. There are a few percent contributions from our Hjing simulation study. In our real data efficiency correction, we took this double ratio from Hijing as an additional correction factor for the HFT matching ratio, since the data part can only obtained the inclusive one. After this additional correction, we still be able to obtain the precision like Fig.~\ref{d0hfttopoeff2}.
 
