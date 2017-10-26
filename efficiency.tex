@@ -231,19 +231,47 @@ After all the input ingredients ready for the fast-simulation, a simple toy MC s
 
 \subsubsection{$D^0$ Efficiency and Topological Distribution}
 
-As discussed in the recipe, we obtain the efficiency step by step as shown on Fig.~\ref{D0effStep}. First we have the TPC efficiency shown by red maker which is after the $p_T$, $\eta$ acceptance cut and TPC tracking efficiency from embedding. Then after folding in the HFT matching efficiency, the second item is obtained on black circle. Last step is after the topological cut, as shown by the cyan marker. As see in the low $p_T$ part, the topological cut efficiency is really small due to the tight cut as the combinatorial background is huge.
+As discussed in the recipe, we obtain the efficiency step by step as shown on Fig.~\ref{D0effStep1} to Fig.~\ref{D0effStep3}.  First we have the TPC efficiency shown by red maker which is after the $p_T$, $\eta$ acceptance cut and TPC tracking efficiency from embedding. Then after folding in the HFT matching efficiency, the second item is obtained on black circle. Last step is after the topological cut, as shown by the cyan marker. As see in the low $p_T$ part, the topological cut efficiency is really small due to the tight cut as the combinatorial background is huge.
+
+% \begin{figure}[htbp]
+% \begin{minipage}[htbp]{0.52\linewidth}
+% \centering
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/HFT_efficiencyCombineStepbyStep_2.eps}
+% \caption{ $D^0$ efficiency step by step from TPC, HFT Ratio, Topological cut in most central 0-10\%. \label{D0effStep}}
+% \end{minipage}
+% \hfill
+% \begin{minipage}[htbp]{0.52\linewidth}
+% \centering
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/HFT_efficiencyCombineCompare_5.eps} 
+% \caption{ $D^0$ efficiency including TPC, HFT and Topological cut in several centralities. \label{D0effCombine}}
+% \end{minipage}
+% \end{figure}
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/HFT_efficiencyCombineStepbyStep_2.eps}
-\caption{ $D^0$ efficiency step by step from TPC, HFT Ratio, Topological cut in most central 0-10\%. \label{D0effStep}}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_tpc.pdf}
+\caption{ $D^0$ efficiency step by step from TPC in different centralities. \label{D0effStep1}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/HFT_efficiencyCombineCompare_5.eps} 
-\caption{ $D^0$ efficiency including TPC, HFT and Topological cut in several centralities. \label{D0effCombine}}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_pid.pdf} 
+\caption{ $D^0$ efficiency including PID in several centralities. \label{D0effStep2}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_hftTopo.pdf}
+\caption{ $D^0$ efficiency step by step from HFT acceptance tracking and topological cuts in different centralities. \label{D0effStep3}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff.pdf} 
+\caption{ $D^0$ efficiency including PID in several centralities. \label{D0effCombine}}
 \end{minipage}
 \end{figure}
 
@@ -565,6 +593,29 @@ For the secondary track Dca contributions, we tested with the inclusive track Dc
 
 As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). To correctly count the number of peripheral events we need to understand the vertex resolution. The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
 
+Fig.~\ref{vtxX_vsCent} shows the vertex resolution in the X direction using the sub-event method. We divide the event to two randomly subevent, and then reconstruct two vertexes. The difference of the two vertexes can be somehow demonstrate the vertex resolutions.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vxtX_70_80.png}
+\caption{ FWHM of the subEvent vertex resolutions for 70-80\%.\label{vtxX_70_80}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.47\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_20_30.png} 
+\caption{ FWHM of the subEvent vertex resolutions for 20-30\%.\label{vtxX_20_30}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figure/Run14_D0HFT/vtxX_vsCent.pdf}
+\caption{ Full Width of the Half Maximum (FWHM ) for Vertex resolution using sub-event method versus centralities in Au + Au collisions.}
+\label{fig:vtxX_vsCent} 
+\end{figure}
+
 To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference can be took as the additional correction factor for real data analysis if this effect is not too big. The MB Hijing sample we used here is from the same setup as we discussed before, and the only difference compared to the 0-10\% Hjing sample is the impact parameters (b). But for our centrality selection, we still use grefumlt for both data and simulation.
 
 For the QA of the simulation samples, including HFT matching ratio and Dca resolutions for different centralities, all the details can be found in the next links:
@@ -574,13 +625,13 @@ For the QA of the simulation samples, including HFT matching ratio and Dca resol
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_0.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_0.pdf}
 \caption{ The comparison of $D^0$ acceptance between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_0}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_1.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_1.pdf} 
 \caption{ The comparison of $D^0$ TPC acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these efficiency of Hijing to Fast-Simulation.\label{70_80_1}}
 \end{minipage}
 \end{figure}
@@ -588,13 +639,13 @@ For the QA of the simulation samples, including HFT matching ratio and Dca resol
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_2.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_2.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_2}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these efficiency of Hijing to Fast-Simulation.\label{70_80_3}}
 \end{minipage}
 \end{figure}
@@ -607,13 +658,13 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 70-80\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{70_80}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/60_70.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/60_70.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 60-70\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{60_70}}
 \end{minipage}
 \end{figure}
@@ -621,13 +672,13 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/50_60.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/50_60.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 50-60\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{50_60}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/40_50.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/40_50.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 40-50\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{40_50}}
 \end{minipage}
 \end{figure}
@@ -635,15 +686,22 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/30_40.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/30_40.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 30-40\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{30_40}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/20_30.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/20_30.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 20-30\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{20_30}}
 \end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.6\columnwidth]{figure/Run14_D0HFT/Mcd0Eff_20_80_vsCent.pdf}
+\caption{ The correction factor between Hijing and Fast-Simulation for difference centralities in tho pT ranges.}
+\label{Mcd0Eff_20_80_vsCent}}
 \end{figure}
 
 For this vertex contributions, we use these double ratios as our additional correction factor for the final results. As we saw and discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
