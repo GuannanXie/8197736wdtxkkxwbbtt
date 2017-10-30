@@ -793,3 +793,13 @@ Figure~\ref{DoubleCountingSB} shows the final estimated double-counting contribu
 % In general, whether the $D^0$ measurement statistic error is dominated by the signal or background, the measured $v_2$ central value will not be influenced by double mis-PID, while the measured statistic error will be relatively 10\% smaller at most. We thus neglect this effect on the $v_2$ measurement. 
 
 In general, the influence by double mis-PID is relative small. For the spectra analysis, we use the blue data points in Fig.~\ref{DoubleCountingSB} as the central correction value and quote the range from 0 to the black data points as systematic errors on double-counting correction.
+
+\subsection{Input $p_T$ shape} 
+For the efficiency correction, the toy MC simulation have the flat pt input distributions and then weight by the pt shape from run10 published 0-10\% spectra. As we know that the input publish spectra do have some issues, we need to quality the contribution to our final result. So after we have the run14 spectra, in principle, we can do iteration for several times to correct the efficiency with the new shape. But after we checked one time as shown in Fig.~\ref{WeightSpectra}, the difference is really small, less than 0.2\%. So we just ignore this effect.
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.6\columnwidth]{figure/Run14_D0HFT/WeightSpectra.eps}
+\caption{The efficiency difference with taking the old run10 and run14 spectra as weight}\label{WeightSpectra}}
+\end{figure}
+
