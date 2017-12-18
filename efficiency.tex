@@ -335,7 +335,7 @@ The Data-Driven Fast-Simulation also provide the topological information, can be
 
 From Fig.~\ref{pointingangle} to Fig.~\ref{kaonDca}, these are the topological variables (cos($\theta$), decayLength, dcaDaughters, D0DcaToVtx, PionDca and KaonDca) used for the $D^0$ reconstruction. The distributions from the real data part are using mixed event method to statistical subtract the background. The Data-Driven Fast-Simulation part was the package we relayed on for our efficiency study as shown before.
 
-Comparison these topological variables between real data and Fast-Simulation, the agreement is reasonable good, which means our Data-Driven Fast-Simulation method can well reproduce the topological variables in real data. In another word, the efficiency estimation from Data-Driven Fast-Simulation is reliable. Note, there are some small discrepancy such as single track Dca distributions in the low end, that's because in the data analysis part, we already require some minimum cut in order to save the computing resource. There is another method we are going to discuss in the following section, also can be used to validating our Fast-Simulation method.
+Comparison these topological variables between real data and Fast-Simulation, the agreement is reasonable good, which means our Data-Driven Fast-Simulation method can well reproduce the topological variables in real data. In another word, the efficiency estimation from Data-Driven Fast-Simulation is reliable. Note here, there are some small discrepancy such as single track Dca distributions in the low end, that's because in the data analysis part, we already require some minimum cut in order to save the computing resource. There is another method we are going to discuss in the following section, also can be used to validating our Fast-Simulation method.
 
 \subsection{Validation with Full GEANT+Hijing Simulation}
 
@@ -803,3 +803,66 @@ For the efficiency correction, the toy MC simulation have the flat pt input dist
 \caption{The efficiency difference with taking the old run10 and run14 spectra as weight}\label{WeightSpectra}}
 \end{figure}
 
+\subsection{$p_T$ smearing effect} 
+
+The input $p_T$ smearing function was extracted from the Hijing sample, instead of using from Embedding since embedding does not include HFT in tracking. For the final efficiency calculation, we checked two case to consider this momentum smearing effect. One case is using MC $p_T$ divide MC $p_T$ and another case is using RC $p_T$ divide MC $p_T$. The comparison result shows fron Fig.~\ref{D0_eff_forMCRC_0_10} to Fig.~\ref{D0_eff_forMCRC_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference is really small which indicate this is not a big effect we need to worry. Note here, in our real analysis, we are using RC/MC for our efficiency correction.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_0_10.eps}
+\caption{$D^{0}$ efficiency comparison between RC/MC and MC/MC in 0-10\%. \label{fig:D0_eff_forMCRC_0_10}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_10_40.eps} 
+\caption{$D^{0}$ efficiency comparison between RC/MC and MC/MC in 10-40\%. \label{fig:D0_eff_forMCRC_10_40}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_40_80.eps}
+\caption{$D^{0}$ efficiency comparison between RC/MC and MC/MC in 40-80\%. \label{fig:D0_eff_forMCRC_40_80}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_0_80.eps} 
+\caption{$D^{0}$ efficiency comparison between RC/MC and MC/MC in 0-80\%. \label{fig:D0_eff_forMCRC_0_80}}
+\end{minipage}
+\end{figure}
+
+\subsection{Lifetime uncertainties effect} 
+
+The $D^0$ lifetime have some uncertainties from the latest PDG, say ~0.3\% uncertainties. This could potential effect our efficiency calculation especially for the low $p_T$ part. In order to check this, we run through the toyMC simulation with different $D^0$ lifetime. We varied the decay length from 129.9 $\mu m$ to 123.3 $\mu m$. After apply all the topological cuts, the final efficiency comparison from these two scenarios are shown fron Fig.~\ref{D0_eff_1233_0_10} to Fig.~\ref{D0_eff_1233_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference in high $p_T$ range is really small which make sense and also in the very $p_T$ the difference is ~1-2\%. Compare to our current uncertainties form other sources, this is not a big effect we need to worry. Note here, in our real analysis, we are using the default value from PYTHIA setup.
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_1233_0_10.eps}
+\caption{$D^{0}$ efficiency comparison between cTau from 129.9 and 133.3 in 0-10\%. \label{fig:D0_eff_1233_0_10}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_10_40.eps} 
+\caption{$D^{0}$ efficiency comparison between cTau from 129.9 and 133.3 in 10-40\%. \label{fig:D0_eff_1233_0_10}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_1233_40_80.eps}
+\caption{$D^{0}$ efficiency comparison between cTau from 129.9 and 133.3 in 40-80\%. \label{fig:D0_eff_1233_40_80}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/D0_eff_forMCRC_0_80.eps} 
+\caption{$D^{0}$ efficiency comparison between cTau from 129.9 and 133.3 in 0-80\%. \label{fig:D0_eff_1233_0_80}}
+\end{minipage}
+\end{figure}
