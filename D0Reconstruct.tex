@@ -77,6 +77,8 @@ Fig.~\ref{fig:variables_0_10} shows an example of the distributions of the 5 geo
 \label{fig:variables_0_10}
 \end{figure}
 
+When used for TMVA training, since we know the $D^0$ pt spectra, so the signal yield is calculated and scaled to what is expected for the whole data set. And for the background sample, we can obtained from the real data, and then scale to the level of data set you needed.
+
 The `cuts' option of TMVA is used to tune $D^0$ cuts. This option randomly sample different cut sets in the variable space, calculate signal and background efficiency for each cut set. Then one cut set with lowest background efficiency at certain signal efficiency. We can then pick the cut set with the best significance according to the signal and background yield corresponding to the whole data set. Fig.~\ref{fig:effPass_0_10} shows the lowest background efficiency, significance and so on vs. signal efficiency for $p_T$ between 1 and 2 GeV/$c$ for the centrality 0-10\%. We can see that as cuts get tighter, signal and background efficiency both decrease, but background efficiency decreases much faster.
 
 \begin{figure}[htbp]
@@ -308,6 +310,13 @@ For more details can be found in the $D^0$ $v_2$ technicl note, basically we use
 
 Fig.~\ref{fig:mixedEvent_pt0_8} and Fig.~\ref{fig:mixedEvent_pt6_8} shows the invariant mass distribution for foreground and two descriptions of combinatorial background in three different pT range and for three different centrality species.
 
+For the raw yield extraction, several methods are tried. The central value was from the fitting method. After the normalized mixed Event background subtraction, we use a gaussion + pol1 function to extract the raw signal yield. The statistics error was properate from the fitting. 
+
+We also tried the binning counting method, after the normalized mixed events background subtraction. The residual background and signal distribution was fitted with an gaussion function to determation the signal width, then the counts within 3$\sigma$ was counted. And the residual background was estimated with the sideband method. The statistics errors was properated accordingly and comparable with the previous fitting method.
+
+We also tried the same-event likesign background method, but as clearly the background fluctuation was large comapred to the mixevent method. These raw yield difference from these methods will be contributated the final systematic source which will be discussed in the later section.
+
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[keepaspectratio,width=1.0\textwidth]{figure/Run14_D0HFT/signal_0_8GeV.pdf}
@@ -331,7 +340,7 @@ Fig.~\ref{fig:mixedEvent_pt0_8} and Fig.~\ref{fig:mixedEvent_pt6_8} shows the in
 
 \subsection{Mixed Event Background}
 
-To construct the mixed event background it is important to combine events with some degree of similarity, such as events are classified according to the position of the primary vertex (PV) along the beam-line, the centrality class and the orientation of the event plane. Ten bins of equal width were used for both the event plane ($\Psi\in[-\pi,\pi]$) and the position of the primary vertex($V_z\in[-6,6]$), as well as nine centrality classes between 0-80\%, for a total of 900 event `categories'.
+To construct the mixed event background it is important to combine events with some degree of similarity, such as events are classified according to the position of the primary vertex (PV) along the beam-line, the centrality class and the orientation of the event plane. Ten bins of equal width were used for both the event plane ($\Psi\in[-\pi,\pi]$) and the position of the primary vertex($V_z\in[-6,6]$), as well as nine centrality classes between 0-80\%, for a total of 900 event `categories'. For the 9 centralities, it was divided from the StRefmultCor class, from 70-80\%, 60-70\%, ..., 20-30\%, 10-20\%, 5-10\% and 0-5\%.
 
 Table \ref{eventBuf} summarizes the important information saved for the event mixing:
 

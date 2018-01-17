@@ -32,7 +32,8 @@ This formula can be written in another way when we consider the particles identi
 The single track efficiency losses have two contributions, the detector inefficiency and particle identification cuts. The detector efficiency includes the TPC tracking efficiency ($\varepsilon_{TPC}$) and the TOF matching efficiency ($\varepsilon_{TOF}$). The particle identification cut efficiency ($\varepsilon_{PID}$) includes the efficiencies of TOF velocity (1/$\beta$) and the $dE/dx$ selection cuts. So the single track efficiency can be derived by the Eq.~\ref{singleeff}
 
 \begin{equation}
-\varepsilon = \varepsilon_{TPC} \times \varepsilon_{TOF} \times \varepsilon_{PID}
+% \varepsilon = \varepsilon_{TPC} \times \varepsilon_{TOF} \times \varepsilon_{PID}
+\varepsilon = \varepsilon_{TPC} \otimes \varepsilon_{TOF} \otimes \varepsilon_{PID}
 \label{singleeff}
 \end{equation}
 
@@ -123,6 +124,13 @@ The particle identification cut efficiency ($\varepsilon_{PID}$) includes two co
 \end{minipage}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.9\textwidth,angle=0]{figure/Run14_D0HFT/nsigma_forPion.png}
+\caption{$n\sigma_{\pi}$ and $n\sigma_{\pi}^{TOF}$ distributions for $p_T$ around 0.6-0.65 GeV/$c$.}
+\label{fig:pion_samples}
+\end{figure}
+
 \subsubsection{$n\sigma_{K/\pi}$ Cut Efficiency}
 
 The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using those pure samples. The $n\sigma_{K/\pi}$ distributions are fitted with Gaussian function, the mean value and sigma value are plotted as Fig.~\ref{fig:pionmean} and Fig.~\ref{fig:pionsigma}. With these mean and sigma distributions, assuming they follow the Gaussian function, for example, Fig.~\ref{fig:pionnsigmaeff} depicts the $n\sigma_{\pi}$ cut efficiency in Run14 Au + Au collisions at 200 GeV for pions. For kaons, we use the same method extracting this $n\sigma_{K}$ cut efficiency.
@@ -142,14 +150,36 @@ The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using thos
 \end{figure}
 
 \begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
 \centering
-\includegraphics[keepaspectratio,width=0.55\textwidth]{figure/Run14_D0HFT/nSigPion_Eff.png}
-\caption{$n\sigma_{\pi}$ cut efficiency along with momentum. Red line is the fitted polynomial function}
-\label{fig:pionnsigmaeff}
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_1.png}
+\caption{The $1/\beta$ distributions for kaon for pt around 0.9GeV. \label{fig:kaon_1beta1}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_2.png}
+\caption{The $1/\beta$ distributions for kaon for pt around 1.6GeV. \label{fig:kaon_1beta2}}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nSigPion_Eff.png}
+\caption{$n\sigma_{\pi}$ cut efficiency along with momentum. Red line is the fitted polynomial function.\label{fig:pionnsigmaeff}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nSigKaon_Eff.png}
+\caption{The sigma value of $n\sigma_{K}$ distributions vs momentum. The red line is fitted function with step linear function. \label{fig:kaonsigma}}
+\end{minipage}
 \end{figure}
 
 \subsubsection{$1/\beta$ Cut Efficiency}
-The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples was due to the hadron contaminations at some $p_T$ range. 
+The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
@@ -230,8 +260,9 @@ After all the input ingredients ready for the fast-simulation, a simple toy MC s
 \end{itemize}
 
 \subsubsection{$D^0$ Efficiency and Topological Distribution}
+\label{d0efficiencypart}
 
-As discussed in the recipe, we obtain the efficiency step by step as shown on Fig.~\ref{D0effStep1} to Fig.~\ref{D0effStep3}.  First we have the TPC efficiency shown by red maker which is after the $p_T$, $\eta$ acceptance cut and TPC tracking efficiency from embedding. Then after folding in the HFT matching efficiency, the second item is obtained on black circle. Last step is after the topological cut, as shown by the cyan marker. As see in the low $p_T$ part, the topological cut efficiency is really small due to the tight cut as the combinatorial background is huge.
+As discussed in the recipe, we obtain the efficiency step by step as shown from Fig.~\ref{D0effStep1} to Fig.~\ref{D0effStep3}. First we have the TPC efficiency shown in Fig.~\ref{D0effStep1} which is after the $p_T$, $\eta$ acceptance cut and TPC tracking efficiency from embedding. Then another contribution is from the pid part shown in Fig.~\ref{D0effStep2}. Also the HFT matching efficiency together with the topological cut efficiency was shown in Fig.~\ref{D0effStep3}. As see in the low $p_T$ part, the topological cut efficiency is really small due to the tight cut as the combinatorial background is huge. And the final efficiency combined with all the sources are shown in Fig.~\ref{D0effCombine}.
 
 % \begin{figure}[htbp]
 % \begin{minipage}[htbp]{0.52\linewidth}
@@ -282,7 +313,7 @@ We study all the efficiencies with small centrality bin width, in total we have 
 \label{effcombine}
 \end{equation}
 
-The Data-Driven Fast-Simulation also provide the topological information, can be used for the comparison with real data. For the real data part, within the $D^0$ mass window we can statistical subtract the background and extract the pure $D^0$ topological distributions. The invariant mass plots shown as Fig.~\ref{d0massforTopo}. $D^0$ is in the 2 < $p_T$ < 3 GeV/$c$, 0-80\% centrality. Black is unlikesign foreground, blue is likesign background and red is mixed event background. The blue vertical lines are the mass window used for the topological comparison. For each topological variable, that corresponding topological cut was removed when reconstruct the $D^0$ candidate, so that we can compare that variable in a wide range.
+The Data-Driven Fast-Simulation also provide the topological information, can be used for the comparison with real data. For the real data part, within the $D^0$ mass window we can statistical subtract the background and extract the pure $D^0$ topological distributions. The invariant mass plots shown as Fig.~\ref{d0massforTopo}. $D^0$ is in the 2 < $p_T$ < 3 GeV/$c$, 0-10\% centrality. Black is unlikesign foreground, blue is likesign background and red is mixed event background. The blue vertical lines are the mass window used for the topological comparison. For each topological variable, that corresponding topological cut was removed when reconstruct the $D^0$ candidate, so that we can compare that variable in a wide range.
 
 \begin{figure}[htbp]
 \centering
@@ -464,12 +495,21 @@ If we compare with the previous Hijing HFT matched efficiency (not necessary to 
 \label{d0hfttopoAlleff}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth,angle=0]{figure/Run14_D0HFT/Mcd0Eff_0_10.eps}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency for Hijing + GEANT and Fast-simu with Hijing as input. The Hijing samples was updated with a large statistics compare to the previous ones. (bottom) Double ratio of the comparison.}
+\label{d0hfttopoeff_hijing_0_10}
+\end{figure}
+
+As the plots shown from Fig.\ref{d0hfttopoeff} to Fig.\ref{d0hfttopoAlleff} and also the plots after Fig.\ref{d0hfttopoeff_hijing_0_10} were based on a limited statistics. After the paper preview, we tried effects to produce a kind of larger sample to check the fluctuations structure. And the precision is improved with statistics, the fluctuations was smaller. Fig.\ref{d0hfttopoeff_hijing_0_10} shows the example of the 0-10\% centrality comparison similar as Fig.\ref{d0hfttopoeff2}. As seen the fluctuations in the low pt range was reduced.
+
 Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} is good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals. And there is another approvement that will describe in the following section.
 
 \subsubsection{Validation Topological Distributions}
 \label{validationTopo}
 
-As discussed before, we can extract the topological variables from both Hijing + GEANT and Fast-Simulation relay on those Hijing input. Similar as we did in Sec. ~\ref{d0efficiency}, we can compare the topological distributions from these two procedures. This will be another evidence that our Fast-Simulation can well reproduce the topological variables which is crucial for these kind of secondary vertex reconstruction analysis.
+As discussed before, we can extract the topological variables from both Hijing + GEANT and Fast-Simulation relay on those Hijing input. Similar as we did in Sec. ~\ref{d0efficiencypart}, we can compare the topological distributions from these two procedures. This will be another evidence that our Fast-Simulation can well reproduce the topological variables which is crucial for these kind of secondary vertex reconstruction analysis.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
@@ -513,6 +553,27 @@ As seen, the comparison of topological variables from Hijing have a very good ag
 
 There are two more assumptions which were not answered yet. Here we are trying to discuss a little bit in the following part.
 
+\subsubsection{Validation with Ks Spectra Measurement}
+\label{validationKs}
+ To verify the data-driven fast-simulation procedures, we calculated the efficiency corrected spectra for $K_{s}$ in 10-20\% centralities using the data-driven methods. 
+ 
+ The event and track quality cuts are using the same as $D^0$ analysis. For the topological cuts, they are chosen as similar as the $D^0$ cuts. dca1$>$0.01 $\&\&$ dca2$>$0.01 $\&\&$ dca12$<$0.006 $\&\&$ dca2vtx$<$0.015 $\&\&$ cos($\theta$)$>$0 $\&\&$ $decayL_{XY}<$1.5.
+
+ After corrected with the efficiency from data-driven simulation, the result shows very good agreement with the published result as in Fig.~\ref{Ks_spectra}. This is the corrected spectra for $K_{s}^{0}$ for 10-20\% centrality. Open symbols are the published results while the solid one is from this study. The lower panel shows the double ratio comparison between run 14 and the published one, it shows good agreement.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\columnwidth]{figure/Run14_D0HFT/Ks_spectra_PtCut_0.eps}
+\caption{Corrected spectra for $K_{s}^{0}$ for 10-20\% centrality. Open symbols are the published results while the solid one is run14 result. The lower panel shows the double ratio comparison between run 14 and the published one.}
+\label{Ks_spectra}
+\end{figure}
+
+The details study can be found from the below links
+
+\url{http://www.star.bnl.gov/protected/heavy/dongx/presentation/HFPWG_Ks_PID_09172015.pdf}
+
+\url{https://drupal.star.bnl.gov/STAR/system/files/userfiles/131/HFPWG_KsSpectra_09102015.pdf}
+
 \subsection{\label{concern1} Secondary Track Contribution}
 
 The Fast-Simulation is validated with primary track in the procedure Fig.~\ref{validation0}. All the tracks for HFT matching ratio and Dca inputted to Fast-Simulation is primary track. Based on the Hijing sample we can study the secondary track contribution since in the real data part we can't distinguish primary track and secondary track. In Hijing simulation, we use the start vertex of that track to determine whether it's primary track or secondary track.
@@ -527,7 +588,7 @@ The Fast-Simulation is validated with primary track in the procedure Fig.~\ref{v
 \begin{figure}[htbp]
 \centering
 \includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Vtx_Kaon.png}
-\caption{The vertex distribution for Kaons from secondary decay. Top left is the overall secondary pion tracks, top right is pion decayed from GeantID=8/9 (which is $\pi^{\pm}$), bottom left is pion decayed from GeantID=15/25 (which is anti-proton and anti-neutron), bottom right is decayed from other source}
+\caption{The vertex distribution for Kaons from secondary decay. Top left is the overall secondary kaon tracks, top right is kaon decayed from GeantID=8/9 (which is $\pi^{\pm}$), bottom left is kaon decayed from GeantID=15/25 (which is anti-proton and anti-neutron), bottom right is decayed from other source}
 \label{Vtx_Kaon}
 \end{figure}
 
@@ -538,15 +599,15 @@ For the secondary tracks, they have different contributions to the HFT mathing r
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Pion.pdf}
-\caption{The fraction of the different sources for the pion spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source.}
+\includegraphics[keepaspectratio,width=0.6\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Pion.pdf}
+\caption{The fraction of the different sources for the pion spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source. The black makers are for TPC tracks while the red makers are fro HFT matched tracks.}
 \label{Fraction_Pion}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon.pdf}
-\caption{The fraction of the different sources for the kaon spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source.}
+\caption{The fraction of the different sources for the kaon spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source. The black makers are for TPC tracks while the red makers are fro HFT matched tracks.}
 \label{Fraction_Kaon}
 \end{figure}
 
@@ -593,27 +654,27 @@ For the secondary track Dca contributions, we tested with the inclusive track Dc
 
 As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). To correctly count the number of peripheral events we need to understand the vertex resolution. The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
 
-Fig.~\ref{vtxX_vsCent} shows the vertex resolution in the X direction using the sub-event method. We divide the event to two randomly subevent, and then reconstruct two vertexes. The difference of the two vertexes can be somehow demonstrate the vertex resolutions.
+Fig.~\ref{vtxX_70_80} and Fig.~\ref{vtxX_20_30} show the vertex difference in the X direction using the sub-event method for centrality 70-80\% and 20-30\%. They are the difference of the refitted vertex from the two sub-events. Fig.~\ref{vtxX_vsCent} shows the Full Width of the Half Maximum (FWHM) to capture the vertex resolution in the X direction using this sub-event method. In the sub-event method, the event was divide to two randomly subevent, and then reconstruct two vertexes. The difference of the two vertexes can be somehow demonstrate the vertex resolutions. As can see the Hijing sample can reasonable describe our real data well.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vxtX_70_80.png}
-\caption{ FWHM of the subEvent vertex resolutions for 70-80\%.\label{vtxX_70_80}}
+\caption{ Comparison of the FWHM of the subEvent vertex resolutions for 70-80\%. black is real data and blue is from Hijing. \label{vtxX_70_80}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_20_30.png} 
-\caption{ FWHM of the subEvent vertex resolutions for 20-30\%.\label{vtxX_20_30}}
+\caption{ FWHM of the subEvent vertex resolutions for 20-30\%. black is real data and blue is from Hijing.\label{vtxX_20_30}}
 \end{minipage}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figure/Run14_D0HFT/vtxX_vsCent.pdf}
-\caption{ Full Width of the Half Maximum (FWHM ) for Vertex resolution using sub-event method versus centralities in Au + Au collisions.}
-\label{fig:vtxX_vsCent} 
+\caption{ FWHM for Vertex resolution using sub-event method versus centralities in Au + Au collisions.}
+\label{vtxX_vsCent} 
 \end{figure}
 
 To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference can be took as the additional correction factor for real data analysis if this effect is not too big. The MB Hijing sample we used here is from the same setup as we discussed before, and the only difference compared to the 0-10\% Hjing sample is the impact parameters (b). But for our centrality selection, we still use grefumlt for both data and simulation.
@@ -652,7 +713,7 @@ For the QA of the simulation samples, including HFT matching ratio and Dca resol
 
 The first vertex contribution we checked is for the centrality species 70-80\%. Follow the same procedures as we discussed for 0-10\%, we did the validation step by step. First is the acceptance check as shown on Fig.~\ref{70_80_0}, the results from Hijing and Fast-Simulation matched very well for this most peripheral events, which is the same as our expection. The second step is check the kinematic with the reconstructed TPC tracking information. These was involved with the TPC tracking efficiency lost and the momentum resolution. the result in Fig.~\ref{70_80_1} shows good agreement.
 
-The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80_3} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.29.
+The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80_3} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.39.
 
 
 \begin{figure}[htbp]
@@ -707,12 +768,16 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 For this vertex contributions, we use these double ratios as our additional correction factor for the final results. As we saw and discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
 
 
-Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.29 for centrality 70-80\%, $\sim$1/0.55 for centrality 60-70\%, $\sim$1/0.77 for 50-60\%, $\sim$1/0.89 for 40-50\% and $\sim$1/0.93 for 30-40\%. For the mid central, $20-30\%$ centrality, the correction effect is already small, the double ratio is close to 1. $ $
+Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the central, $10-20\%$ and $0-10\%$ centrality, the correction effect is already small, the double ratio is close to 1. $ $
 
 % lsjlfjalfjlajflajfkajlfjlsagdkaslkgdj  alsfjlsjfl  lajfljsl f alsjflasjfl  alfjlajsflja aljlajlfjtlejfl  aljlaw  alwjp  bcb skafk mbckaj  akhdkw
 note here,
 
 For the most central collisions, the correction factor can be neglect. This was validated and confirmed by our Hijing samples.
+
+
+For the systematic uncertainties from this vertex correction, we validate them by change the gRefmult cut. We choose two gRefmult cuts as the centrality definitation for Hijing sample, and trying to capture this systematic source. One cut is using the same as real data for centrality definitation and another one is trying to minimum the difference for the vertex resolution between data and Hijing. With these two sets of gRefmult cuts, we did this vertex correction and quota the difference as the systematic source.
+
 \subsection{Double Counting Correction} 
 
 % \subsubsection{double counting ... To Be Added ...}
@@ -728,6 +793,8 @@ $D^0$ candidates are reconstructed with pairing $K^-$ and $\pi^+$ candidate trac
 \url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0594}
 
 \url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0550}
+
+\url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0651}
 
 The double counting issue will certainly affect the obtained $D^0$ raw yields. In the $v_2$ analysis, since the doubly counted candidates are still coming from $D^0$, this issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off. For the spectra analysis, we need to consider this effect.
 
@@ -754,7 +821,7 @@ The PID of $D^0$ daughters also involves the TOF detector. We also estimated the
 \caption{Top 0-10\% central Au+Au collisions: extracted $1/\beta-1/\beta_{expected}$ mean and width values vs. particle momentum for pions, kaons and protons. Results for pions and kaons at $p>1.5$ GeV/$c$ are beyond the TOF PID capability. The fit results are not reliable.}\label{BetaSingle}}
 \end{figure}
 
-With all these at hand, we can evaluate the PID efficiency. The advantage of using TOF only when available is to keep the highest efficiency as one sees from the plot. The mis-identification probability for pion and kaon daughters can be also evaluated, as shown in Figure~\ref{MisPIDPiK}. 
+With all these at hand, we can evaluate the PID efficiency. The mis-identification probability for pion and kaon daughters can be also evaluated, as shown in Figure~\ref{MisPIDPiK}. 
 
 \begin{figure}
 \centering{
@@ -762,7 +829,7 @@ With all these at hand, we can evaluate the PID efficiency. The advantage of usi
 \caption{Particle misidentification probability for kaons (red) and pions (black) from different centrality bins in Au+Au collisions.}\label{MisPIDPiK}}
 \end{figure}
 
-With the misidentification probability, we can reconstruct the invariant mass distributions from doubly mis-PID. The momentum resolution for pion and kaon tracks are chosen to fit to the $D^{0}$ signal peak. Figure~\ref{MisPIDMass_1} and Figure~\ref{MisPIDMass_2} show these distributions compared to the signal distributions in different $D^0$ $p_{T}$ regions. The distributions are normalized to the input real $D^{0}$ signals.
+With the misidentification probability, we can reconstruct the invariant mass distributions from doubly mis-PID. The momentum resolution for pion and kaon tracks are chosen to fit to the $D^{0}$ signal peak. Figure~\ref{MisPIDMass_1} and Figure~\ref{MisPIDMass_2} show these distributions compared to the signal distributions in different $D^0$ $p_{T}$ regions. The red line with a narrow peak represent the input signals while black curve with broader width represent the double misPID distributions. The distributions are normalized to the input real $D^{0}$ signals.
 
 \begin{figure}
 \centering{

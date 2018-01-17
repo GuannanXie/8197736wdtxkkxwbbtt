@@ -8,7 +8,11 @@
 
 The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals extraction methods instead of use binning counting methods, we tried using fitting method, tried vary the fitting range, and also tried using likesign for background to estimate the uncertainties for raw yield extraction. 
 
-The second source would be coming from the TPC embedding uncertainties, this one is well studied by comparison the nHits and Dca distributions between data and embedding. Here the real data iswithout HFT in tracking. This is a self-produced testing sample with the office library and chain option. Fig.~\ref{nHits_0_80}, Fig.~\ref{nHits_0_80_2}, Fig.~\ref{Dca_0_80} and Fig.~\ref{Dca_0_80_2} show the nHits and Dca comparison between real data and embedding for 0-80\% centrality. Bottom panels show the double ratio, and a fitted line as guidance. As seen, the embedding sample can reproduce the real data reasonable well. Then the systematic uncertainties can be estimate by varying the cuts from nHits$>$20 to nHits$>$25, and Dca$>$1.0 to Dca$>$1.5 as Equ.~\ref{nHitDca_eq}. 
+For the raw yield extraction, currently the central value was from the fitting method. After the normalized mixed Event background subtraction, we use a gaus + pol1 function to extract the raw signal yield. The statistics error was propagate from the fitting. 
+
+The binning counting method means after the normalized mixed events background subtraction. The residual background and signal distribution was fitted with a gaus+pol1 function to determinate the signal width, then the counts within 3$\sigma$ was counted. And the residual background was estimated with the sideband method. The statistics errors was propagated accordingly and is comparable with the previous fitting method. The same-event likesign method was also tried, but as clearly the background fluctuation was larger compared to the mixevent method. These raw yield difference from these methods will be contributed to the final systematic source which will be discussed in the later section.
+
+The second source would be coming from the TPC embedding uncertainties, this one is well studied by comparison the nHits and Dca distributions between data and embedding. Here the real data iswithout HFT in tracking. This is a self-produced testing sample with the office library and chain option. Fig.~\ref{nHits_0_80}, Fig.~\ref{nHits_0_80_2}, Fig.~\ref{Dca_0_80} and Fig.~\ref{Dca_0_80_2} show the nHits and Dca comparison between real data and embedding for 0-80\% centrality. Bottom panels show the double ratio, and a fitted line as guidance. As seen, the embedding sample can reproduce the real data reasonable well. Then the systematic uncertainties can be estimate by varying the cuts from nHits$>$20 to nHits$>$25, and Dca$<$1.0 to Dca$<$1.5 as Equ.~\ref{nHitDca_eq}. 
 
 \begin{equation}
   \begin{aligned}
@@ -18,7 +22,7 @@ The second source would be coming from the TPC embedding uncertainties, this one
 \label{nHitDca_eq}
 \end{equation}
 
-Then after varying nHits and Dca, the comparison of data and embedding shown as Fig.~\ref{nFit_Dca_Ratio_7} for nHits (left) and Dca (right). Fig.~\ref{HFTMatching_Dca_Ratio_7} shows the comparison of the HFT Matching ratio due to the change of Dca cuts for 0-80\% centrality. As seen, due to the change of Dca cut, the contribution for Embedding and HFT matching ratio can be canceled out at some pint, So in the final result we do not include this contribution from Dca. The bottom panels show these double ratio, and quote as systematic uncertainties. For the $R_{CP}$ calculations, at some point they are correlated for central and peripheral collisions and somehow can be canceled out. So, for the $R_{CP}$ systematic, we using $r_{nHits}-cent / r_{nHits}-peripheral$ to calculate the uncertainties. The nHits, Dca (not included) and TofPID (as discussed in the pid part) systematic are added up quadratical for single track. For the $D^0$ calculations, the pion and kaon tracks are added linearly.
+Then after varying nHits and Dca, the comparison of data and embedding shown as Fig.~\ref{nFit_Dca_Ratio_7} for nHits (left) and Dca (right). Fig.~\ref{HFTMatching_Dca_Ratio_7} shows the comparison of the HFT Matching ratio due to the change of Dca cuts for 0-80\% centrality. As seen, due to the change of Dca cut, the contribution for Embedding and HFT matching ratio can be canceled out at some pint but not fully canceled, So in the final result we decide still  include this contribution from Dca. The bottom panels show these double ratio, and quote as systematic uncertainties. For the $R_{CP}$ calculations, at some point they are correlated for central and peripheral collisions and somehow can be canceled out. So, for the $R_{CP}$ systematic, we using $r_{nHits}-cent / r_{nHits}-peripheral$ to calculate the uncertainties. The nHits, Dca (not included) and TofPID (as discussed in the pid part) systematic are added up quadratical for single track. For the $D^0$ calculations, the pion and kaon tracks are added linearly.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.45\linewidth}
@@ -52,14 +56,14 @@ Then after varying nHits and Dca, the comparison of data and embedding shown as 
 \centering
 \includegraphics[keepaspectratio,width=0.9\textwidth]{figure/Run14_D0HFT/nFit_Dca_Ratio_7.eps}
 \caption{Varying nHit(left) and Dca(right) comparison between real data and embedding for 0-80\% }
-\label{fig:nFit_Dca_Ratio_7}
+\label{nFit_Dca_Ratio_7}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[keepaspectratio,width=0.45\textwidth]{figure/Run14_D0HFT/HFTMatching_Dca_Ratio_7.eps}
 \caption{HFT Matching ratio comparison with the Dca cut varying from 1.5 to 1.0 for 0-80\% }
-\label{fig:HFTMatching_Dca_Ratio_7}
+\label{HFTMatching_Dca_Ratio_7}
 \end{figure}
 
 %The next one is from the fast-simulation part, as discussed in the previous section, there are $\sim$5\% difference between the pure Hijing and fast-simulation relay on Hijing when we validating the packages. We quote this 5\% contribution as one of the systematic sources.
