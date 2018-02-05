@@ -1,7 +1,6 @@
 \clearpage
 
 \section{Efficiency Correction}
-General idea.....
 
 To obtain the real invariant mass spectrum of $D^0$ within STAR acceptance ($|\eta_{\pi}| \leq 1, |\eta_{K}| \leq 1, |Y_{K\pi}| \leq 1$), the raw spectrum should correct for the efficiency. The $K\pi$ pair efficiency within STAR acceptance is evaluated by folding the TPC related efficiency to the HFT related efficiency as shown on Eq.~\ref{effEqu}. For the TPC related tracking efficiency shows on the first term, we use STAR standard Full GEANT simulation. For the HFT related efficiency include the second and third terms which reflect to HFT acceptance and topological cuts, we developed the `Data-Driven Fast simulation' which will discuss later.
 
@@ -23,7 +22,9 @@ This formula can be written in another way when we consider the particles identi
 \end{equation}
 
 \begin{equation}
-  \varepsilon_{PID}(TPC\&TOF) = \varepsilon_{PID}(TOF | TPC) \times \varepsilon_{TPC}
+  % \varepsilon_{PID}(TPC\&TOF) = \varepsilon_{PID}(TOF | TPC) \times \varepsilon_{TPC}
+  % tof_hybrid = 1.0 - tofMatchEff + tofMatchEff * tofPidEff
+  \varepsilon_{PID}(TPC\&TOF) = (1 - \varepsilon_{TofMatch} + \varepsilon_{TofMatch} \times \varepsilon_{TofPID}) \times \varepsilon_{TPC}
 \label{effEqu4}
 \end{equation}
 
@@ -133,7 +134,8 @@ The particle identification cut efficiency ($\varepsilon_{PID}$) includes two co
 
 \subsubsection{$n\sigma_{K/\pi}$ Cut Efficiency}
 
-The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using those pure samples. The $n\sigma_{K/\pi}$ distributions are fitted with Gaussian function, the mean value and sigma value are plotted as Fig.~\ref{fig:pionmean} and Fig.~\ref{fig:pionsigma}. With these mean and sigma distributions, assuming they follow the Gaussian function, for example, Fig.~\ref{fig:pionnsigmaeff} depicts the $n\sigma_{\pi}$ cut efficiency in Run14 Au + Au collisions at 200 GeV for pions. For kaons, we use the same method extracting this $n\sigma_{K}$ cut efficiency.
+The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using those pure samples. The $n\sigma_{K/\pi}$ distributions are fitted with Gaussian function, the mean value and sigma value are plotted as Fig.~\ref{fig:pionmean} and Fig.~\ref{fig:pionsigma}. With these mean and sigma distributions, assuming they follow the Gaussian function, for example, Fig.~\ref{fig:pionnsigmaeff} depicts the $n\sigma_{\pi}$ cut efficiency in Run14 Au + Au collisions at 200 GeV for pions. For kaons, we use the same method extracting this $n\sigma_{K}$ cut efficiency. 
+Above 4 GeV, we using the fitting result to extrapolate the efficiency since we do not expect a big difference vs pt.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
@@ -179,7 +181,7 @@ The $n\sigma_{K/\pi}$ cut efficiency is derived from the Gaussian fit using thos
 \end{figure}
 
 \subsubsection{$1/\beta$ Cut Efficiency}
-The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure.
+The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure. Above 4 GeV we use the line fitting result to extrapolate the efficiency similar as nSigma.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
@@ -364,7 +366,7 @@ The Data-Driven Fast-Simulation also provide the topological information, can be
 \end{minipage}
 \end{figure}
 
-From Fig.~\ref{pointingangle} to Fig.~\ref{kaonDca}, these are the topological variables (cos($\theta$), decayLength, dcaDaughters, D0DcaToVtx, PionDca and KaonDca) used for the $D^0$ reconstruction. The distributions from the real data part are using mixed event method to statistical subtract the background. The Data-Driven Fast-Simulation part was the package we relayed on for our efficiency study as shown before.
+From Fig.~\ref{pointingangle} to Fig.~\ref{kaonDca}, these are the topological variables (cos($\theta$), decayLength, dcaDaughters, D0DcaToVtx, PionDca and KaonDca) used for the $D^0$ reconstruction. The distributions from the real data part are using same-event like-sign method to statistical subtract the background. The Data-Driven Fast-Simulation part was the package we relayed on for our efficiency study as shown before.
 
 Comparison these topological variables between real data and Fast-Simulation, the agreement is reasonable good, which means our Data-Driven Fast-Simulation method can well reproduce the topological variables in real data. In another word, the efficiency estimation from Data-Driven Fast-Simulation is reliable. Note here, there are some small discrepancy such as single track Dca distributions in the low end, that's because in the data analysis part, we already require some minimum cut in order to save the computing resource. There is another method we are going to discuss in the following section, also can be used to validating our Fast-Simulation method.
 
@@ -504,7 +506,7 @@ If we compare with the previous Hijing HFT matched efficiency (not necessary to 
 
 As the plots shown from Fig.\ref{d0hfttopoeff} to Fig.\ref{d0hfttopoAlleff} and also the plots after Fig.\ref{d0hfttopoeff_hijing_0_10} were based on a limited statistics. After the paper preview, we tried effects to produce a kind of larger sample to check the fluctuations structure. And the precision is improved with statistics, the fluctuations was smaller. Fig.\ref{d0hfttopoeff_hijing_0_10} shows the example of the 0-10\% centrality comparison similar as Fig.\ref{d0hfttopoeff2}. As seen the fluctuations in the low pt range was reduced.
 
-Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} is good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals. And there is another approvement that will describe in the following section.
+Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} and Fig.~\ref{d0hfttopoeff_hijing_0_10} are good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals. And there is another approvement that will describe in the following section.
 
 \subsubsection{Validation Topological Distributions}
 \label{validationTopo}
@@ -901,6 +903,16 @@ The input $p_T$ smearing function was extracted from the Hijing sample, instead 
 \caption{$D^{0}$ efficiency comparison between RC/MC and MC/MC in 0-80\%. \label{fig:D0_eff_forMCRC_0_80}}
 \end{minipage}
 \end{figure}
+
+Fig.~\ref{sigmal_fastsimudata_vs_data_0_10}, we also compared the invariant mass distributions between real data and our data-driven simulations in the most central 0-10\% collisions at several $p_T$ range. The signal from real data part was after mixevent background subtraction. The result shows reasonable agreement, even though we didn't cut the invmass rely on data-driven simulations.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sigmal_fastsimudata_vs_data_0_10}
+\caption{Comparison of invariant mass distributions between real data and data-driven simulation for 0-10\% in several $p_{T}$ range.}
+\label{fig:sigmal_fastsimudata_vs_data_0_10}
+\end{figure}
+
 
 \subsection{Lifetime uncertainties effect} 
 

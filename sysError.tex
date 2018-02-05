@@ -72,6 +72,8 @@ Then after varying nHits and Dca, the comparison of data and embedding shown as 
 
 The next source is by varying the topological cuts and daughter $p_t$ cuts. The standard TMVA cuts, the 50\% efficiency and 150\% efficiency cuts are calculated, and also the daughter $p_T$ cuts are checked for 300 MeV and 500 MeV beside of the default value 600 MeV. The difference between the corrected yield are quoted as the systematic source. Also there is a source coming from the double counting and vertex resolution contribution as we discussed in the previous sections.
 
+For the data-driven simulation part, we also quote an additional $\sim$5\% difference to capture the difference between the pure Hijing and data-driven simulation relay on Hijing when we validating the packages. This additional source is kind of conservative since we already using the 50\% and 150\% efficiency method to calculate the systematic source. But it still worth to be conservative.
+
 Note here, for the $R_{CP}$ calculations since there are correlated uncertainties, so similar as TPC part,for the daughter $p_T$ scan and topological cuts scan uncertainties, we calculate the $R_{CP}$ for each individual setup or cuts, then quota the difference of $R_{CP}$ for each cuts as systematic errors. For the others, such as yield extraction and vertex resolutions, those uncertainties was quadratical added up for $R_{CP}$ and double counting and PID part are largely canceled out.
 
 Note here, for the $\bar{D^{0}}$/$D^{0}$ ratio calculations, since there are also correlated uncertainties, so similar as the $R_{CP}$ calculation, for the daughter $p_T$ scan and topological cuts scan uncertainties, we calculate the ratio for each individual setup or cuts, then quota the difference of $\bar{D^{0}}$/$D^{0}$ ratio for each cuts as systematic errors. For the yield extraction, those uncertainties were quadratical added up for the $\bar{D^{0}}$/$D^{0}$ ratio. For the double counting and PID part, they are largely canceled out.
@@ -79,6 +81,12 @@ Note here, for the $\bar{D^{0}}$/$D^{0}$ ratio calculations, since there are als
 Fig.~\ref{sysErr_0_10} to Fig.~\ref{sysErr_0_80} shows the $D^0$ spectrum different sources contribution in various centralities. As we see, the systematic uncertainties is quite small in the most of the $p_T$ range except some of the $p_T$ ranges due to the limited statistics and large contribution from yield extraction.
 
 Fig.~\ref{sysErr_0_10_Rcp1} to Fig.~\ref{sysErr_40_60_Rcp1} shows the $D^0$ Rcp with 60-80\% as baseline systematic uncertainties from different sources contribution in various centralities. 
+
+Note here, during the pwg review. We do find some addition uncertainties source from TPC Embedding part. The main reason is that from real data, an inefficiency TPC sector was identified from the Jpsi analysis, which will have the same effect for $D^0$ analysis. But it was not properly reflected in the Embedding. 
+
+\url{http://www.star.bnl.gov/protected/heavy/marr/paper/Run14_AuAu200_Jpsi/AnalysisNote/JpsiRaa_AN_v1.pdf}
+
+From the Jpsi analysis note, Fig. 64 and Fig. 65. If we take an extreme case, say the efficiency drop from 0.03 to 0.02. So the average contribution would be (1/24) * (1/3.) $\sim$ 1.4\%. With this simple and quick estimation, we quote it as an additional systematic source.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
