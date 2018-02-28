@@ -6,7 +6,7 @@
 % The TPC uncertainties were studied by comparison of the tracking performance from real data and the MC simulation. A few different methods were used to extract the raw $D^0$ signal counts, for example using the like-sign method or mixed-event technique to subtract the combinatorial background, or using the binning counting method instead of directly fitting method to extract the yield. Several different daughter $p_T$ cuts were applied on the $D^0$ reconstruction and corrected for the efficiency. We also varied the topological variables for the reconstruction with a quite different reconstruction efficiency. The mis-identification from the daughter particles were studied. The vertex resolution was also discussed in the previous section.
 %
 
-The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals extraction methods instead of use binning counting methods, we tried using fitting method, tried vary the fitting range, and also tried using likesign for background to estimate the uncertainties for raw yield extraction. 
+The approach for the $D^0$ spectrum systematic uncertainties are well studied. Several sources can be contributed to the uncertainties. The first one is coming from the raw yield extraction. We varied the signals extraction methods instead of use fitting method, we tried using binning counting methods, tried vary the fitting range, and also tried using like-sign for background to estimate the uncertainties for raw yield extraction. And using the maximum deviation to the default value as the systematic uncertainty.
 
 For the raw yield extraction, currently the central value was from the fitting method. After the normalized mixed Event background subtraction, we use a gaus + pol1 function to extract the raw signal yield. The statistics error was propagate from the fitting. 
 
@@ -22,7 +22,7 @@ The second source would be coming from the TPC embedding uncertainties, this one
 \label{nHitDca_eq}
 \end{equation}
 
-Then after varying nHits and Dca, the comparison of data and embedding shown as Fig.~\ref{nFit_Dca_Ratio_7} for nHits (left) and Dca (right). Fig.~\ref{HFTMatching_Dca_Ratio_7} shows the comparison of the HFT Matching ratio due to the change of Dca cuts for 0-80\% centrality. As seen, due to the change of Dca cut, the contribution for Embedding and HFT matching ratio can be canceled out at some pint but not fully canceled, So in the final result we decide still  include this contribution from Dca. The bottom panels show these double ratio, and quote as systematic uncertainties. For the $R_{CP}$ calculations, at some point they are correlated for central and peripheral collisions and somehow can be canceled out. So, for the $R_{CP}$ systematic, we using $r_{nHits}-cent / r_{nHits}-peripheral$ to calculate the uncertainties. The nHits, Dca (not included) and TofPID (as discussed in the pid part) systematic are added up quadratical for single track. For the $D^0$ calculations, the pion and kaon tracks are added linearly.
+Then after varying nHits and Dca, the comparison of data and embedding shown as Fig.~\ref{nFit_Dca_Ratio_7} for nHits (left) and Dca (right). Fig.~\ref{HFTMatching_Dca_Ratio_7} shows the comparison of the HFT Matching ratio due to the change of Dca cuts for 0-80\% centrality. As seen, due to the change of Dca cut, the contribution for Embedding and HFT matching ratio can be canceled out at some pint but not fully canceled, So in the final result we decide still  include this contribution from Dca. The bottom panels show these double ratio. For the $R_{CP}$ calculations, at some point they are correlated for central and peripheral collisions and somehow can be canceled out. So, for the $R_{CP}$ systematic, we using $r_{nHits}-cent / r_{nHits}-peripheral$ to calculate the uncertainties. The nHits, Dca (included) and TofPID (as discussed in the pid part) systematic are added up quadratical for single track. For the $D^0$ calculations, the pion and kaon tracks are correlated with the momentum dependence, so we run a simple toyMC simulation to convolute the momentum dependence to the $D^0$ momentum.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.45\linewidth}
@@ -92,13 +92,13 @@ From the Jpsi analysis note, Fig. 64 and Fig. 65. If we take an extreme case, sa
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sysErr_0_10_2.pdf}
-\caption{ Systematic uncertainties from different sources for 0-10\% spectra. \label{sysErr_0_10}}
+\caption{ Systematic uncertainties from different sources for 0-10\% spectra. Note here, the 5\% vertex correction quoted here was not exactly the vertex correction but the overall 5\% uncertainties for the data-driven simulation. \label{sysErr_0_10}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
 \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sysErr_10_20_2.pdf} 
-\caption{ Systematic uncertainties from different sources for 10-20\% spectra. \label{sysErr_10_20}}
+\caption{ Systematic uncertainties from different sources for 10-20\% spectra.  Note here, the 5\% vertex correction quoted here was not exactly the vertex correction but the overall 5\% uncertainties for the data-driven simulation.\label{sysErr_10_20}}
 \end{minipage}
 \end{figure}
 
