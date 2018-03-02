@@ -122,6 +122,10 @@ Fig.~\ref{fig:tofMatch_Hijing} summary the TOF match efficiency from this Hjing 
 \label{pideff}
 The particle identification cut efficiency ($\varepsilon_{PID}$) includes two components: the TOF velocity ($1/\beta$) cut efficiency and $dE/dx$ cut ($n\sigma_{K/\pi}$) efficiency. Pure pions and kaons sample are used to evaluate the TOF velocity cut efficiency and TPC $n\sigma_{K/\pi}$ cut efficiency. Fig.~\ref{fig:ksmass} shows the $\pi\pi$ pairs invariant mass distributions. The black line is the unlikesign foreground, and the red line is background using likesign method. With this $K_{s}^{0}$ candidates, we can statistical extract the pure pion sample for the PID efficiency study. Fig.~\ref{fig:phimass} shows the $KK$ pairs invariant mass distributions. Still with the unlikesign and likesign method, the $\Phi$ meson candidates are reconstructed, and we can statistical extract the pure kaon sample for the PID efficiency study.
 
+Some details from previous study can be found below.
+
+\url{https://drupal.star.bnl.gov/STAR/system/files/Pid_eff_new.pdf}
+
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
@@ -138,8 +142,8 @@ The particle identification cut efficiency ($\varepsilon_{PID}$) includes two co
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=0.9\textwidth,angle=0]{figure/Run14_D0HFT/nsigma_forPion.png}
-\caption{$n\sigma_{\pi}$ and $n\sigma_{\pi}^{TOF}$ distributions for $p_T$ around 0.6-0.65 GeV/$c$.}
+\includegraphics[keepaspectratio,width=0.9\textwidth,angle=0]{figure/Run14_D0HFT/nsigma_forPion_2.png}
+\caption{$n\sigma_{\pi}$ and $n\sigma_{\pi}^{TOF}$ distributions for $p_T$ around 0.6-0.7 GeV/$c$.}
 \label{fig:pion_samples}
 \end{figure}
 
@@ -165,14 +169,42 @@ Above 4 GeV, we using the fitting result to extrapolate the efficiency since we 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_1.png}
-\caption{The $1/\beta$ distributions for kaon for pt around 0.9GeV. \label{fig:kaon_1beta1}}
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nSigKaon_mean.png}
+\caption{The mean value of $n\sigma_{K}$ distributions vs momentum. The red line is fitted function with polynomial function. \label{fig:kaonmean}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.5\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_2.png}
-\caption{The $1/\beta$ distributions for kaon for pt around 1.6GeV. \label{fig:kaon_1beta2}}
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nSigKaon_sigma.png}
+\caption{The sigma value of $n\sigma_{K}$ distributions vs momentum. The red line is fitted function with polynomial function. \label{fig:kaonsigma}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_14_1.png}
+\caption{The $n\sigma_{K}$ distributions for kaon for pt around 1.35GeV. \label{fig:kaon_1dedx1_2}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_14_2.png}
+\caption{The  $n\sigma_{K}$ distributions for kaon for pt around 1.45GeV. \label{fig:kaon_1dedx2_2}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_1_2.png}
+\caption{The $1/\beta$ distributions for kaon for pt around 0.9GeV. \label{fig:kaon_1beta1_2}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/nsigmaK_tof_2_2.png}
+\caption{The $1/\beta$ distributions for kaon for pt around 1.6GeV. \label{fig:kaon_1beta2_2}}
 \end{minipage}
 \end{figure}
 
@@ -192,7 +224,7 @@ Above 4 GeV, we using the fitting result to extrapolate the efficiency since we 
 \end{figure}
 
 \subsubsection{$1/\beta$ Cut Efficiency}
-The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure. Above 4 GeV we use the line fitting result to extrapolate the efficiency similar as nSigma.
+The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. To avoid this, we use the function to fit the data and using fitting result. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure. Above 4 GeV we use the line fitting result to extrapolate the efficiency similar as nSigma.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
@@ -531,6 +563,8 @@ From Hijing + GEANT simulation, we know exactly whether the HFT matched track is
 
 Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} and Fig.~\ref{d0hfttopoeff_hijing_0_10} are good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals. And there is another approvement that will describe in the following section.
 
+As mentioned before, some of the input variables have eta dependence such as the HFT Mathing ratio, so similar studies was also presented along eta dependence. The link to the study can be found below.
+\url{https://drupal.star.bnl.gov/STAR/blog/xgn1992/data-driven-fastsimu-eta-dependence-check}
 \subsubsection{Validation Topological Distributions}
 \label{validationTopo}
 
