@@ -315,13 +315,6 @@ For more details can be found in the $D^0$ $v_2$ technicl note, basically we use
 
 Fig.~\ref{fig:mixedEvent_pt0_8} and Fig.~\ref{fig:mixedEvent_pt6_8} shows the invariant mass distribution for foreground and two descriptions of combinatorial background in three different pT range and for three different centrality species.
 
-For the raw yield extraction, several methods are tried. The central value was from the fitting method. After the normalized mixed Event background subtraction, we use a gaussion + pol1 function to extract the raw signal yield. The statistics error was properate from the fitting. 
-
-We also tried the binning counting method, after the normalized mixed events background subtraction. The residual background and signal distribution was fitted with an gaussion function to determation the signal width, then the counts within 3$\sigma$ was counted. And the residual background was estimated with the sideband method. The statistics errors was properated accordingly and comparable with the previous fitting method.
-
-We also tried the same-event likesign background method, but as clearly the background fluctuation was large comapred to the mixevent method. These raw yield difference from these methods will be contributated the final systematic source which will be discussed in the later section.
-
-
 \begin{figure}[htbp]
 \centering
 \includegraphics[keepaspectratio,width=1.0\textwidth]{figure/Run14_D0HFT/signal_0_8GeV.pdf}
@@ -342,6 +335,26 @@ We also tried the same-event likesign background method, but as clearly the back
 \caption{Invariant mass distribution for foreground and two descriptions of combinatorial background in 0 < $p_T$ < 1 GeV/$c$ for three different centrality species.}
 \label{fig:mixedEvent_pt6_8}
 \end{figure}
+
+\subsection{Raw Yield extraction}
+
+For the raw yield extraction, several methods are tried. The central value was from the fitting method. After the normalized mixed Event background subtraction, we use a gaussion + pol1 function to extract the raw signal yield. The statistics error was propagate from the fitting. 
+
+For the fitting method, the line shape of the pol1 function was determined using a pre-fitted function which exclude the $D^0$ mass range. And then propagate to the gaussion+pol1 function as the initial and free parameters.
+
+We also tried the binning counting method, after the normalized mixed events background subtraction. The residual background and signal distribution was fitted with an gaussion function to determine the signal width, then the counts within 3$\sigma$ was counted. And the residual background was estimated with the sideband method or from the fitted background. The statistics errors was propagated accordingly and comparable with the previous fitting method.
+
+Fig.~\ref{fig:0_10_signal_comapre} shows the $D^{0}$ raw counts comparison with these two methods, binning counting method and fitting method. As can see, the two results are consistent with each other.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.7\textwidth]{figure/Run14_D0HFT/0_10_signal_comapreMethod.eps}
+\caption{$D^0$ raw counts comparison for the two different methods in the centrality species 0-10\%.}
+\label{fig:0_10_signal_comapre}
+\end{figure}
+
+We also tried the same-event likesign background method, but as clearly the background fluctuation was large comapred to the mixevent method. These raw yield difference from these methods will be contributated the final systematic source which will be discussed in the later section.
+
 
 \subsection{Mixed Event Background}
 

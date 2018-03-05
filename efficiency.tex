@@ -665,8 +665,9 @@ For the secondary tracks, they have different contributions to the HFT mathing r
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon.pdf}
-\caption{The fraction of the different sources for the kaon spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =8/9, GeantId=15/25 and others source. The black makers are for TPC tracks while the red makers are fro HFT matched tracks.}
+% \includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon.pdf}
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Fraction_Kaon.eps}
+\caption{The fraction of the different sources for the kaon spectra, including the primary particles which is out of the range, the secondary sources include form parent GeantId =12, 10 and 26 and others source. The black makers are for TPC tracks while the red makers are fro HFT matched tracks.}
 \label{Fraction_Kaon}
 \end{figure}
 
@@ -716,10 +717,6 @@ We also checked the secondary track contributions between our study and previous
 \subsection{Vertex Resolution Contribution}
 \label{concern2}
 
-As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
-
-Fig.~\ref{vtxX_70_80} and Fig.~\ref{vtxX_20_30} show the vertex difference in the X direction using the sub-event method for centrality 70-80\% and 20-30\%. They are the difference of the refitted vertex from the two sub-events. Fig.~\ref{vtxX_vsCent} shows the Full Width of the Half Maximum (FWHM) to capture the vertex resolution in the X direction using this sub-event method. In the sub-event method, the event was divide to two randomly subevent, and then reconstruct two vertexes. The difference of the two vertexes can be somehow demonstrate the vertex resolutions. As can see the Hijing sample can reasonable describe our real data well.
-
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
@@ -734,6 +731,11 @@ Fig.~\ref{vtxX_70_80} and Fig.~\ref{vtxX_20_30} show the vertex difference in th
 \end{minipage}
 \end{figure}
 
+As discussed before, the vertex resolution in peripheral events still have some contributions. If those peripheral events vertices are out of hundreds or dozens of $\upmu$ m vertex resolution, they are not likely to contribute to the D mesons foreground (maybe not even the background). The 2D $\textup{Dca}_{\textup{XY}}$ $\textup{Dca}_\textup{Z}$ distributions are the only input to the Fast-Simulation for this effect. They contain both the vertices and tracks contribution. 
+
+Fig.~\ref{vtxX_70_80} and Fig.~\ref{vtxX_20_30} show the vertex difference in the X direction using the sub-event method for centrality 70-80\% and 20-30\%. They are the difference of the refitted vertex from the two sub-events. Fig.~\ref{vtxX_vsCent} shows the Full Width of the Half Maximum (FWHM) to capture the vertex resolution in the X direction using this sub-event method. In the sub-event method, the event was divide to two randomly subevent, and then reconstruct two vertexes. The difference of the two vertexes can be somehow demonstrate the vertex resolutions. As can see the Hijing sample can reasonable describe our real data.
+
+
 \begin{figure}
 \centering
 % \includegraphics[width=0.6\textwidth]{figure/Run14_D0HFT/vtxX_vsCent.pdf}
@@ -747,6 +749,8 @@ To solve this problem, we need to unfold the vertex resolution from 2D Dca distr
 For the QA of the simulation samples, including HFT matching ratio and Dca resolutions for different centralities, all the details can be found in the next links:
 
 \url{http://portal.nersc.gov/project/star/xlchen/D0_Hijing/QA/all/}
+
+In general, our Hijing sample can reasonable reproduce the track performance such as the HFT matching ratio and Dca distributions for different centralities. Which means we can relay on this MB Hijing sample to evaluate this vertex resolution contribution.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
@@ -776,7 +780,7 @@ For the QA of the simulation samples, including HFT matching ratio and Dca resol
 % \end{minipage}
 \end{figure}
 
-The first vertex contribution we checked is for the centrality species 70-80\%. Follow the same procedures as we discussed for 0-10\%, we did the validation step by step. First is the acceptance check as shown on Fig.~\ref{70_80_0}, the results from Hijing and Fast-Simulation matched very well for this most peripheral events, which is the same as our expection. The second step is check the kinematic with the reconstructed TPC tracking information. These was involved with the TPC tracking efficiency lost and the momentum resolution. the result in Fig.~\ref{70_80_1} shows good agreement.
+The first contribution we checked is for the 70-80\% centrality species. Follow the same procedures as we discussed for 0-10\%, we did the validation step by step. First is the acceptance check as shown on Fig.~\ref{70_80_0}, the results from Hijing and Fast-Simulation matched very well for this most peripheral events, which is the same as our expection. The second step is check the kinematic with the reconstructed TPC tracking information. These was involved with the TPC tracking efficiency lost and the momentum resolution. The result in Fig.~\ref{70_80_1} shows good agreement.
 
 The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.39.
 
@@ -830,10 +834,10 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \label{Mcd0Eff_20_80_vsCent}}
 \end{figure}
 
-For this vertex contributions, we use these double ratios as our additional correction factor for the final results. As we saw and discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
+For the vertex contributions, we use these double ratios as our additional correction factor for the final results. As discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
 
 
-Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the central, $10-20\%$ and $0-10\%$ centrality, the correction effect is already small, the double ratio is close to 1. $ $
+Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the most central, $10-20\%$ and $0-10\%$ centralities, the correction effect is already small, the double ratio is close to 1. $ $
 
 % lsjlfjalfjlajflajfkajlfjlsagdkaslkgdj  alsfjlsjfl  lajfljsl f alsjflasjfl  alfjlajsflja aljlajlfjtlejfl  aljlaw  alwjp  bcb skafk mbckaj  akhdkw
 % note here,
@@ -860,6 +864,8 @@ $D^0$ candidates are reconstructed with pairing $K^-$ and $\pi^+$ candidate trac
 \url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0550}
 
 \url{https://drupal.star.bnl.gov/STAR/starnotes/private/psn0651}
+
+\url{http://www.star.bnl.gov/protected/heavy/dongx/presentation/HFPWG_PID_09032015.pdf}
 
 The double counting issue will certainly affect the obtained $D^0$ raw yields. In the $v_2$ analysis, since the doubly counted candidates are still coming from $D^0$, this issue should not affect the obtained central value of $v_2$. However, the statistical errors could be slightly off. For the spectra analysis, we need to consider this effect.
 
@@ -937,7 +943,7 @@ For the efficiency correction, the toy MC simulation have the flat pt input dist
 
 \subsection{$p_T$ smearing effect} 
 
-The input $p_T$ smearing function was extracted from the Hijing sample, instead of using from Embedding since embedding does not include HFT in tracking. For the final efficiency calculation, we checked two case to consider this momentum smearing effect. One case is using MC $p_T$ divide MC $p_T$ and another case is using RC $p_T$ divide MC $p_T$. The comparison result shows fron Fig.~\ref{D0_eff_forMCRC_0_10} to Fig.~\ref{D0_eff_forMCRC_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference is really small which indicate this is not a big effect we need to worry. Note here, in our real analysis, we are using RC/MC for our efficiency correction.
+The input $p_T$ smearing function was extracted from the Hijing sample, instead of using from Embedding since embedding does not include HFT in tracking. For the efficiency calculation, they are obtained from the data-driven simulation. The input Monte Carlo (MC pt) momentum was smeared to the reconstructed momentum (RC pt) in the simulation. So for the final efficiency calculation, We checked two case to consider this momentum smearing effect. One case is using input Monte Carlo (MC) $p_T$ divide MC $p_T$ and another case is using the reconstructed momentum (RC $p_T$) divide MC $p_T$. The comparison result shows from Fig.~\ref{D0_eff_forMCRC_0_10} to Fig.~\ref{D0_eff_forMCRC_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference is really small which indicate this is not a big effect we need to worry. Note here, in our real analysis, we are using RC/MC for our efficiency correction.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
@@ -979,7 +985,7 @@ Fig.~\ref{sigmal_fastsimudata_vs_data_0_10}, we also compared the invariant mass
 
 \subsection{Lifetime uncertainties effect} 
 
-The $D^0$ lifetime have some uncertainties from the latest PDG, say ~0.3\% uncertainties. This could potential effect our efficiency calculation especially for the low $p_T$ part. In order to check this, we run through the toyMC simulation with different $D^0$ lifetime. We varied the decay length from 129.9 $\mu m$ to 123.3 $\mu m$. After apply all the topological cuts, the final efficiency comparison from these two scenarios are shown fron Fig.~\ref{D0_eff_1233_0_10} to Fig.~\ref{D0_eff_1233_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference in high $p_T$ range is really small which make sense and also in the very $p_T$ the difference is ~1-2\%. Compare to our current uncertainties form other sources, this is not a big effect we need to worry. Note here, in our real analysis, we are using the default value from PYTHIA setup.
+The $D^0$ lifetime have some uncertainties from the latest PDG, say ~0.3\% uncertainties. This could potential effect our efficiency calculation especially for the low $p_T$ part. In order to check this, we run through the toyMC simulation with different $D^0$ lifetime. We varied the decay length from 129.9 $\mu m$ to 123.3 $\mu m$. After apply all the topological cuts, the final efficiency comparison from these two scenarios are shown fron Fig.~\ref{fig:D0_eff_1233_0_10} to Fig.~\ref{fig:D0_eff_1233_0_80}. The bottom panel shows the double ratios between these two case, as seen the difference in high $p_T$ range is really small which make sense and also in the very $p_T$ the difference is ~1-2\%. Compare to our current uncertainties form other sources, this is not a big effect we need to worry. Note here, in our real analysis, we are using the default value from PYTHIA setup.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
