@@ -978,13 +978,28 @@ The input $p_T$ smearing function was extracted from the Hijing sample, instead 
 
 Fig.~\ref{sigmal_fastsimudata_vs_data_0_10}, we also compared the invariant mass distributions between real data and our data-driven simulations in the most central 0-10\% collisions at several $p_T$ range. The signal from real data part was after mixevent background subtraction. The result shows reasonable agreement, even though we didn't cut the invmass rely on data-driven simulations.
 
+Fig.~\ref{momentum_resolution_compare_input} shows the comparison of the momentum smearing effect between Embedding and Hijing. As the embedding doesn't have HFT in tracking, the momentum smearing was much worse compare to Hijing. Fig.~\ref{sigmal_fastsimudata_vs_data_0_10_withTPCmomentR} just shows the similar plots as the Fig.~\ref{sigmal_fastsimudata_vs_data_0_10} but with the smearing from Embedding, as clearly see, the $D^0$ mass from data-driven simulation can not reproduce the real data.
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sigmal_fastsimudata_vs_data_0_10}
-\caption{Comparison of invariant mass distributions between real data and data-driven simulation for 0-10\% in several $p_{T}$ range.}
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sigmal_fastsimudata_vs_data_0_10.eps}
+\caption{Comparison of invariant mass distributions between real data and data-driven simulation (with Hijing smearing input) for 0-10\% in several $p_{T}$ range.}
 \label{sigmal_fastsimudata_vs_data_0_10}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth,angle=0]{figure/Run14_D0HFT/momentum_resolution_compare_input.eps}
+\caption{Comparison of momentum resolution between embeding (without HFT in tracking) and Hijing simulation (with HFT tracking).}
+\label{momentum_resolution_compare_input}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/sigmal_fastsimudata_vs_data_0_10_withTPCmomentR.eps}
+\caption{Comparison of invariant mass distributions between real data and data-driven simulation (with Embedding smearing input) for 0-10\% in several $p_{T}$ range.}
+\label{sigmal_fastsimudata_vs_data_0_10_withTPCmomentR}
+\end{figure}
 
 \subsection{Lifetime uncertainties effect} 
 
