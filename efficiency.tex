@@ -224,7 +224,7 @@ Above 4 GeV, we using the fitting result to extrapolate the efficiency since we 
 \end{figure}
 
 \subsubsection{$1/\beta$ Cut Efficiency}
-The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. To avoid this, we use the function to fit the data and using fitting result. Fig.~\ref{fig:kaon_1beta1} and Fig.~\ref{fig:kaon_1beta2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure. Above 4 GeV we use the line fitting result to extrapolate the efficiency similar as nSigma.
+The $1/\beta$ cut efficiency is derived from the 1/$\beta$ distributions, two methods are used, one is the bin counting method and another is using Gaussian fitting and calculate the efficiency from the fitting parameters. The default value is from bin counting and the difference between these two methods are quoted as systematic uncertainties as shown on Fig.~\ref{fig:piontofeff} and Fig.~\ref{fig:kaontofeff} as fitting method. The fluctuations for kaons samples were due to the hadron contaminations at some $p_T$ range. To avoid this, we use the function to fit the data and using fitting result. Fig.~\ref{fig:kaon_1beta1_2} and Fig.~\ref{fig:kaon_1beta2_2} show an example of the $n\sigma_{K}^{TOF}$. Here even though we using $\phi$ to select the Kaon samples, but limited with the S/B ratio in the $\phi$ mass region, we still suffer this tiny effect. We also trying directly using n$\sigma_{K}$ with a much narrow range say less than 0.1, but as they are physical contaminations limited with the TPC capacity, it's shows similar structure. Above 4 GeV we use the line fitting result to extrapolate the efficiency similar as nSigma.
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.5\linewidth}
@@ -326,13 +326,15 @@ As discussed in the recipe, we obtain the efficiency step by step as shown from 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_tpc.pdf}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_tpc.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_tpc_10.pdf}
 \caption{ $D^0$ efficiency step by step from TPC in different centralities. \label{D0effStep1}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_pid.pdf} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_pid.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_pid_10.pdf} 
 \caption{ $D^0$ efficiency including PID in several centralities. \label{D0effStep2}}
 \end{minipage}
 \end{figure}
@@ -340,13 +342,15 @@ As discussed in the recipe, we obtain the efficiency step by step as shown from 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_hftTopo.pdf}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_hftTopo.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_hftTopo_10.pdf}
 \caption{ $D^0$ efficiency step by step from HFT acceptance tracking and topological cuts in different centralities. \label{D0effStep3}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff.pdf} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/Datad0Eff_10.pdf} 
 \caption{ $D^0$ efficiency including PID in several centralities. \label{D0effCombine}}
 \end{minipage}
 \end{figure}
@@ -567,7 +571,9 @@ Note, tat 5\% mismatch doesn't contribute to the results. That's juts for our un
 And there is another approvement that will describe in the following section.
 
 As mentioned before, some of the input variables have eta dependence such as the HFT Mathing ratio, so similar studies was also presented along eta dependence. The link to the study can be found below.
+
 \url{https://drupal.star.bnl.gov/STAR/blog/xgn1992/data-driven-fastsimu-eta-dependence-check}
+
 \subsubsection{Validation Topological Distributions}
 \label{validationTopo}
 
@@ -716,6 +722,11 @@ We also checked the secondary track contributions between our study and previous
 
 \url{https://drupal.star.bnl.gov/STAR/system/files/20171122_GXie.pdf}
 
+An additional check was done during the PWG review, since the secondary pion do have some contribution from the anti-proton and anti-neutron (GeantID 15/25). What we did is simple, we check the primary pion and proton spectra, then compared to the publish results. The Hijing sample can reproduce the pion spectra quite well, but not for the proton spectra. So we took the proton spectra from Hijing to the published one, and take the ratio as an weight factor. Then check the HFT matching ratio effect, the result shows tiny difference $< 2\%$. This one was take as the systematic uncertainties.
+
+The details study can be found in the drupal-page.
+
+\url{https://drupal.star.bnl.gov/STAR/system/files/20180327_DMeson_GXie.pdf}
 
 \subsection{Vertex Resolution Contribution}
 \label{concern2}
@@ -723,13 +734,15 @@ We also checked the secondary track contributions between our study and previous
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_70_80.png}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_70_80.png}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_70_80_2.png}
 \caption{ Comparison of the FWHM of the subEvent vertex resolutions for 70-80\%. black is real data and blue is from Hijing. \label{vtxX_70_80}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_20_30.png} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_20_30.png} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/vtxX_20_30_2.png} 
 \caption{ FWHM of the subEvent vertex resolutions for 20-30\%. black is real data and blue is from Hijing.\label{vtxX_20_30}}
 \end{minipage}
 \end{figure}
@@ -785,19 +798,21 @@ In general, our Hijing sample can reasonable reproduce the track performance suc
 
 The first contribution we checked is for the 70-80\% centrality species. Follow the same procedures as we discussed for 0-10\%, we did the validation step by step. First is the acceptance check as shown on Fig.~\ref{70_80_0}, the results from Hijing and Fast-Simulation matched very well for this most peripheral events, which is the same as our expection. The second step is check the kinematic with the reconstructed TPC tracking information. These was involved with the TPC tracking efficiency lost and the momentum resolution. The result in Fig.~\ref{70_80_1} shows good agreement.
 
-The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.39.
+The next step for this peripheral centrality will be fold in the HFT matching efficiency and the results shown in Fig.~\ref{70_80_2}. As see, the two curves are close with each other and the double ratio was close to unity. The last step will be the topological contributions which also including the vertex contributions. Fig.~\ref{70_80} shows this efficiency $\times$ Acceptance comparison between Hijing and Fast-Simulation after the TPC, HFT matching and topological cuts for the 70-80\% centralities. As see, due to the involved vertex resolution contribution for this peripheral events, the agreement between Hijing and Fast-Simulation was not good anymore. If we try to fit the double ratio shown in the lower panel, the difference can be as large as a factor of $\sim$1/0.59 (with Hiing Cut2).
 
 
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.pdf}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_2.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 70-80\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{70_80}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/60_70.pdf} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/60_70.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/60_70_2.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 60-70\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{60_70}}
 \end{minipage}
 \end{figure}
@@ -805,13 +820,15 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/50_60.pdf}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/50_60.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/50_60_2.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 50-60\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{50_60}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/40_50.pdf} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/40_50.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/40_50_2.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 40-50\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{40_50}}
 \end{minipage}
 \end{figure}
@@ -819,20 +836,23 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/30_40.pdf}
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/30_40.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/30_40_2.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 30-40\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{30_40}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/20_30.pdf} 
+% \includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/20_30.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/20_30_2.pdf} 
 \caption{ The comparison of $D^0$ TPC + HFT match + Topological between Hijing (black) and Fast-Simulation for 20-30\% centrality (red). (bottom) Double ratio to Fast-Simulation.\label{20_30}}
 \end{minipage}
 \end{figure}
 
 \begin{figure}
 \centering{
-\includegraphics[width=0.6\columnwidth]{figure/Run14_D0HFT/Mcd0Eff_20_80_vsCent.pdf}
+% \includegraphics[width=0.6\columnwidth]{figure/Run14_D0HFT/Mcd0Eff_20_80_vsCent.pdf}
+\includegraphics[width=0.6\columnwidth]{figure/Run14_D0HFT/Mcd0Eff_20_80_vsCent_2.eps}
 \caption{ The correction factor between Hijing and Fast-Simulation for difference centralities in tho pT ranges.}
 \label{Mcd0Eff_20_80_vsCent}}
 \end{figure}
@@ -840,15 +860,15 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 For the vertex contributions, we use these double ratios as our additional correction factor for the final results. As discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
 
 
-Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the most central, $10-20\%$ and $0-10\%$ centralities, the correction effect is already small, the double ratio is close to 1. $ $
+% Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the most central, $10-20\%$ and $0-10\%$ centralities, the correction effect is already small, the double ratio is close to 1. $ $
+Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.59 for centrality 70-80\%, $\sim$1/0.83 for centrality 60-70\%, $\sim$1/0.90 for 50-60\%, $\sim$1/0.94 for 40-50\% and $\sim$1/0.96 for 30-40\% and $\sim$1/0.97 for 20-30\%. For the most central, $10-20\%$ and $0-10\%$ centralities, the correction effect is already small, the double ratio is close to 1. $ $
 
 % lsjlfjalfjlajflajfkajlfjlsagdkaslkgdj  alsfjlsjfl  lajfljsl f alsjflasjfl  alfjlajsflja aljlajlfjtlejfl  aljlaw  alwjp  bcb skafk mbckaj  akhdkw
 % note here,
 
 For the most central collisions, the correction factor can be neglect. This was validated and confirmed by our Hijing samples.
 
-
-For the systematic uncertainties from this vertex correction, we validate them by change the gRefmult cut. We choose two gRefmult cuts as the centrality definitation for Hijing sample, and trying to capture this systematic source. One cut is using the same as real data for centrality definitation and another one is trying to minimum the difference for the vertex resolution between data and Hijing. As shown in Fig.\ref{vtxX_vsCent}, cut1 from Hijing was the same gRefmult cut as real data, cut2 from hijing was the optimized gRefmult cut try to reproduce the vertex resolution in data. As can see, these two sets of gRefmult cuts can cover the real data resolution. As can see, the Hijing2 cut are more close to the real data. so The central value for this correction was obtained from the Hijing2 cut value of the correction. And we quota the difference of these two cuts as the systematic source. The statistics uncertainties from this correction was stuided using half-statistics samples method, and properate to the final systematic results.
+For the systematic uncertainties from this vertex correction, we validate them by change the gRefmult cut. We choose two gRefmult cuts as the centrality definitation for Hijing sample, and trying to capture this systematic source. One cut is using the same as real data for centrality definitation (Hijing Cut1) and another one is trying to minimum the difference for the vertex resolution between data and Hijing(Hijing Cut2). As shown in Fig.\ref{vtxX_vsCent}, cut1 from Hijing was the same gRefmult cut as real data, cut2 from hijing was the optimized gRefmult cut try to reproduce the vertex resolution in data. As can see, these two sets of gRefmult cuts can cover the real data resolution. As can see, the Hijing2 cut are more close to the real data. so The central value for this correction was obtained from the Hijing2 cut value of the correction. And we quota the difference of these two cuts as the systematic source. The statistics uncertainties from this correction was stuided using half-statistics samples method, and properate to the final systematic results.
 
 \subsection{Double Counting Correction} 
 
