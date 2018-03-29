@@ -1,4 +1,4 @@
-\clearpage
+% \clearpage
 % \subsection{\label{Run14TPC_YF}Run11 TPC analysis YF}
 
 \newcommand{\ttbs}{\char'134}
@@ -47,19 +47,20 @@ The raw signals were compared with Xiaolong 's independent analysis and found to
 \label{rawsig}
 \efg
 
-% In early days, there was no vertex detector, we had to use random combination of decay products to reconstruct \dzero\ meson in hadronic channel, which suffered from huge combinatorial background. The way to improve the significance was to enrich the kaon and pion PID probability and enhance the statistics as much as possible at the same time. Thus we developed a hybrid method: at low \pt\ we used TOF PID to ensure the purity of kaons and pions, at high \pt , if there was an available TOF matching, we applied TOF PID, otherwise we used TPC PID to enhance the PID efficiency. But an issue was found in the code, that the condition to reject those tracks without matching to TOF at low \pt\ was different from what we used to calculate the efficiency. In data analysis, we reject those tracks with no TOF matching, while in calculating efficiency we reject those tracks with no TOF matching and those with no valid $\beta$ information in TOF. This introduces about 15\% difference at low \pt\ but does not affect high \pt much. 
-In early days, there was no vertex detector, we had to use random combination of decay products to reconstruct \dzero\ meson in hadronic channel, which suffered from huge combinatorial background. The way to improve the significance was to enrich the kaon and pion PID probability and enhance the statistics as much as possible at the same time. Thus we developed a hybrid method: In low momentum region, we always required TOF matching and TOF PID, those tracks without TOF matching or failed to pass TOF PID were rejected. In high momentum region, it is the same as low momentum, but for those tracks without TOF matching or failed to pass TOF PID, we still kept them and use TPC PID to enhance the statistics, since TOF helps little for high momentum tracks. The details are list below:
+In early days, there was no vertex detector, we had to use random combination of decay products to reconstruct \dzero\ meson in hadronic channel, which suffered from huge combinatorial background. The way to improve the significance was to enrich the kaon and pion PID probability and enhance the statistics as much as possible at the same time. Thus we developed a hybrid method: In low momentum region, we always required good TOF matching and TOF PID, those tracks without good TOF matching or failed to pass TOF PID were rejected. In high momentum region, it is the same as low momentum, but for those tracks without TOF matching or failed to pass TOF PID, we still kept them and use TPC PID to enhance the statistics, since TOF helps little for high momentum tracks. The details are list below:
 
-At low momentum, p < 1.6 GeV/c, the correct algorithm to ensure the purity of kaons and pions is:
+A good TOF matching means tracks satisfy TOFMatchFlag $>$ 0 \&\& beta $>$ 0.
 
-- TOFMatchFlag $>$ 0 $\&\&$ beta $>$ 0 $\&\&$ TOF PID (see Eq. 23 - 25)
+At low momentum, p $<$ 1.6 GeV/c, the correct algorithm to ensure the purity of kaons and pions is:
 
-At high momentum, p $>$ 1.6 GeV/c, if there was an available TOF matching, we applied TOF PID, otherwise we used TPC PID to enhance the PID efficiency:
+GoodTOFMatching \&\& TPC PID \&\& TOF PID (see Eq. 23 - 25)
 
-- (TOFMatchFlag $>$ 0 $\&\&$ beta $>$ 0 $\&\&$ TOF PID) || (TOFMatchFlag $<=$ 0 $\&\&$ TPC PID)
+At high momentum, p $>$ 1.6 GeV/c , if there was a good TOF matching, we applied TPC PID + TOF PID, otherwise we used TPC PID only  to enhance the PID efficiency:
 
-But an issue was found in the code, that the condition to reject those tracks without matching to TOF at low momentum was different from above algorithm and also different from what we used to calculate the efficiency. We found that those tracks with TOFMatchFlag > 0 but with beta < 0 were not correctly rejected, which results in higher yield obtained or lower efficiency than expected. This introduces about 15\% difference at low \pt\ but does not affect high \pt much.
+If (GoodTOFMatching) TPC PID + TOF PID
+else TPC PID
 
+But an issue was found in the code, that the condition to reject those tracks without matching to TOF at low momentum was different from above algorithm and also different from what we used to calculate the efficiency. We found that those tracks with TOFMatchFlag $>$ 0 but with beta $<$ 0 were not correctly rejected, which results in higher yield obtained or lower efficiency than expected. This introduces about 15\% difference at low \pt\ but does not affect high \pt much.
 
 \bfg \centering
 %\vspace{-0.2in}
@@ -77,6 +78,7 @@ The other issue is that we applied an additional $DCA_{XY}$ cut efficiency in pr
 \label{DCAxyeff}
 \efg
 
+\subsubsection{Added by Long Zhou}
 After corrected above two main issues, the corrected reconstruction efficiency can be found at Fig.\ref{RecEff}
 
 \bfg \centering
