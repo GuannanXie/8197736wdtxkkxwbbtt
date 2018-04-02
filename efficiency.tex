@@ -76,13 +76,20 @@ For the $D^0$ analysis, we use the hybrid PID for TOF. Which means when TOF is a
 \hfill
 \begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/tofMatch_minus_Eff_Run14_Fit_cent3.eps} 
-\caption{TOF match efficiency in Run14 Au+Au collisions at 200 GeV for negative charge particle in 40-80\%. \label{fig:mtof4080}}
+% \includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/tofMatch_minus_Eff_Run14_Fit_cent3.eps} 
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/tofMatchEff_Run14_Fit_cent3.eps} 
+\caption{TOF match efficiency in Run14 Au+Au collisions at 200 GeV for positive charge particle in 40-80\%. \label{fig:mtof4080}}
 \end{minipage}
 \end{figure}
 
 
-Fig.~\ref{fig:mtof010} shows the TOF match efficiency in Run14 Au+Au collisions at 200 GeV for positive charge particles such as $\pi^{+}$,$K^{+}$ in the centrality 0-10\%. Fig.~\ref{fig:mtof4080} shows the same plots for negative charge particles in the centrality from 40-80\%. For the pion TOF match efficiency, the tread is much smooth compare to kaon. As we see, there are some deep for the TOF match efficiency at some certain $p_{T}$ range from kaon, such as kaon in the $p_{T}$ around 0.6 GeV/$c$. This effect was studied using Hijing simulation, it's found that this is due to the hadron contaminations. 
+Fig.~\ref{fig:mtof010} shows the TOF match efficiency in Run14 Au+Au collisions at 200 GeV for positive charge particles such as $\pi^{+}$,$K^{+}$ in the centrality 0-10\%. Fig.~\ref{fig:mtof4080} shows the same plots for positive charge particles in the centrality from 40-80\%.
+
+For more plots in different centrality and different charged, they can be find in the link:
+
+\url{https://drupal.star.bnl.gov/STAR/blog/xgn1992/tof-match-efficiency-vs-centrality}
+
+For the pion TOF match efficiency, the tread is much smooth compare to kaon. As we see, there are some deep for the TOF match efficiency at some certain $p_{T}$ range from kaon, such as kaon in the $p_{T}$ around 0.6 GeV/$c$. This effect was studied using Hijing simulation, it's found that this is due to the hadron contaminations. 
 
 Fig.~\ref{fig:tpck0} right hand plot shows the $n\sigma_{K}$ distributions from Hijing in the $p_{T}$ range from 0.5 - 0.7 GeV/$c$. The solid lines are for particles from TPC , and the dashed lines are for particles also include TOF match information. The total yield was scaled to have the same number of pions for this comparison, since the TOF matching have $\sim$30-40\% efficiency lost. In a simple case, if we select kaons with the cut $|n\sigma_{K}| < 1 $, after the requiring of TOF match,the width of this $n\sigma_{K/\pi}$ distribution changed, and the contaminations from pions are reduced. As what we see the dashed black line have less contributions to the kaons peak within $|n\sigma_{K}| < 1$ compare to the solid black line. We also checked this effect in the other $p_{T}$ range such as 0.2 - 0.5 GeV/$c$, 0.7 - 1.0 GeV/$c$, 1.0 - 1.4 GeV/$c$, 1.4 - 2.0 GeV/$c$ and 2.0 - 3.0 GeV/$c$ as shown in Fig.~\ref{fig:tpck1} and Fig.~\ref{fig:tpck2}. This effect is neglectable in the low $p_{T}$ range 0.2 - 0.5 GeV/$c$ since the TPC can well separate pions and kaon. In the high $p_{T}$ range, the dE/dex are overlap with each other for kaon and pion, it's not able to distinguish them only use TPC.
 
@@ -110,11 +117,25 @@ Fig.~\ref{fig:tpck0} right hand plot shows the $n\sigma_{K}$ distributions from 
 
 Fig.~\ref{fig:tofMatch_Hijing} summary the TOF match efficiency from this Hjing study for $\pi^{\pm}$,$K^{\pm}$ and p. They show the similar behavior as we observed in the real data and it's indeed due to the hadron contaminations. 
 
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[keepaspectratio,width=0.6\textwidth,angle=-0]{figure/Run14_D0HFT/TofMatchEff_Hijing.pdf}
+% \caption{Tof match efficiency from the HIJING study.}
+% \label{fig:tofMatch_Hijing}
+% \end{figure}
 \begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[keepaspectratio,width=0.6\textwidth,angle=-0]{figure/Run14_D0HFT/TofMatchEff_Hijing.pdf}
-\caption{Tof match efficiency from the HIJING study.}
-\label{fig:tofMatch_Hijing}
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/TofMatchEff_Hijing.pdf}
+% \caption{Tof match efficiency from the HIJING study. \label{fig:tofMatch_Hijing}}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth]{figure/Run14_D0HFT/TofMatchEff_petr.eps} 
+% \caption{Tof match efficiency from the HIJING study. \label{fig:tofMatch_Hijing_2}}
+\end{minipage}
+\caption{Tof match efficiency from the HIJING study. \label{fig:tofMatch_Hijing}}
 \end{figure}
 
 
@@ -771,13 +792,13 @@ In general, our Hijing sample can reasonable reproduce the track performance suc
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_0.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_0_0.pdf}
 \caption{ The comparison of $D^0$ acceptance between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_0}}
 \end{minipage}
 \hfill
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_1.pdf} 
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_1_1.pdf} 
 \caption{ The comparison of $D^0$ TPC acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these efficiency of Hijing to Fast-Simulation.\label{70_80_1}}
 \end{minipage}
 \end{figure}
@@ -785,7 +806,7 @@ In general, our Hijing sample can reasonable reproduce the track performance suc
 \begin{figure}[htbp]
 \begin{minipage}[htbp]{0.47\linewidth}
 \centering
-\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_2.pdf}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/70_80_2_2.pdf}
 \caption{ The comparison of $D^0$ TPC + HFT match acceptance $\times$ efficiency between Hijing + GEANT (black) and Fast-Simulation with Hijing input (red). (bottom) Double ratio of these acceptance of Hijing to Fast-Simulation.\label{70_80_2}}
 \end{minipage}
 \hfill
@@ -857,7 +878,7 @@ The next step for this peripheral centrality will be fold in the HFT matching ef
 \label{Mcd0Eff_20_80_vsCent}}
 \end{figure}
 
-For the vertex contributions, we use these double ratios as our additional correction factor for the final results. As discussed before, the most central events will not suffer this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
+For the vertex contributions, we use these double ratios as our additional correction factor for the final results. As discussed before, the most central events will suffer less this vertex contribution, but only the most peripheral and mid-peripheral events need to consider this effect. The following plots show these correction factor for different centrality species from the most peripheral to most central events.
 
 
 % Fig.~\ref{70_80} and the following figures show the comparison between Hijing and Fast-Simulation from different centralities, in each bottom panel, the fitted results show the expected trend. For the most peripheral events the correction factor is as large as $\sim$1/0.39 for centrality 70-80\%, $\sim$1/0.66 for centrality 60-70\%, $\sim$1/0.83 for 50-60\%, $\sim$1/0.92 for 40-50\% and $\sim$1/0.95 for 30-40\% and 20-30\%. For the most central, $10-20\%$ and $0-10\%$ centralities, the correction effect is already small, the double ratio is close to 1. $ $
@@ -866,9 +887,10 @@ Fig.~\ref{70_80} and the following figures show the comparison between Hijing an
 % lsjlfjalfjlajflajfkajlfjlsagdkaslkgdj  alsfjlsjfl  lajfljsl f alsjflasjfl  alfjlajsflja aljlajlfjtlejfl  aljlaw  alwjp  bcb skafk mbckaj  akhdkw
 % note here,
 
-For the most central collisions, the correction factor can be neglect. This was validated and confirmed by our Hijing samples.
+For the most central collisions, the correction factor was small, but in our analysis we still consider  this effect to be consistent for all the centralities. This was validated and confirmed by our Hijing samples.
 
-For the systematic uncertainties from this vertex correction, we validate them by change the gRefmult cut. We choose two gRefmult cuts as the centrality definitation for Hijing sample, and trying to capture this systematic source. One cut is using the same as real data for centrality definitation (Hijing Cut1) and another one is trying to minimum the difference for the vertex resolution between data and Hijing(Hijing Cut2). As shown in Fig.\ref{vtxX_vsCent}, cut1 from Hijing was the same gRefmult cut as real data, cut2 from hijing was the optimized gRefmult cut try to reproduce the vertex resolution in data. As can see, these two sets of gRefmult cuts can cover the real data resolution. As can see, the Hijing2 cut are more close to the real data. so The central value for this correction was obtained from the Hijing2 cut value of the correction. And we quota the difference of these two cuts as the systematic source. The statistics uncertainties from this correction was stuided using half-statistics samples method, and properate to the final systematic results.
+For the systematic uncertainties from this vertex correction, we validate them by change the gRefmult cut. We choose two gRefmult cuts as the centrality definitation for Hijing sample, and trying to capture this systematic source. One cut is using the same as real data for centrality definitation (Hijing Cut1) and another one is trying to minimum the difference for the vertex resolution between data and Hijing(Hijing Cut2). As shown in Fig.\ref{vtxX_vsCent}, cut1 from Hijing was the same gRefmult cut as real data, cut2 from hijing was the optimized gRefmult cut try to reproduce the vertex resolution in data. As can see, these two sets of gRefmult cuts can cover the real data resolution. As can see, the Hijing2 cut are more close to the real data. so The central value for this correction was obtained from the Hijing2 cut value of the correction. And we quota the difference of these two cuts as the systematic source. The statistics uncertainties from this correction was directly from the samples statistics with Hijingcut2, and then properate to the final systematic results.% The statistics uncertainties from this correction was stuided using half-statistics samples method, and properate to the final systematic results.
+
 
 \subsection{Double Counting Correction} 
 
