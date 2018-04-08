@@ -568,12 +568,29 @@ The last step is folding in the topological cuts and then compare between the Hi
 % \label{d0hfttoporealeff2}
 % \end{figure}
 
-From Hijing + GEANT simulation, we know exactly whether the HFT matched track is real match or mismatch, so we can determine the HFT real matched efficiency $\times$ acceptance for $D^0$ reconstruction from Hijing sample. If we compare with the previous Hijing HFT matched efficiency (not necessary to be real matched), it also indicate that most of the Mis-matched daughter tracks are removed by topological cuts as we said in the assumptions. Fig.~\ref{d0hfttopoAlleff} shows the different components contributions directly from Hijing, the black one is HFT matched, red one requires all the daughter tracks are real matched and the blue one shows at least one of the daughter tracks are mis-matched. Right panel shows the relative fraction of the real match and mis-mismatch contribution. As see, most of the mis-matched tracks are removed, but still there are $\sim$5\% contribution from this study.
+From Hijing + GEANT simulation, we know exactly whether the HFT matched track is real match or mismatch, so we can determine the HFT real matched efficiency $\times$ acceptance for $D^0$ reconstruction from Hijing sample. If we compare with the previous Hijing HFT matched efficiency (not necessary to be real matched), it also indicate that most of the Mis-matched daughter tracks are removed by topological cuts as we said in the assumptions. Fig.~\ref{d0hfttopoAlleff} shows the different components contributions directly from Hijing, the black one is HFT matched, red one requires all the daughter tracks are real matched and the blue one shows at least one of the daughter tracks are mis-matched. Bottom panel shows the relative fraction of the real match and mis-mismatch contribution. As see, most of the mis-matched tracks are removed, but still there are $\sim$5\% contribution for the most central events from this study while we except this contribution will be even smaller ($<2\%$) in the peripheral collisions as shown in the link below.
+
+\url{https://drupal.star.bnl.gov/STAR/blog/xgn1992/d0-hijing-check-mismatch-tracks}
+
+% \begin{figure}[htbp]
+% \centering
+% % \includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/ALL_Physics_FastHijingVsPureHijing_HFTTopo.eps}
+% \includegraphics[keepaspectratio,width=0.5\textwidth,angle=0]{figure/Run14_D0HFT/MisMatch_0_10.eps}
+% \caption{The comparison of $D^0$ TPC + HFT (real/mis) match + Topological acceptance $\times$ efficiency for Hijing + GEANT for 0-10\% centrality. (right) Double ratio of the components form Hijing.}
+% \label{d0hfttopoAlleff}
+% \end{figure}
 
 \begin{figure}[htbp]
+\begin{minipage}[htbp]{0.52\linewidth}
 \centering
-\includegraphics[keepaspectratio,width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/ALL_Physics_FastHijingVsPureHijing_HFTTopo.eps}
-\caption{The comparison of $D^0$ TPC + HFT (real/mis) match + Topological acceptance $\times$ efficiency for Hijing + GEANT. (right) Double ratio of the components form Hijing.}
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/MisMatch_0_10.eps}
+\end{minipage}
+\hfill
+\begin{minipage}[htbp]{0.52\linewidth}
+\centering
+\includegraphics[width=1.0\textwidth,angle=0]{figure/Run14_D0HFT/MisMatch_70_80.eps} 
+\end{minipage}
+\caption{The comparison of $D^0$ TPC + HFT match + Topological acceptance $\times$ efficiency for Hijing + GEANT and Fast-simu with Hijing as input. The Hijing samples was updated with a large statistics compare to the previous ones. (bottom) Double ratio of the comparison. (Left) 0-10\%, adnd (right) 70-80\%.}
 \label{d0hfttopoAlleff}
 \end{figure}
 
@@ -584,10 +601,12 @@ From Hijing + GEANT simulation, we know exactly whether the HFT matched track is
 \label{d0hfttopoeff_hijing_0_10}
 \end{figure}
 
+
 % As the plots shown from Fig.\ref{d0hfttopoeff2} to Fig.\ref{d0hfttopoAlleff} and also the plots after Fig.\ref{d0hfttopoeff_hijing_0_10} were based on a limited statistics. After the paper preview, we tried effects to produce a kind of larger sample to check the fluctuations structure. And the precision is improved with statistics, the fluctuations was smaller. Fig.\ref{d0hfttopoeff_hijing_0_10} shows the example of the 0-10\% centrality comparison similar as Fig.\ref{d0hfttopoeff2}. As seen the fluctuations in the low pt range was reduced.
 
-Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} and Fig.~\ref{d0hfttopoeff_hijing_0_10} are good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals.
-Note, tat 5\% mismatch doesn't contribute to the results. That's juts for our understanding. As far as the tracks are matched to hft and pass our topological cuts, that's what we needed for our efficiency correction. Not necessary to be real matched tracks.
+Above all the discussions in this section ~\ref{validationeff}, we are confident that the Fast-Simulation method can well reproduce the acceptance and efficiency for this HFT related analysis. The precision as shown on Fig.~\ref{d0hfttopoeff2} and Fig.~\ref{d0hfttopoeff_hijing_0_10} are good enough for our efficiency study. For the missed-match check, there are $\sim$5\% contributions in the signals for the most central.
+
+Note, that 5\% (in most central) mismatch doesn't contribute to the results. That's juts for our understanding. As far as the tracks are matched to hft and pass our topological cuts, that's what we needed for our efficiency correction. Not necessary to be real matched tracks.
 
 And there is another approvement that will describe in the following section.
 
