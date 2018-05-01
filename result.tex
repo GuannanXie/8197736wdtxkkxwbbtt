@@ -136,7 +136,7 @@ The TBW fit is also implement on $D^0$ to account the degree of non-equilibrium 
 \label{D0_compareSpectra_run10} 
 \end{figure}
 
-To calculate the $R_{AA}$, we need the p+p baseline measurements. Here, the baseline measurement was from STAR Run09 p+p results. It was combined of $D^0$ and $D^{*}$ measurement with consider the $p_T$ dependence of the $D^*$/$D^0$ ratio. It's kind of different compare to the previous publish result, but we just keep the same as the new run10/11 PRL erratum to select the p+p baseline. Details please find in the erratum note. Here we just want to clarify how the baseline wa and systematic uncertainty was chosen and calculated.
+To calculate the $R_{AA}$, we need the p+p baseline measurements. Here, the baseline measurement was from STAR Run09 p+p results. It was combined of $D^0$ and $D^{*}$ measurement with consider the $p_T$ dependence of the $D^*$/$D^0$ ratio. It's kind of different compare to the previous publish result, but we just keep the same as the new run10/11 PRL erratum to select the p+p baseline. Details please find in the erratum note. Here we just want to clarify how the baseline and systematic uncertainty was chosen and calculated.
 
 % The central value for p+p result was from the fitted Levy function. As can see, the levy function can describe the measured data quite well. In the whole $p_T$ range, we quote the 1 $\sigma$ band from the fitting as the systematic uncertainties source. For the unmeasured $p_T$ range, say $p_T <$ 1GeV and $>$ 6 GeV, together with the measured range, we have a consistent procedures to add an additional source from the different fitting functions. As can see in the low $p_T$ range, we have run12 preliminary results, the data do not favor power-law shape. Even though without run12 preliminary results, the pythia also do not favor the power-law. So in the low $p_T$ region (<$1 GeV$), we quote the different between levy and BW to consider as the additional systematic uncertainty source. The larger one between 1$\sigma$ band and Levy-BW difference was considered as the systematic uncertainty. In the high $p_T$ range, with our current knowledge, we can't drop those function shapes. So instead of just consider levy and BW, we also include power-low in the high $p_T$ rang, quote the maximum difference as the systematic source. The plots shown in Fig.~\ref{pp_baseLine1} and Fif.~\ref{pp_baseLine2}.
 
@@ -172,6 +172,11 @@ Fig.~\ref{pp_baseLine_ratio} and Fif.~\ref{pp_baseLine_ratio_3} are the p+p spec
 \end{minipage}
 \end{figure}
 
+After the baseline was processed, another question is how to propagate the AuAu uncertainties and pp baseline uncertainties to the final $R_{AA}$ uncertainties. Basically, there is an assumption here is that the two uncertainties from Au+Au and p+p follows the Gaussian distribution. Then what we did is simple, we just randomly sampling those two p+p and Au+Au distributions with a large samples, then calculation each $R_{AA}$ values and extract the $R_{AA}$ distributions. Then cumulated the $1\sigma$ ($\sim68\%$) range, and quota as the as-systematic uncertainties.
+
+The slide for this study can be found here, 
+
+\url{https://www.star.bnl.gov/protected/heavy/xgn1992/paper/D0spectra/comments/180430_GPC_RAA_sys.pdf}
 
 \begin{figure}
 \centering
