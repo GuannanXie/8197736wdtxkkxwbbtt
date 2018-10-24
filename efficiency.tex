@@ -494,7 +494,7 @@ Fig.~\ref{HijingDca} shows the pions $\textup{Dca}_{\textup{XY}}$ comparison bet
 \subsection{Validation Procedures}
 \label{validationprocedure}
 
-The idea is simple for this Hijing validation, we have the enriched $D^0$ Hijing sample. After run through the detector and full GEANT simulation, the $D^0$ efficiency and topological variables distributions can be extracted. Another procedure is extract the necessary ingredients from Hijng sample for the Fast-Simulation input (Fast-Simulation with Hijing input), such as the TPC Tracking efficiency, the HFT matching ratio and the 2D $\textup{Dca}_\textup{XY}$-$\textup{Dca}_\textup{Z}$ distributions similar as we used in real data analysis and discussed in the previous section. Then run through the Fast Simulation, as discussed before, the $D^0$ efficiency and topological variables are also available in this way and can be compared to the first Hijing + GEANT procedure. The workflow is shown in Fig.~\ref{validation0}.
+The idea is simple for this Hijing validation, we have the enriched $D^0$ Hijing sample. (Here To estimate the vertex resolution effect, we embedded a PYTHIA $c\bar{c}$ event into a Hijing Au+Au event. The PYTHIA $c\bar{c}$ events are pre-selected to have at least one $D^0\rightarrow K^-\pi^+$ decay or its charge conjugate to enhance the statistics.) After run through the detector and full GEANT simulation, the $D^0$ efficiency and topological variables distributions can be extracted. Another procedure is extract the necessary ingredients from Hijng sample for the Fast-Simulation input (Fast-Simulation with Hijing input), such as the TPC Tracking efficiency, the HFT matching ratio and the 2D $\textup{Dca}_\textup{XY}$-$\textup{Dca}_\textup{Z}$ distributions similar as we used in real data analysis and discussed in the previous section. Then run through the Fast Simulation, as discussed before, the $D^0$ efficiency and topological variables are also available in this way and can be compared to the first Hijing + GEANT procedure. The workflow is shown in Fig.~\ref{validation0}.
 
 \begin{figure}[htbp]
 \centering
@@ -768,6 +768,12 @@ The details study can be found in the drupal-page.
 
 \url{https://drupal.star.bnl.gov/STAR/system/files/20180327_DMeson_GXie.pdf}
 
+As can be seen in the Fig.~\ref{Fraction_Pion}, The transverse momenta of these pions are mostly around 2--3\,GeV/$c$ and the fraction of total inclusive pions is $\sim$ 10--12\% at $p_{\rm T}=$ 2--3\,GeV/$c$ based on this simulation and contribute $\sim$ 5--8\% to the HFT matching ratio. This was obtained using the GEANT with GHEISHA hadronic package. During the GPC review, we found that With a difference hadronic package, FLUKA, the secondary pion fraction in 2--3\,GeV/$c$ region is significantly reduced to be negligible. The difference between the primary pions and the inclusive pions in the HFT matching ratio has been considered as one additional correction factor to take into account these secondary pions in our data-driven simulation method when calculating the efficiency correction, while the maximum difference with respect to the result obtained using the GHEISHA hadronic package is included as the systematic uncertainty for this source. 
+
+Some details study can be found in the drupal-page.
+
+\url{https://drupal.star.bnl.gov/STAR/system/files/20180926_UIC_GXie.pdf}
+
 \subsection{Vertex Resolution Contribution}
 \label{concern2}
 
@@ -800,7 +806,7 @@ Fig.~\ref{vtxX_70_80} and Fig.~\ref{vtxX_20_30} show the vertex difference in th
 \label{vtxX_vsCent} 
 \end{figure}
 
-To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference was took as the additional correction factor for real data analysis. The MB Hijing sample we used here is from the same setup as we discussed before, and the only difference compared to the 0-10\% Hjing sample is the impact parameters (b). But for our centrality selection, we still use grefumlt for both data and simulation.
+To solve this problem, we need to unfold the vertex resolution from 2D Dca distributions, and this is not straightforward since the vertex resolution contribution could be in the same order of the Dca resolution and this is not reliable (subtracting two numbers that are close to each other have very large uncertainties). There is another way we can relay on to obtain this correction factor, which is the Minimum Bias Hjing simulation sample. From Hijing sample we know the true efficiency for any centrality species, and from the Fast-Simulation we can obtain the efficiency including those vertex effect. The difference was took as the additional correction factor for real data analysis. To estimate the vertex resolution effect, we embedded a PYTHIA $c\bar{c}$ event into a Hijing Au+Au event, and ran through the STAR GEANT simulation followed by the same offline reconstruction as in the real data production. The PYTHIA $c\bar{c}$ events are pre-selected to have at least one $D^0\rightarrow K^-\pi^+$ decay or its charge conjugate to enhance the statistics. The MB Hijing sample we used here is from the same setup as we discussed before, and the only difference compared to the 0-10\% Hjing sample is the impact parameters (b). But for our centrality selection, we still use grefumlt for both data and simulation.
 
 For the QA of the simulation samples, including HFT matching ratio and Dca resolutions for different centralities, all the details can be found in the next links:
 
